@@ -26,8 +26,8 @@ class Reviews(models.Model):
     user = models.ForeignKey(User, related_name='user_review', on_delete=models.SET_NULL, null=True)
     course = models.ForeignKey(Courses, related_name='courses_review', on_delete=models.CASCADE)
     review = models.TextField(max_length=500)
-    rate = models.IntegerField(5)
-    created_at = models.DateTimeField(timezone.now)
+    rate = models.IntegerField(max_length=5)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f'{self.user} writing review {self.review[0:50]} for course {self.course}'
