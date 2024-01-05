@@ -6,6 +6,7 @@ urlpatterns = [
     
     path('categorys/', CategoryAPI.as_view()),
     path('courses/', CoursesAPI.as_view()),
+    path('courses/<int:pk>', CoursesAPI.as_view()),
     path('reviews/', ReviewsAPI.as_view()),
 
 ]

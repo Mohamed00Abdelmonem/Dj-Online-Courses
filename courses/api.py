@@ -8,7 +8,14 @@ class CategoryAPI(generics.ListCreateAPIView):
     serializer_class = CategorySerializer
 
 
+
 class CoursesAPI(generics.ListCreateAPIView):
+    queryset = Courses.objects.all()
+    serializer_class = CoursesSerializer    
+
+
+
+class CoursesAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Courses.objects.all()
     serializer_class = CoursesSerializer    
 
