@@ -20,7 +20,7 @@ class CoursesAPI(generics.ListCreateAPIView):
 
 
 
-class CoursesAPI(generics.RetrieveUpdateDestroyAPIView):
+class CoursesDetailAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Courses.objects.all()
     serializer_class = CoursesSerializer    
 
