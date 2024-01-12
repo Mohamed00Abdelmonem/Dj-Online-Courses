@@ -1,6 +1,8 @@
 from .models import Category, Courses, Reviews
 from .serializers import CategorySerializer, CoursesSerializer,ReviewsSerializer
 from rest_framework import generics
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 
 
 class CategoryAPI(generics.ListCreateAPIView):
@@ -16,7 +18,11 @@ class CategoryDetailAPI(generics.RetrieveUpdateDestroyAPIView):
 
 class CoursesAPI(generics.ListCreateAPIView):
     queryset = Courses.objects.all()
-    serializer_class = CoursesSerializer    
+    serializer_class = CoursesSerializer   
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['category']
+    search_fields = ['name', 'price'] 
+    ordering_fields = ['name', 'id']
 
 
 
