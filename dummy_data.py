@@ -29,7 +29,7 @@ def create_courses(num_courses=20):
             name=fake.word(),
             sub_title=fake.text(),
             description=fake.text(),
-            image=f'course_cover_image/{fake.random_element(images)}',  # Randomly choose an image filename
+            image=f'course_cover_image/{fake.random_element(images)}', 
             price=fake.random_int(min=10, max=100),
             category=fake.random_element(categories)
         )

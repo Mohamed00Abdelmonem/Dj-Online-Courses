@@ -13,10 +13,11 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class CoursesSerializer(serializers.ModelSerializer):
+    category = serializers.StringRelatedField()
     avg_rate= serializers.SerializerMethodField()
+    review_count= serializers.SerializerMethodField()
     class Meta:
         model = Courses
-
         fields = '__all__'
 
     def get_avg_rate(self, review):
@@ -26,6 +27,9 @@ class CoursesSerializer(serializers.ModelSerializer):
         else:
             return 0
    
+    def get_review_count(self,reviews:Reviews):
+        reviews= reviews.courses_review.all().count()
+        return reviews
 
 
 
