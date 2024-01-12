@@ -55,7 +55,7 @@ def create_reviews(num_reviews=20):
         )
 
 # create_categories()
-create_courses()
+# create_courses()
 # create_users()
-# create_reviews()
+create_reviews()
 print("Dummy data created successfully.")
