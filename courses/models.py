@@ -16,6 +16,7 @@ class Courses(models.Model):
     name = models.CharField(max_length=20)
     sub_title = models.TextField(max_length=1000)
     description= models.TextField(max_length=2500)
+    image = models.ImageField(upload_to='course_cover_image', null=True, blank=True)
     price = models.FloatField()
     category = models.ForeignKey(Category, related_name='category_course', on_delete= models.SET_NULL, null=True)
     def __str__(self):
