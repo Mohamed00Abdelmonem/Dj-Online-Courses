@@ -11,11 +11,11 @@ RUN apt-get update && apt-get -y install gcc libpq-dev
 WORKDIR /app
 
 # copy & install requirements
-COPY requirements.txt /app/requirements.txt
+COPY requirements.text /app/requirements.text
 
 
 # install requirements
-RUN pip install -r /app/requirements.txt
+RUN pip install -r /app/requirements.text
 
 # Copy the entire project folder
 COPY ./ /app/
