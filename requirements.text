@@ -2,7 +2,13 @@ asgiref==3.7.2
 Django==5.0.1
 django-filter==23.5
 djangorestframework==3.14.0
+Faker==22.2.0
 Markdown==3.5.1
+pillow==10.2.0
+psycopg2==2.9.9
+psycopg2-binary==2.9.9
+python-dateutil==2.8.2
 pytz==2023.3.post1
+six==1.16.0
 sqlparse==0.4.4
 tzdata==2023.4

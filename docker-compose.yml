@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    container_name: DjCourses  
+  #   depends_on:
+  #     - myredis
+
+  # myredis:
+  #   image: redis:7.0.14-alpine3.18  
+  #   container_name: RedisServer 
+
+  
+  # celery:
+  #   build: .
+  #   command: celery -A project worker --loglevel=info
+  #   depends_on:
+  #     - myredis
+  #     - backend
+  
