@@ -3,6 +3,8 @@ from .serializers import CategorySerializer, CoursesSerializer,ReviewsSerializer
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 
 
 class CategoryAPI(generics.ListCreateAPIView):
@@ -23,7 +25,8 @@ class CoursesAPI(generics.ListCreateAPIView):
     filterset_fields = ['category']
     search_fields = ['name', 'price'] 
     ordering_fields = ['name', 'id']
-
+    authentication_classes = [BasicAuthentication, SessionAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class CoursesDetailAPI(generics.RetrieveUpdateDestroyAPIView):
