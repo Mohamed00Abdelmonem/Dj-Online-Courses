@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_filters',
     "corsheaders",
     'rest_framework.authtoken',
+    'rest_framework_simplejwt',
 
     'courses',
 ]
@@ -64,7 +65,7 @@ from datetime import timedelta
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_TOKEN_EXPIRY': timedelta(days=7),  # Set the desired expiration time
 
