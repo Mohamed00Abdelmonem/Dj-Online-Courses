@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
+    'dj_rest_auth',
 
     'courses',
 ]
@@ -62,6 +63,10 @@ MIDDLEWARE = [
 
 from datetime import timedelta
 
+REST_AUTH = {
+    'USE_JWT': True,
+    'JWT_AUTH_COOKIE': 'jwt-auth',
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
