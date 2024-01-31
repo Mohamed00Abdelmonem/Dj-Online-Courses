@@ -40,6 +40,10 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'django_filters',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth.registration',
     "corsheaders",
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
@@ -47,6 +51,7 @@ INSTALLED_APPS = [
 
     'courses',
 ]
+SITE_ID = 1
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -56,6 +61,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -177,3 +183,18 @@ MEDIA_ROOT = "media_root"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Add email settings for sign up using all-auth
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'your_smtp_host'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your_email@example.com'
+# EMAIL_HOST_PASSWORD = 'your_email_password'
+# DEFAULT_FROM_EMAIL = 'your_email@example.com'
+# SERVER_EMAIL = 'your_email@example.com'
+
