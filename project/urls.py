@@ -33,9 +33,10 @@ urlpatterns = [
 
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
     path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')), # url for signup
+    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('allauth.socialaccount.urls')),
 
-
-
+    # http://127.0.0.1:8000/accounts/google/login/callback/
     
 ]
 

@@ -25,6 +25,7 @@ class CoursesAPI(generics.ListCreateAPIView):
     search_fields = ['name', 'price'] 
     ordering_fields = ['name', 'id']
     permission_classes = [IsAuthenticated]
+    
     # authentication_classes = [TokenAuthentication]  # Add this line
 
 

@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'dj_rest_auth',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     'courses',
 ]
@@ -74,6 +76,12 @@ REST_AUTH = {
     'JWT_AUTH_COOKIE': 'jwt-auth',
 }
 
+
+AUTHENTICATION_BACKENDS = [
+    # ... (other backends)
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -90,6 +98,15 @@ REST_FRAMEWORK = {
 }
 
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '853466105281-qfj6jjn21jgt8lhhi8edu3h6bi0fnalp.apps.googleusercontent.com',
+            'secret': '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',
+            'key': '',
+        }
+    }
+}
 
 
 ROOT_URLCONF = 'project.urls'
