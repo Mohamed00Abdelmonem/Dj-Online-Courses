@@ -4,8 +4,7 @@ from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import BasicAuthentication, SessionAuthentication
-
+from rest_framework.authentication import TokenAuthentication
 
 class CategoryAPI(generics.ListCreateAPIView):
     queryset = Category.objects.all()
@@ -25,8 +24,8 @@ class CoursesAPI(generics.ListCreateAPIView):
     filterset_fields = ['category']
     search_fields = ['name', 'price'] 
     ordering_fields = ['name', 'id']
-    authentication_classes = [BasicAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]  # Add this line
 
 
 class CoursesDetailAPI(generics.RetrieveUpdateDestroyAPIView):
