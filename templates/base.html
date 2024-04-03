@@ -75,8 +75,8 @@
               <div class="col-xxl-7 col-xl-6 col-lg-6 col-md-5 col-6">
                 <div class="logo-area d-flex align-items-center">
                   <div class="logo">
-                    <a href="index.html">
-                      <img src="{% static 'assets/img/logo/logo-blacpng' %}" alt="logo" />
+                    <a href="/">
+                      <img src="{{data.logo.url }}" alt="logo" width="20" height="20" />
                     </a>
                   </div>
                   <div class="header-cat-menu ml-40">
@@ -167,12 +167,12 @@
                       </ul>
                     </li>
                     <li class="has-dropdown">
-                      <a href="course-grid.html">Course</a>
+                      <a href="/courses">Course</a>
                       <ul class="submenu">
-                        <li><a href="course-grid.html">Course Grid</a></li>
-                        <li><a href="course-list.html">Course List</a></li>
+                        <li><a href="/courses">Course Grid</a></li>
+                        <li><a href="/courses/list">Course List</a></li>
                         <li>
-                          <a href="course-details.html">Course Details</a>
+                          {% comment %} <a href="/courses">Course Details</a> {% endcomment %}
                         </li>
                       </ul>
                     </li>
@@ -224,7 +224,7 @@
           <div class="col-md-6 col-5">
             <div class="logo">
               <a href="index.html">
-                <img src="{% static 'assets/img/logo/logo-black.png' %}" alt="logo" />
+                <img src="{{data.logo.url}}" alt="logo" />
               </a>
             </div>
           </div>
