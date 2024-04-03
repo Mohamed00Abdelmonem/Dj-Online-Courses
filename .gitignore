@@ -89,5 +89,5 @@ local_settings.py
 db.sqlite3
 
 # Include media_root and media folders
-!media_root/
-!media/
+media_root/
+media/
