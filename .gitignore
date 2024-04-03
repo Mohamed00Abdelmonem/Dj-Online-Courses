@@ -88,6 +88,6 @@ local_settings.py
 .env
 db.sqlite3
 
-# Include media_root and media folders
-media_root/
-media/
+# Exclude all files and directories except media
+/*
+!/media/    
