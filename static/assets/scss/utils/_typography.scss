@@ -1,0 +1,78 @@
+
+// custom Gordita font
+
+@font-face {
+    font-family: 'Gordita-300';
+    src: url('../fonts/Gordita-Light.woff2') format('woff2'),
+        url('../fonts/Gordita-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gordita-400';
+    src: url('../fonts/Gordita-Regular.woff2') format('woff2'),
+        url('../fonts/Gordita-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gordita-500';
+    src: url('../fonts/Gordita-Medium.woff2') format('woff2'),
+        url('../fonts/Gordita-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gordita-700';
+    src: url('../fonts/Gordita-Bold.woff2') format('woff2'),
+        url('../fonts/Gordita-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+// font family
+$font-family: (
+    ff: (
+        body: "Gordita-400",
+        heading: "Gordita-700",
+        p: "Gordita-400",
+        fontawesome: '"Font Awesome 6 Pro"',
+    )
+);
+
+// font weight
+$font-scale: (
+    fw: (
+        normal: normal,
+        elight: 200,
+        light: 300,
+        regular: 400,
+        medium: 500,
+        sbold: 600,
+        bold: 700,
+    )
+);
+
+// font size
+$font-size: (
+    fz: (
+        body: 14px,
+        p: 16px,
+        h1: 40px,
+        h2: 36px,
+        h3: 24px,
+        h4: 20px,
+        h5: 16px,
+        h6: 14px,
+    )
+);
+
+

@@ -1,0 +1,140 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  13. TESTIMONIAL CSS START
+/*----------------------------------------*/
+
+.testimonial-area {
+    background-color: #F8FAFA;
+}
+.tp-testi {
+    @include background;
+    padding: 40px 35px 30px 34px;
+    background: var(--tp-common-white);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 3px rgba(5, 13, 54, 0.05);
+    // box-shadow: 5px 6px 30px 10px rgba(5, 13, 54, 0.05);
+    &__avatar {
+        position: absolute;
+	    top: -62px;
+	    left: 0;
+    }
+    &__rating {
+        color: #F2C94C;
+        & i {
+            font-size: 18px;
+        }
+        & span {
+            color: var(--tp-heading-primary);
+            font-size: 18px;
+            font-family: 'Gordita-500';
+            font-weight: 500;
+            margin-left: 5px;
+        }
+    }
+    &__avainfo {
+        & p {
+            font-size: 17px;
+            line-height: 1.8;
+            @media #{$lg}{
+                font-size: 14px;
+                line-height: 26px;
+            }
+            @media #{$xs}{
+                font-size: 16px;
+            }
+        }
+        & i {
+            color: var(--tp-border-2);
+            font-style: normal;
+            font-size: 16px;
+        }
+    }
+    &__title {
+        margin-bottom: 8px;
+    }
+    & p {
+        margin-bottom: 16px;
+    }
+    &__rating-count {
+        font-size: 18px;
+        color: var(--tp-heading-primary);
+        font-family: 'Gordita-500';
+        line-height: 1;
+    }
+}
+.tp-slide-space {
+    & .slick-track{
+        padding: 30px 0px;
+    }
+    margin: 0 -15px;
+    & .slick-slide{
+        padding: 0 15px;
+    }
+}
+.tp-section-arrow {
+    & .slick-arrow {
+        height: 60px;
+        width: 60px;
+        background:#FFF0EE;
+        color: var(--tp-heading-secondary);
+        border-radius: 50px;
+        font-size: 50px;
+        line-height: 60px;
+        @media #{$md} {
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            font-size: 40px;
+        }
+        &:hover {
+            color: var(--tp-common-white);
+            background: var(--tp-heading-secondary);
+        }
+    }
+    & .slick-prev {
+        margin-right: 20px;
+    }
+}
+.testi-ava-border {
+	border-bottom: 2px solid #E6E7EB;
+	padding-bottom: 20px;
+    & img {
+        @media #{$xs} {
+            width: 80px;
+            height: auto;
+        }
+    }
+}
+.testi-quote {
+	position: absolute;
+	top: -40px;
+	right: 40px;
+	height: 80px;
+	width: 80px;
+	line-height: 80px;
+	background: var(--tp-border-2);
+	text-align: center;
+	color: var(--tp-common-white);
+	border-radius: 50%;
+	font-size: 36px;
+}
+.testimonial-active-box {
+    & .slick-list {
+        padding-top: 40px;
+    }
+}
+.tp-slide-space-white {
+    & .slick-track{
+        padding-bottom: 30px;
+    }
+    margin: 0 -30px;
+    & .slick-slide {
+        padding: 0 30px;
+    }
+}
+.tp-title-meta {
+    @media #{$xs} {
+        font-size: 18px;
+    }
+}

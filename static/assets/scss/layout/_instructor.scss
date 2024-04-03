@@ -1,0 +1,290 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  11. INSTRUCTOR CSS START
+/*----------------------------------------*/
+
+.tp-instructor {
+    border: 1px solid rgb(119, 124, 144, .1);
+    padding: 20px 20px 22px;
+    background: var(--tp-common-white);
+    border-radius: 10px;
+    &__thumb {
+        position: relative;
+        &::before {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(to bottom, rgb(255, 255, 255,.0), rgb(205, 203, 214, .1), rgb(157, 154, 175, .2), rgb(111, 108, 136, .3), rgb(66, 65, 100, .4), rgb(47, 47, 84, .5), rgb(27, 30, 69, .6), rgb(5, 13, 54, .7), rgb(5, 13, 54, .8), rgb(5, 13, 54, .9), rgb(5, 13, 54, 1), rgb(5, 13, 54, 1));
+            opacity: 0;
+            border-radius: 10px;
+        }
+        & img {
+            border-radius: 10px;
+            width: 100%;
+        }
+    }
+    &__content {
+        & span {
+            font-size: 16px;
+            text-transform: uppercase;
+            font-family: 'Gordita-500';
+            color: var(--tp-border-2);
+        }
+    }
+    &__title {
+        font-size: 24px;
+        & a {
+            display: inline-block;
+            &:hover {
+                color: var(--tp-heading-secondary);
+            }
+        }
+    }
+    &__social {
+        position: absolute;
+        top: 102px;
+        right: 38px;
+        opacity: 0;
+        @include transition(.3s);
+        @media #{$lg, $md, $xs}{
+            top: 80px;
+        }
+        & ul {
+            & li {
+                & a {
+                    display: inline-block;
+                    height: 50px;
+                    width: 50px;
+                    line-height: 50px;
+                    text-align: center;
+                    font-size: 20px;
+                    border-radius: 50px;
+                    background: var(--tp-common-white);
+                    color: var(--tp-heading-secondary);
+                    @media #{$lg}{
+                        height: 40px;
+                        width: 40px;
+                        line-height: 40px;
+                        font-size: 16px;
+                    }
+                    &:hover {
+                        background: var(--tp-heading-secondary);
+                        color: var(--tp-common-white);
+                    }
+                }
+            }
+            & li+li {
+                margin-top: 10px;
+            }
+        }
+    }
+    &:hover {
+        & .tp-instructor__social {
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+        & .tp-instructor__thumb {
+            &::before {
+                opacity: .3;
+            }
+        }
+    }
+    &__title-info {
+        &::before{
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 100px;
+            background: var(--tp-heading-secondary);
+            bottom: -17px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        @media #{$lg} {
+            font-size: 20px;
+        }
+    }
+    &__stu-info{
+        & ul {
+            & li {
+                font-size: 16px;
+                color: var(--tp-text-2);
+                margin: 0 16px;
+                & i {
+                    margin-left: 4px;
+                    font-style:normal;
+                }
+                @media #{$lg,$md} {
+                    font-size: 14px;
+                    margin: 0 8px; 
+                }
+                @media #{$xs} {
+                    margin: 0 10px; 
+                }
+            }
+        }
+    }
+}
+.tp-instruc-arrow {
+    justify-content: end;
+	@media #{$xs} {
+        margin-bottom: 40px;
+        justify-content: flex-start;
+    }
+}
+.tp-instruc-arrow {
+    & .slick-arrow {
+        height: 60px;
+        width: 60px;
+        background:#FFF0EE;
+        color: var(--tp-heading-secondary);
+        border-radius: 50px;
+        font-size: 50px;
+        line-height: 60px;
+        &:hover {
+            color: var(--tp-common-white);
+            background: var(--tp-heading-secondary);
+        }
+        @media #{$md} {
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            font-size: 40px;
+        }
+    }
+    & .slick-prev {
+        margin-right: 20px;
+    }
+}
+
+// instructor-portfolio
+.instruc-sidebar {
+	padding: 15px 15px 50px 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+}
+.isntruc-side-thumb {
+    & img {
+        width: 100%;
+        border-radius: 5px;
+    }
+}
+.instructor-sidebar-widget {
+    padding: 0 15px;
+}
+.isntruc-side-content {
+    & .side-instructor-title {
+        font-size: 24px;
+        color: var(--tp-heading-primary);
+    }
+    & p {
+        font-size: 17px;
+        color: var(--tp-text-2);
+        margin-bottom: 25px;
+    }
+}
+.ins-followers,.ins-following {
+    margin: 0 25px;
+    & h4 {
+        text-align: center;
+        font-size: 24px; 
+        color: var(--tp-heading-primary);
+    }
+    & span {
+        font-size: 18px;
+        color: var(--tp-text-2);
+    }
+}
+.instruc-side-btn {
+    & .ins-btn {
+        display: block;
+        padding: 20px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Gordita-500';
+        background: var(--tp-heading-secondary);
+        color: var(--tp-common-white);
+        border-radius: 10px;
+        @media #{$xl} {
+            padding: 15px 20px;
+        }
+        &:hover {
+            background-color: var(--tp-border-2);
+        }
+    }
+}
+.instruc-biography {
+    & .ins-bio-title {
+        font-size: 24px;
+        color: var(--tp-heading-primary);
+    }
+}
+.isntruc-tp-counter {
+    &__title {
+        color: var(--tp-heading-primary);
+        font-size: 36px;
+        padding-bottom: 15px;margin-bottom: 15px;
+        &::before {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            height: 3px;
+            width: 50px;
+            background: var(--tp-heading-secondary);
+            left: 0;
+            border-radius: 10px;
+        }
+    }
+    & p {
+        font-size: 18px;
+        font-family: 'Gordita-500';
+        font-weight: 500;
+        color: var(--tp-text-2);
+    }
+}
+.instruc-profile-info {
+    & ul {
+        & li {
+            & i {
+                @media #{$xl,$xs} {
+                    margin-right: 5px;
+                }
+                @media #{$xs} {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 14px;
+                }
+            }
+            & label {
+                @media #{$xl} {
+                    font-size: 18px;
+                }
+                @media #{$xs} {
+                    font-size: 18px;
+                }
+            }
+            & span {
+                @media #{$xl} {
+                    font-size: 14px;
+                }
+                @media #{$xs} {
+                    margin-top: 7px;
+                }
+            }
+        }
+    }
+}
+.instructor-main-content {
+    @media #{$xs} {
+        margin-left: 0;
+    }
+}
+
+
+

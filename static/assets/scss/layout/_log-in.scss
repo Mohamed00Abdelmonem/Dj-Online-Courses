@@ -1,0 +1,99 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  20. LOG-IN CSS START
+/*----------------------------------------*/
+
+
+.basic-login {
+    padding: 90px;
+    border: 2px solid #eaedff;
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .basic-login {
+        padding: 50px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .basic-login {
+        padding: 40px;
+    }
+}
+@media (max-width: 767px) {
+    .basic-login {
+        padding: 30px;
+    }
+}
+.basic-login h3 {
+    font-size: 30px;
+}
+.basic-login .tp-btn-2 {
+    text-transform: uppercase;
+}
+.basic-login input {
+    width: 100%;
+    height: 60px;
+    border: 2px solid #eaedff;
+    color: #6f7172;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    outline: none;
+}
+.basic-login input:focus {
+    border-color: var(--tp-heading-secondary);
+}
+.basic-login input::placeholder,
+.basic-login input::-moz-placeholder {
+    color: #6f7172;
+}
+.basic-login label {
+    color: #222;
+    display: block;
+}
+.basic-login label span {
+    color: red;
+}
+.login-action input {
+    width: inherit;
+    height: auto;
+}
+.login-action label {
+    display: inline-block;
+    margin-left: 5px;
+}
+.or-divide {
+    border-top: 2px solid #eaedff;
+    margin: 40px 0;
+    text-align: center;
+    position: relative;
+}
+.or-divide span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9px;
+    background: #ffffff;
+    display: inline-block;
+    width: 40px;
+    margin: auto;
+    line-height: 1;
+    font-weight: 500;
+}
+@media (max-width: 767px) {
+    .forgot-login {
+        float: none;
+    }
+}
+.forgot-login a {
+    color: var(--tp-common-black);
+}
+.forgot-login a:hover {
+    color: var(--tp-theme-1);
+}
+@media (max-width: 767px) {
+    .log-rem {
+        float: none;
+        margin-bottom: 10px;
+        display: block;
+    }
+}

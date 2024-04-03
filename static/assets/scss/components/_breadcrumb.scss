@@ -1,0 +1,96 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  24. BREADCRUMB CSS START
+/*----------------------------------------*/
+
+.breadcrumb{
+    &__title{
+        font-size: 48px;
+        color: var(--tp-common-white);
+        @media #{$xs} {
+            font-size: 38px;
+        }
+        &-2{
+            font-size: 50px;
+            line-height: 1.1;
+            margin-top: 12px;
+            @media #{$sm}{
+                font-size: 40px;
+            }
+            @media #{$xs}{
+                font-size: 26px;
+            }
+        }
+        &-pre{
+            display: inline-block;
+            height: 24px;
+            line-height: 26px;
+            font-size: 14px;
+            color: var(--tp-common-white);
+            font-weight: 500;
+            background: var(--tp-theme-2);
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            padding: 0 7px;
+            margin-bottom: 12px;
+        }
+    }
+    &__list{
+        display: inline-block;
+        background-color: var(--tp-common-white);
+        padding: 10px 24px;
+        @media #{$xs} {
+            padding: 8px 14px;
+        }
+        & span{
+            font-size: 18px;
+            color: var(--tp-text-2);
+            font-weight: 500;
+            padding-right: 3px;
+            margin-right: 3px;
+            @media #{$xs} {
+                font-size: 14px;
+            }
+            & a{
+                transition: .3s;
+                display: inline-block;
+                &:hover{
+                    color: var(--tp-common-black);
+                }
+            }
+            &.sub-page-black {
+                color: var(--tp-common-black);
+            }
+        }
+        &-2{
+            & span{
+                font-size: 14px;
+                color: var(--tp-text-11);
+                font-weight: 500;
+                padding-right: 3px;
+                margin-right: 3px;
+                text-transform: capitalize;
+                & a{
+                    &:hover{
+                        color: var(--tp-theme-1);
+                    }
+                }
+            }
+        }
+    }
+    &__overlay{
+        position: relative;
+
+        &::after{
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient( rgb(0, 0, 0, 0), rgba(5, 13, 54, 0.29));
+        }
+    }
+}

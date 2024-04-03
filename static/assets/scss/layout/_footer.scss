@@ -1,0 +1,271 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  21. FOOTER CSS START
+/*----------------------------------------*/
+
+.footer-bg {
+    & .f-border {
+        border-bottom: 1px solid rgb(255, 255, 255, .3);border-bottom: 1px solid rgb(255, 255, 255, .3);
+    }
+}
+.footer-widget {
+    &__title {
+        color: var(--tp-common-white);
+    }
+    & ul {
+        & li {
+            & a {
+                color: var(--tp-common-white);
+                font-size: 16px;
+                display: inline-block;
+                &:hover {
+                    color: var(--tp-heading-secondary);
+                    padding-left: 3px;
+                }
+            }
+            &:not(last-child) {
+                margin-bottom: 22px;
+            }
+        }
+    }
+    & p {
+        color: var(--tp-common-white);
+        margin-bottom: 25px;
+    }
+    &__social {
+        & a {
+            height: 48px;
+            width: 48px;
+            line-height: 48px;
+            display: block;
+            color: var(--tp-heading-secondary);
+            background: var(--tp-common-white);
+            text-align: center;
+            border-radius: 50px;
+            font-size: 20px;
+            margin-right: 8px;
+            &:hover {
+                background: var(--tp-heading-secondary);
+                color: var(--tp-common-white);
+                display: block;
+            }
+        }
+    }
+    &__f-newsletter {
+        & form {
+            position: relative;
+            & span {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 30px;
+                font-size: 16px;
+                color: var(--tp-text-2);
+            }
+            & input {
+                width: 100%;
+                border: none;
+                padding: 17px 180px 17px 55px;
+                font-size: 16px;
+                border-radius: 50px;
+                color: var(--tp-text-2);
+                &::placeholder {
+                    font-size:16px;
+                    color: var(--tp-text-2);
+                    @media #{$xs} {
+                        font-size:14px ;
+                    }
+                }
+                @media #{$xs} {
+                    padding: 17px 170px 17px 55px;
+                }
+            }
+        }
+    }
+    &__submit {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+    }
+}
+.footer-col-4 {
+    margin-left: 30px;
+    @media #{$lg,$md,$xs}{
+        margin-left: 0;
+    }
+}
+.footer-widget-white {
+    & .footer-widget__title{
+        color: var(--tp-heading-primary);
+    }
+    & p {
+        color: var(--tp-text-2);
+    }
+    & ul {
+        & li {
+            & a {
+                color: var(--tp-text-2);
+            }
+        }
+    }
+}
+.footer-widget {
+    & .footer-widget-info-list {
+        & ul {
+            & li {
+                margin-bottom: 18px;
+            }
+        }   
+    }
+}
+.footer-widget-info-icon {
+    & i {
+        height: 48px;
+        width: 48px;
+        line-height: 48px;
+        text-align: center;
+        background: var(--tp-common-white);
+        color: var(--tp-heading-secondary);
+        border-radius: 50px;
+        display: block;
+    }
+    &:hover {
+        & i {
+            background: var(--tp-heading-secondary);
+            color: var(--tp-common-white);
+        }                                                                                                  
+    }
+}
+.f-copyright {
+    &__text {
+        & span {
+            color: var(--tp-common-white);
+            font-size: 16px;
+        }
+    }
+    &__list {
+        & ul {
+            & li {
+                margin-right: 40px;
+                @media #{$xs} {
+                    margin-right: 12px;
+                }
+                & a {
+                    font-size: 16px;
+                    color: var(--tp-text-2);
+                    &:hover {
+                        color: var(--tp-heading-secondary);
+                    }
+                    @media #{$lg,$md,$xs} {
+                        font-size: 14px;
+                    }
+                }
+                &:last-child{
+                    margin-right:0px;
+                }
+                @media #{$lg} {
+                    margin-right: 30px;
+                }
+                @media #{$md} {
+                    margin-right: 18px;
+                }
+            }
+        }
+    }
+    &__dom {
+        font-size: 16px;
+        color: var(--tp-heading-primary);
+        @media #{$lg,$md} {
+            font-size: 14px;
+        }
+        @media #{$xs} {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+    }
+}
+.f-bottom-list {
+    & ul {
+        justify-content: end;
+        @media #{$xs} {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+    }
+}
+.footer-widget-info {
+    & .footer-widget-info-text {
+        & label {
+            color: var(--tp-text-2);
+            font-size: 14px;
+            display: block;
+            line-height: 1.4;
+        }
+        & a {
+            font-size: 16px;
+            font-family: 'Gordita-500';
+            color: var(--tp-heading-primary);
+            display: inline-block;
+            &:hover {
+                color: var(--tp-heading-secondary);
+                padding-left: 0;
+            }
+        }
+    }
+}
+.f-border-bottom {
+    border-bottom: 1px solid #E8EAED;
+}
+.footer-2-col-2 {
+    @media #{$lg,$md,$xs} {
+        margin-left: 0;
+    }
+}
+.footer-2-col-4 {
+    @media #{$md,$xs} {
+        margin-left: 0;
+    }
+    & ul {
+        & li {
+            &  a {
+                color: var(--tp-heading-secondary);
+            }
+        }
+    }
+}
+.footer-3-col-2 {
+    margin-left: 48px;
+    @media #{$lg, $md,$xs} {
+        margin-left: 0;
+    }
+}
+.footer-3-col-3 {
+    margin-left: 42px;
+    @media #{$xs} {
+        margin-left: 0;
+    }
+}
+.footer-3-col-5 {
+    margin-left: 50px;
+}
+.f-copyright__social-area  {
+    & i {
+        height: 48px;
+        width: 48px;
+        text-align: center;
+        line-height: 50px;
+        display: inline-block;
+        background: rgb(255, 255, 255, .1);
+        border-radius: 50%;
+        margin-left: 5px;
+        color: var(--tp-common-white);
+        font-size: 20px;
+        &:hover {
+            background: var(--tp-heading-secondary);
+        }
+    }
+}
+.footer-3-col-5 {
+    margin-left: 0;
+}

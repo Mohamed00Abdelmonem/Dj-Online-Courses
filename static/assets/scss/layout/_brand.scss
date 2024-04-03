@@ -1,0 +1,12 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  14. BRAND CSS START
+/*----------------------------------------*/
+
+.brand-item {
+	text-align: center;
+    & a {
+        display: inline-block;
+    }
+}

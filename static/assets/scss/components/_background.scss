@@ -1,0 +1,40 @@
+@use '../utils' as *;
+
+/*--
+    - Background color
+-----------------------------------------*/
+.grey-bg {
+	background-color: var(--tp-grey-1);
+}
+.grey-bg-2 {
+	background-color: var(--tp-grey-2);
+}
+
+.white-bg {
+	background-color: var(--tp-common-white);
+}
+
+.black-bg {
+	background-color: var(--tp-common-black);
+}
+
+.theme-bg {
+	background-color: var(--tp-border-2);
+}
+.theme-bg-secondary {
+	background-color: var(--tp-theme-2);
+}
+
+
+/* error-area */
+.error-title {
+	color: #050D36;
+	font-size: 44px;
+	line-height: 1.4;
+	@media #{$md} {
+		font-size: 36px;
+	}
+	@media #{$xs} {
+		font-size: 30px;
+	}
+}

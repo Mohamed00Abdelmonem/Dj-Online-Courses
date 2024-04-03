@@ -1,0 +1,106 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  07. CATEGORY CSS START
+/*----------------------------------------*/
+
+.tp-cat-item {
+    background: var(--tp-common-white);
+    padding: 30px 30px;
+    border-radius: 10px;
+    @include transition(.3s);
+    & .tp-category-title {
+        font-size: 24px;
+        line-height: 1;
+        margin-bottom: 0;
+        font-family: 'Gordita-500';
+        font-weight: 500;
+        @media #{$xl}{
+            font-size: 20px;
+        }
+    }
+    &:hover {
+        box-shadow: rgba(5, 13, 54, 0.05) 5px 15px 30px 0px;
+        & .tp-category-title {
+            color: var(--tp-heading-secondary);
+        }
+        & .tp-category-icon {
+            & img {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
+.tp-category-icon {
+    & img {
+        width: 40px;
+        height: auto;
+        transition-duration: .6s;
+    }
+}
+.tp-rec-item {
+    box-shadow: rgba(5, 13, 54, 0.05) 5px 15px 30px 0px;
+    .tp-r-cat-title {
+        margin-bottom: 15px;
+    }
+    & p {
+        margin-bottom: 0;
+        line-height: 1.9;
+    }
+    .tp-category-icon {
+        height: 40px;
+    }
+}
+.tp-cat-content {
+    & .tp-title-small {
+        margin-bottom: 10px;
+        @media #{$lg} {
+            font-size: 20px;
+        }
+    }
+    & p {
+        margin-bottom: 0;
+    }
+}
+.tp-cat-color {
+    & span {
+        & img {
+            width: 35px;
+            height: auto;
+        }
+    }
+}
+.tp-category-icon{
+    & span{
+        display: inline-block;
+        width: 75px;
+        height: 75px;
+        line-height: 65px;
+        text-align: center;
+        border-radius: 50%;
+    }
+}
+.cat-design {
+    background-color: rgb(235, 86, 86, .1);
+}
+.cat-deve {
+    background-color: rgb(242, 153, 74, .1);
+}
+.cat-market {
+    background-color: rgb(242, 201, 76, .1);
+}
+.cat-it {
+    background-color: rgb(33, 150, 83, .1);
+}
+.cat-video {
+    background-color: rgb(47, 128, 237, .1);
+}
+.cat-business {
+    background-color: rgb(47, 128, 237, .1);
+}
+.cat-photo {
+    background-color: rgb(155, 81, 224, .1);
+}
+.cat-music{
+    background-color: rgb(45, 156, 219, .1);
+}

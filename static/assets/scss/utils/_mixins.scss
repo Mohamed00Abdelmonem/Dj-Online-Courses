@@ -1,0 +1,176 @@
+	
+
+    // bg color
+    @mixin bg-color($color, $opacity) {
+        background: rgba($color, $opacity);
+    }
+    
+
+    @mixin tp-afbf($style: 'default', $content: '', $top: 50%, $left: 0, $right: auto, $x:0%, $y:-50%, $height: 12px, $width:1px, $bg-color: var(--tp-common-black)) {
+        
+        @if ($style == 'center') {
+            $top:50%;
+            $left:50%;
+            $x:-50%;
+            $y:-50%;
+
+            position: absolute;
+            content: $content;
+            top: $top;
+            left: $left;
+            right: $right;
+            width: $width;
+            height: $height;
+            @include transform(translate($x, $y));
+            background-color: $bg-color;
+        }
+        @else if($style == 'full'){
+            $top:0%;
+            $left:0%;
+            $x:0%;
+            $y:0%;
+            $width:100%;
+            $height:100%;
+            
+            position: absolute;
+            content: $content;
+            top: $top;
+            left: $left;
+            right: $right;
+            width: $width;
+            height: $height;
+            @include transform(translate($x, $y));
+            background-color: $bg-color;
+        }
+
+        @else{
+            position: absolute;
+            content: $content;
+            top: $top;
+            left: $left;
+            right: $right;
+            width: $width;
+            height: $height;
+            @include transform(translate($x, $y));
+            background-color: $bg-color;
+        }
+    }
+    
+
+    // placeholder input
+    @mixin tp-placeholder {
+        &::-webkit-input-placeholder {
+            @content;
+        }
+        &:-moz-placeholder {
+            @content;
+        }
+        &::-moz-placeholder {
+            @content;
+        }
+        &:-ms-input-placeholder {
+            @content;
+        }
+    }
+
+    // animate 
+    @mixin animate($animation, $duration, $repeat, $easing) {
+        -webkit-animation: $animation $duration $repeat $easing;
+           -moz-animation: $animation $duration $repeat $easing;
+            -ms-animation: $animation $duration $repeat $easing;
+            -o-animation: $animation $duration $repeat $easing;
+                animation: $animation $duration $repeat $easing;
+    }
+
+    // filter 
+    @mixin filter($value) {
+        -webkit-filter: $value;
+            filter: $value;
+    }
+
+    // appearance for select
+    @mixin appearance($value) {
+        -webkit-appearance: $value;
+            -moz-appearance: $value;
+            -ms-appearance: $value;
+            -o-appearance: $value;
+            appearance: $value;
+    }
+    
+    // keyframes 
+    @mixin keyframes($name) {
+        @-webkit-keyframes #{$name} {
+            @content; 
+        }
+        @-moz-keyframes #{$name} {
+            @content;
+        }
+        @-ms-keyframes #{$name} {
+            @content;
+        }
+        @keyframes #{$name} {
+            @content;
+        } 
+    }
+
+    //backgroud 
+    @mixin background {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+      
+    //transition
+    @mixin transition($time) {
+        -webkit-transition: all $time ease-out 0s;
+        -moz-transition: all $time ease-out 0s;
+        -ms-transition: all $time ease-out 0s;
+        -o-transition: all $time ease-out 0s;
+        transition: all $time ease-out 0s;
+    }
+    
+    // transform
+    @mixin transform($transforms) {
+        -webkit-transform: $transforms;
+        -moz-transform: $transforms;
+        -ms-transform: $transforms;
+        -o-transform: $transforms;
+        transform: $transforms;
+    }
+    
+    //border
+    @mixin border-radius($man) {
+    -webkit-border-radius: $man;
+    -moz-border-radius: $man;
+    -o-border-radius: $man;
+    -ms-border-radius: $man;
+    border-radius: $man;
+    }
+    
+    // sentence case
+    @mixin sentence-case() {
+        text-transform: lowercase;
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    // Flexbox display
+    @mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    }
+    
+    // Box shadows
+    @mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+        -moz-box-shadow: $shadow;       
+        -ms-box-shadow: $shadow;       
+        -o-box-shadow: $shadow;       
+            box-shadow: $shadow;
+    }
+    
+    

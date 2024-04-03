@@ -1,0 +1,217 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  03. BANNAR CSS START
+/*----------------------------------------*/
+
+.banner-bg {
+    @include background;
+    height: 1005px;
+    @media #{$xl,$lg,$md} {
+        height: 768px;
+    }
+    @media #{$xs} {
+        height: 670px;
+    }
+}
+.banner-bg-rainbow {
+    @media #{$xl,$lg,$md} {
+        height: 768px;
+    }
+    @media #{$xs} {
+        height: 600px;
+    }
+}
+.hero-content {
+    padding-top: 350px;
+    @media #{$xl,$lg,$md,$sm,$xs} {
+        padding-top: 290px;
+    }
+    @media #{$xs} {
+        padding-top: 190px;
+    }
+    & span {
+        font-weight: 400 ;
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: var(--tp-common-white);
+        display: block;
+        @media #{$xl,$lg,$md,$xs} {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        @media #{$xs} {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+    }
+    & .hero-title {
+        font-size: 64px;
+        line-height: 1.3;
+        color: var(--tp-common-white);
+        @media #{$xl}{
+            font-size: 54px;
+            margin-bottom: 25px;
+        }
+        @media #{$lg,$md}{
+            font-size: 47px;
+            margin-bottom: 20px;
+        }
+        @media #{$xs}{
+            font-size: 30px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        & i {
+            color: var(--tp-heading-secondary);
+            font-style: normal;
+        }
+    }
+    & p {
+        font-size: 18px;
+        color: var(--tp-common-white);
+        line-height: 1.7;
+        margin-bottom: 55px;
+        @media #{$xl}{
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        @media #{$lg,$md}{
+            font-size: 14px;
+        }
+        @media #{$xs}{
+            font-size: 15px;
+        }
+        & br {
+            @media #{$xs} {
+                display: none;
+            }  
+          }
+    }
+}
+.banner-info{
+    & ul {
+        & li{
+            position: absolute;
+            font-size: 16px;
+            padding: 25px 21px;
+            border: 1px solid var(--tp-common-white);
+            background: rgb(255, 255, 255 , .1);
+            border-radius: 5px; 
+            display: block; 
+            z-index: 2;
+            backdrop-filter: blur(100px);
+            color: var(--tp-common-white);
+            & span {
+                margin-bottom: 5px;
+                display: block;
+                font-size: 28px;
+                font-weight: var(--tp-fw-bold);
+            }
+        }
+        & li:nth-child(1){
+            right: 695px;
+            top: 340px;
+            @media #{$xxxl}{
+                right: 560px;
+            }
+            @media #{$xxl}{
+                right: 400px;
+            }
+            @media #{$xl}{
+                right: 350px;
+                top: 380px;
+            }
+            & span {
+                color: var(--tp-heading-secondary);
+            }
+        }
+        & li:nth-child(2){
+            top: 655px;
+            right: 530px;
+            @media #{$xxxl}{
+                right: 365px;
+            }
+            @media #{$xxl}{
+                right: 200px;
+            }
+            @media #{$xl}{
+                top: 500px;
+                right: 20px;
+            }
+            & span {
+                color: #9B51E0;
+            }
+        }
+        & li:nth-child(3){
+            top: 460px;
+            right: 200px;
+            @media #{$xxxl}{
+                right: 35px;
+            }
+            @media #{$xxl}{
+                top: 200px;
+                right: 55px;
+            }
+            @media #{$xl}{
+                top: 220px;
+                right: 250px;
+            }
+            & span {
+                color: #F2C94C; 
+            }
+        }
+    }
+}
+.b-shape{
+    position: absolute;
+    bottom: 0;
+    right: 214px;
+    @media #{$xxxl}{
+        right: 50px;
+    }
+    @media #{$xxl}{
+        right: 0px;
+    }
+    @media #{$xl,$lg}{
+        right: -80px;
+        width: 650px;
+        height: auto;
+    }
+}
+.b-shape-3 {
+    position: absolute;
+    bottom: 132px;
+    right: 215px;
+    @media #{$xxl} {
+        right: 0;
+    }
+    @media #{$xl} {
+        right: 0;
+        width: 500px;
+    }
+    @media #{$lg} {
+        right: 0;
+        width: 500px;
+    }
+    @media #{$md} {
+        bottom: 175px;
+        right: 0;
+        width: 350px;
+    }
+}
+.hero-title-black {
+    @media #{$xs} {
+        font-size: 36px;
+    }
+    & br {
+        @media #{$xs} {
+            display: none;
+        }
+    }
+}
+.hero-content-black {
+    @media #{$xs} {
+        padding-top: 220px;
+    }
+}

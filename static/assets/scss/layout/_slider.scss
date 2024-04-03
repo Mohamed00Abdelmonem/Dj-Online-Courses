@@ -1,0 +1,189 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  01. SLIDER CSS START
+/*----------------------------------------*/
+
+.slider-bg-height {
+    @include background;
+    min-height: 850px;
+    @media #{$lg} {
+        min-height: 767px;
+    }
+    @media #{$md} {
+        min-height: 600px;
+    }
+    @media #{$xs} {
+        min-height: 560px;
+    }
+}
+.slider-arrow {
+    & .slick-arrow {
+        position: absolute;
+        top: 50%;
+        left: 120px;
+        transform: translateY(-50%);
+        height: 70px;
+        width: 70px;
+        text-align: center;
+        display: block;
+        line-height: 70px;
+        border-radius: 50px;
+        background: rgb(255, 255, 255, .3);
+        color: var(--tp-common-white);
+        z-index: 2;
+        &:hover {
+            background: var(--tp-heading-secondary);
+            color: var(--tp-common-white);
+        }
+        @media #{$xxxl} {
+            left: 40px;
+        }
+        @media #{$xxl, $xl, $lg} {
+            top: 82%;
+            left: 40px;
+        }
+        @media #{$md} {
+            top: 90%;
+            left: 40px;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+        }
+        @media #{$xs} {
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            top: 90%;
+            left: 20px;
+        }
+    }
+    & .slick-next{
+        left: auto;
+        right: 120px;
+        @media #{$xxxl} {
+            right: 40px;
+        }
+        @media #{$xxl, $xl, $lg} {
+            left: 130px;
+        }
+        @media #{$md} {
+            left: 110px;
+        }
+        @media #{$xs} {
+            left: 90px;
+        }
+    }
+}
+.slider-text {
+    font-family: 'Gordita-500';
+    font-size: 18px;
+    color: var(--tp-common-white);
+    background: rgb(255, 255, 255, .2);
+    padding: 16px 25px;
+    line-height: 1;
+    display: inline-block;
+    border-radius: 5px;
+    @media #{$xs} {
+        font-size: 14px;
+    }
+}
+.slider-title {
+    color: var(--tp-common-white);
+    font-size: 64px;
+    line-height: 1.3;
+    @media #{$lg} {
+        font-size: 54px;
+    }
+    @media #{$xs} {
+        font-size: 34px;
+        margin-bottom: 40px;
+    }
+}
+.slider-info-list {
+    & ul {
+        & li{
+            position: absolute;
+            font-size: 16px;
+            padding: 25px 20px;
+            border: 1px solid var(--tp-common-white);
+            background: rgb(255, 255, 255 , .1);
+            border-radius: 5px; 
+            display: block; 
+            z-index: 2;
+            color: var(--tp-common-white);
+            & span {
+                margin-bottom: 5px;
+                display: block;
+                font-size: 28px;
+                font-weight: var(--tp-fw-bold);
+            }
+        }
+        & li:nth-child(1){
+            right: 675px;
+            top: 240px;
+            background-color: #9B51E0;
+            @media #{$xxl} {
+                right: 475px;
+            }
+            @media #{$xl} {
+                right: 320px;
+            }
+            @media #{$lg} {
+                right: 220px;
+            }
+        }
+        & li:nth-child(2){
+            bottom: 115px;
+            right: 735px;
+            background-color: #FF6652;
+            @media #{$xl} {
+                bottom: 315px;
+                right: 120px;
+            }
+            @media #{$lg} {
+                bottom: 280px;
+                right: 25px;
+            }
+        }
+        & li:nth-child(3){
+            bottom: 150px;
+            right: 300px;
+            background-color:#F2C94C;
+        }
+    }
+}
+
+.slider-content {
+    & .slider-text {
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+    }
+    & .slider-title {
+        -webkit-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+        -webkit-animation-duration: 0.6s;
+        animation-duration: 0.6s;
+    }
+    & .slider-btn{
+        -webkit-animation-delay: 0.9s;
+        animation-delay: 0.9s;
+        -webkit-animation-duration: 0.9s;
+        animation-duration: 0.9s;
+    }
+}
+
+.slick-active {
+    & .slider-content {
+        & .slider-text, 
+        & .slider-title,
+        & .slider-btn{
+            -webkit-animation-name: fadeInUp;
+            animation-name: fadeInUp;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+    }
+}

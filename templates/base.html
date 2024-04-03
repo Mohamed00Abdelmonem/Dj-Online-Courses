@@ -1,0 +1,458 @@
+
+
+
+{% load static%}
+
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Epora - Online Courses & Education HTML Template</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Place favicon.ico in the root directory -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicon.png"
+    />
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/backtotop.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/ui-icon.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/elegentfonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome-pro.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/spacing.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+  </head>
+
+  <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- pre loader area start -->
+    <div id="loading">
+      <div id="loading-center">
+        <div id="loading-center-absolute">
+          <!-- loading content here -->
+        </div>
+      </div>
+    </div>
+    <!-- pre loader area end -->
+
+    <!-- back to top start -->
+    <div class="progress-wrap">
+      <svg
+        class="progress-circle svg-content"
+        width="100%"
+        height="100%"
+        viewBox="-1 -1 102 102"
+      >
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+      </svg>
+    </div>
+    <!-- back to top end -->
+
+    <!-- header area start -->
+    <header class="header_white_area d-none d-xl-block">
+      <div class="header__area pt-40 pb-5">
+        <div class="main-header">
+          <div class="container">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-xxl-7 col-xl-6 col-lg-6 col-md-5 col-6">
+                <div class="logo-area d-flex align-items-center">
+                  <div class="logo">
+                    <a href="index.html">
+                      <img src="{% static 'assets/img/logo/logo-blacpng' %}" alt="logo" />
+                    </a>
+                  </div>
+                  <div class="header-cat-menu ml-40">
+                    <nav>
+                      <ul>
+                        <li>
+                          <a href="course-grid.html">
+                            Categorie
+                            <span><i class="arrow_carrot-down"></i></span
+                          ></a>
+                          <ul class="sub-menu">
+                            <li>
+                              <a href="course-grid.html">Bangla Medium</a>
+                            </li>
+                            <li>
+                              <a href="course-grid.html">English Medium</a>
+                            </li>
+                            <li>
+                              <a href="course-grid.html">Video Edition</a>
+                            </li>
+                            <li><a href="course-grid.html">Logo Design</a></li>
+                            <li>
+                              <a href="course-grid.html">Francy Medium</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-5 col-lg-6 col-md-7">
+                <div class="header-right header-right-box">
+                  <div class="header-search-box">
+                    <form action="#">
+                      <div class="search-input">
+                        <input
+                          type="Email"
+                          placeholder="What you want to learn?"
+                        />
+                        <button class="header-search-btn">
+                          <i class="fi fi-rs-search mr-5"></i> Search Now
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-menu-area" id="header-sticky">
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-9 col-xl-9 col-lg-6 text-start">
+              <div class="main-menu main-menu-white">
+                <nav id="mobile-menu">
+                  <ul>
+                    <li >
+                      <a href="/">Home</a>
+                      <ul class="submenu">
+                        {% comment %} <li><a href="index.html">Home Style 1</a></li> {% endcomment %}
+                        {% comment %} <li><a href="index-2.html">Home Style 2</a></li>
+                        <li><a href="index-3.html">Home Style 3</a></li> {% endcomment %}
+                      </ul>
+                    </li>
+                    <li class="has-dropdown">
+                      <a href="about.html">Pages</a>
+                      <ul class="submenu">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="checkout.html">Check Out</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="sign-in.html">Sign In</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-dropdown">
+                      <a href="instructor.html">Instructor</a>
+                      <ul class="submenu">
+                        <li><a href="instructor.html">Instructor</a></li>
+                        <li>
+                          <a href="instructor-profile.html"
+                            >Instructor Profile</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="has-dropdown">
+                      <a href="course-grid.html">Course</a>
+                      <ul class="submenu">
+                        <li><a href="course-grid.html">Course Grid</a></li>
+                        <li><a href="course-list.html">Course List</a></li>
+                        <li>
+                          <a href="course-details.html">Course Details</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="has-dropdown">
+                      <a href="blog.html">Blog</a>
+                      <ul class="submenu">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                        <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                        <li><a href="blog-details.html">Blog Details</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div
+              class="col-xxl-3 col-xl-3 col-lg-6 d-flex align-items-center justify-content-end"
+            >
+              <div class="header-meta-green">
+                <ul>
+                  <li>
+                    <a href="sign-in.html"><i class="fi fi-rr-user"></i></a>
+                  </li>
+                  <li>
+                    <a href="cart.html"
+                      ><i class="fi fi-rr-shopping-bag"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="tp-menu-toggle d-xl-none"
+                      ><i class="icon_ul"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div
+      id="header-mob-sticky"
+      class="mobile-header-area mob-white-sticky d-xl-none"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 col-5">
+            <div class="logo">
+              <a href="index.html">
+                <img src="{% static 'assets/img/logo/logo-black.png' %}" alt="logo" />
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-7 d-flex align-items-center justify-content-end"
+          >
+            <div class="header-meta-green text-end">
+              <ul>
+                <li>
+                  <a href="sign-in.html"><i class="fi fi-rr-user"></i></a>
+                </li>
+                <li>
+                  <a href="cart.html"><i class="fi fi-rr-shopping-bag"></i></a>
+                </li>
+                <li>
+                  <a href="#" class="tp-menu-toggle d-xl-none"
+                    ><i class="icon_ul"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- header area end -->
+    <div class="tp-sidebar-menu">
+      <button class="sidebar-close"><i class="icon_close"></i></button>
+      <div class="side-logo mb-30">
+        <a href="index.html"
+          ><img src="{% static 'assets/img/logo/logo-black.png' %}" alt="logo"
+        /></a>
+      </div>
+      <div class="mobile-menu"></div>
+      <div class="sidebar-info">
+        <h4 class="mb-15">Contact Info</h4>
+        <ul class="side_circle">
+          <li>27 Division St, New York</li>
+          <li><a href="tel:123456789">+1 800 123 456 78</a></li>
+          <li><a href="mailto:epora@example.com">epora@example.com</a></li>
+        </ul>
+        <div class="side-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="body-overlay"></div>
+
+
+
+
+
+{% block body %}
+
+{% endblock body %}
+
+
+
+    <!-- footer-area -->
+    <footer>
+      <div
+        class="footer-bg theme-bg-secondary"
+        data-background="assets/img/bg/shape-bg-1.png"
+      >
+        <div class="f-border-bottom pt-115 pb-60">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                <div
+                  class="footer-widget footer-widget-white footer-2-col-1 mb-55"
+                >
+                  <div class="footer-widget__text mb-35">
+                    <h3 class="footer-widget__title">
+                      <a href="#"
+                        ><img src="{{data.logo.url}}" alt="logo"
+                      /></a>
+                    </h3>
+                  </div>
+                  <p>
+                    {{data.description|safe}}.
+                  </p>
+                  <div class="footer-widget-info-list">
+                    <ul>
+                      <li>
+                        <div class="footer-widget-info d-flex">
+                          <div class="footer-widget-info-icon">
+                            <i class="fi fi-rr-phone-call"></i>
+                          </div>
+                          <div class="footer-widget-info-text ml-10">
+                            <label>Phone</label>
+                            <a href="tel:(505)555-0125">{{data.phone1}}</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="footer-widget-info d-flex">
+                          <div class="footer-widget-info-icon">
+                            <i class="fi fi-rr-envelope"></i>
+                          </div>
+                          <div class="footer-widget-info-text ml-10">
+                            <label>Email</label>
+                            <a href="mailto:Emailmichelle.rivera@example.com"
+                              >{{data.email}}</a
+                            >
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div
+                          class="footer-widget-info d-flex align-items-center"
+                        >
+                          <div class="footer-widget-info-icon">
+                            <i class="fi fi-rr-marker"></i>
+                          </div>
+                          <div class="footer-widget-info-text ml-10">
+                            <label>Address</label>
+                            <a href="#"
+                              >{{data.address1}}</a
+                            >
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-2 col-md-6 col-6">
+                <div
+                  class="footer-widget footer-widget-white footer-2-col-2 ml-90 mb-55"
+                >
+                  <div class="footer-widget__text mb-35">
+                    <h3 class="footer-widget__title">About</h3>
+                  </div>
+                  <div class="footer-widget__link">
+                    <ul>
+                      <li><a href="about.html">About us</a></li>
+                      <li><a href="blog-grid.html">Blog</a></li>
+                      <li><a href="#">Careers</a></li>
+                      <li><a href="#">Jobs</a></li>
+                      <li><a href="#">In Press</a></li>
+                      <li><a href="#">Payments</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-6 col-6">
+                <div
+                  class="footer-widget footer-widget-white footer-2-col-3 mb-55"
+                >
+                  <div class="footer-widget__text mb-35">
+                    <h3 class="footer-widget__title">Support</h3>
+                  </div>
+                  <div class="footer-widget__link">
+                    <ul>
+                      <li><a href="#">Contact us</a></li>
+                      <li><a href="#">Online Chat</a></li>
+                      <li><a href="#">Whatsapp</a></li>
+                      <li><a href="#">Telegram</a></li>
+                      <li><a href="#">Ticketing</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 col-10">
+                <div
+                  class="footer-widget footer-widget-white footer-2-col-4 ml-30 mb-55"
+                >
+                  <div class="footer-widget__text mb-35">
+                    <h3 class="footer-widget__title">Social Media</h3>
+                  </div>
+                  <p>
+                    Be the first one to know about discounts, offers and events
+                  </p>
+                  <div class="footer-widget__social d-flex align-items-center">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-light fa-basketball"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="f-copyright pt-60 pb-60">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="f-copyright__dom">
+                  <span>Uxaction© 2022, All Rights Reserved</span>
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-8 col-12">
+                <div class="f-copyright__list f-bottom-list">
+                  <ul class="d-flex align-items-center">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer-area-end -->
+
+    <!-- JS here -->
+    <script src="{% static 'assets/js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/waypoints.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap-bundle.js' %}"></script>
+    <script src="{% static 'assets/js/meanmenu.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+    <script src="{% static 'assets/js/parallax.js' %}"></script>
+    <script src="{% static 'assets/js/backtotop.js' %}"></script>
+    <script src="{% static 'assets/js/nice-select.js' %}"></script>
+    <script src="{% static 'assets/js/counterup.js' %}"></script>
+    <script src="{% static 'assets/js/wow.js' %}"></script>
+    <script src="{% static 'assets/js/isotope-pkgd.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded-pkgd.js' %}"></script>
+    <script src="{% static 'assets/js/ajax-form.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+  </body>
+</html>

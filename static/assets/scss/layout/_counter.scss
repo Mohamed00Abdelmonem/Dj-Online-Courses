@@ -1,0 +1,78 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  10. COUNTER CSS START
+/*----------------------------------------*/
+
+.counter-item {
+    &__icon {
+        & i {
+            height: 80px;
+            width: 80px;
+            line-height: 85px;
+            text-align: center;
+            display: inline-block;
+            background: var(--tp-border-2);
+            color: var(--tp-common-white);
+            border-radius: 50px;
+            font-size: 28px;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+        }
+    }
+    &__content {
+        & p{
+            margin-bottom: 0;
+            font-size: 24px;
+            @media #{$xl,$lg, $md}{
+                font-size: 20px;
+            }
+        }
+    }
+    &__title {
+        font-size: 44px;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 20px;
+        &::before {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            height: 3px;
+            width: 50px;
+            background: var(--tp-heading-secondary);
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 50px;
+        }
+        @media #{$md} {
+            font-size: 36px;
+        }
+    }
+    &:hover {
+        & .counter-item__icon i {
+            transform: translate3d(0, -5px, 0);
+        }
+    }
+}
+.counter-white-text {
+    & p {
+        font-size: 22px;
+        color: var(--tp-common-white);
+        font-family: 'Gordita-500';
+        font-weight: 500;
+    }
+}
+.counter-left-title {
+    color: var(--tp-common-white);
+    &::before {
+        right: 0;
+        margin: 0;
+    }
+}
+.counter-b-border {
+    border-bottom: 1px solid #668E85;
+}
+
+

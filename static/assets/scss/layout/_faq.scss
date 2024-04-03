@@ -1,0 +1,63 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  18. FAQ CSS START
+/*----------------------------------------*/
+
+.accordion-buttons {
+    background-color: #F8FAFA;
+    box-shadow: none;
+    padding: 37px 40px;
+    font-size: 22px;
+    font-family: "Gordita-500";
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+    color: var(--tp-heading-primary);
+    @media #{$xs} {
+        padding: 20px 30px;
+        font-size: 14px;
+    }
+}
+.accordion-items {
+	margin-bottom: 40px;
+}
+.accordion-buttons {
+    position: relative;
+    transition: .3s;
+    &::after {
+        position: absolute;
+        content: "\f077";
+        right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "Font Awesome 6 Pro";
+        color: var(--tp-border-2);
+        font-size: 17px;
+        padding-left: 10px;
+        @media #{$xs} {
+            font-size: 14px;
+            right: 10px;
+        }
+    }
+    &.collapsed {
+        &::after {
+            content: "\f107";
+        }
+    }
+}
+.accordion-buttons:not(.collapsed) {
+	text-decoration: underline;
+    color: var(--tp-border-2);   
+}
+.accordion-items {
+    .accordion-body {
+        font-size: 17px;
+        color: var(--tp-text-2);
+        padding:20px 40px 30px 40px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        @media #{$xs} {
+            font-size: 14px;
+        }
+    }
+}

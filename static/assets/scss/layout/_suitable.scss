@@ -1,0 +1,54 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  12. SUITABLE CSS START
+/*----------------------------------------*/
+
+.tp-suit {
+    padding: 52px 20px 50px 30px;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    &__content {
+        width: 220px;
+        @media #{$lg}{
+            width: 100%;
+        }
+    }
+    &__title {
+        font-size: 24px;
+        color: var(--tp-common-black);
+        line-height: 34px;
+        & span {
+            color: var(--tp-heading-secondary);
+        }
+    }
+    &__img {
+        position: absolute;
+        bottom: 16px;
+        right: 20px;
+        @media #{$xl} {
+            bottom: 35px;
+            width: 260px;
+        }
+        @media #{$lg} {
+            width: 300px;
+        }
+        @media #{$xs} {
+            position: static;
+        }
+    }
+    &__tech {
+        position: absolute;
+        bottom: 45px;
+        right: 20px;
+        @media #{$xl} {
+            width: 260px;
+        }
+        @media #{$lg} {
+            width: 300px;
+        }
+        @media #{$xs} {
+            position: static;
+        }
+    }
+}

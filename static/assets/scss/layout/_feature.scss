@@ -1,0 +1,83 @@
+@use '../utils' as *; 
+
+/*----------------------------------------*/
+/*  05. FEATURE CSS START
+/*----------------------------------------*/
+
+.tp-feature-area {
+    @media #{$xxxl}{
+        padding-right: 85px;
+        padding-left: 85px;
+    }
+    @media #{$xxl , $xl ,$lg,$md,$xs}{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    @media #{$xs}{
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+.f-shape-one {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	z-index: -1;
+}
+.tpfea {
+    padding:40px 30px 35px;
+    background: var(--tp-common-white);
+    box-shadow: 5px 15px 30px rgba(5, 13, 54, 0.06);
+    border-radius: 10px;
+    &__icon {
+        & i {
+            height: 80px;
+            width: 80px;
+            line-height: 85px;
+            text-align: center;
+            color: var(--tp-common-white);
+            background: var(--tp-border-2);
+            display: inline-block;
+            border-radius: 50px;
+            font-size: 24px;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+        }
+    }
+    &__text {
+        & p {
+            font-size: 16px;
+            line-height: 28px;
+            margin: 0;
+            @media #{$xxl,$xl,$lg} {
+                font-size: 14px;
+            }
+        }
+    }
+    &__title {
+        font-size: 24px;
+        @media #{$xl} {
+            font-size: 22px;
+        }
+    }
+    &:hover {
+        & .tpfea__icon {
+            & i {
+                background: var(--tp-heading-secondary);
+                transform: translate3d(0, -5px, 0);
+            }
+        }
+    }
+}
+.tp-feature-item {
+    background-color: #F8FAF9;
+    box-shadow: none;
+    transition: .3s linear;
+    &:hover {
+        background: var(--tp-common-white);
+        box-shadow: 5px 15px 30px rgba(5, 13, 54, 0.06);
+    }
+}
