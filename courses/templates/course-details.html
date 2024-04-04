@@ -292,7 +292,7 @@
                     alt="video-bg"
                   />
                   <div class="c-video-icon">
-                  <video class="popup-video" controls width="400" height="200">
+                  <video class="popup-video" controls poster="{% static 'assets/img/bg/c-details-video-bg.jpg' %} width="400" height="200">
                       <source src="{{ object.introduction_video.url }}" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
@@ -306,7 +306,7 @@
                       <a class="tp-vp-btn" href="course-details.html"
                         >Add To Cart</a
                       >
-                      <a class="tp-vp-btn-green" href="course-details.html"
+                      <a class="tp-vp-btn-green" href="course/{{object.id}}/lessons"
                         >Enroll Now</a
                       >
                     </div>
@@ -438,7 +438,7 @@
                   >
                     <div class="tpcourse__rating-icon">
                       <span>{{related_course.avg_rate}}</span>
-                            <i class="fi {% if related_course.avg_rate > 0 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
+                            <i class="fi {% if related_course.avg_rate > 0 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></>
                             <i class="fi {% if related_course.avg_rate > 1 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if related_course.avg_rate > 2 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if related_course.avg_rate > 3 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>

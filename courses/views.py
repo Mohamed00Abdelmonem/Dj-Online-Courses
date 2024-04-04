@@ -1,7 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from .models import Course, Review
+from .models import Course, Review, Lesson
 from django.views.generic import ListView, DetailView
 
 
@@ -29,3 +29,18 @@ class Course_Detail(DetailView):
         related_courses = Course.objects.filter(tags__in=current_course.tags.all()).exclude(id=current_course.id).distinct()
         context["related_courses"] = related_courses
         return context
+
+from django.views.generic import ListView
+from .models import Lesson, Course
+
+class LessonList(ListView):
+    model = Lesson
+    template_name = 'lesson-list.html'
+    context_object_name = 'lessons'
+
+
+    def get_queryset(self):
+        course = Course.objects.get(id=self.kwargs['pk']) # this inectance course
+        queryset_lessons = Lesson.objects.filter(course=course)
+        return queryset_lessons
+
