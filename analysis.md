@@ -45,6 +45,17 @@ models app courses
  - tags 
  
 
+- Lessons
+ - title
+ - sub desctiption
+ - duration
+ - teacher (fk)
+ - courses (fk)
+ - veido 
+ - 
+ 
+
+
 - Review 
  - user
  - created_at
