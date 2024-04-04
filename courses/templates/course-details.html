@@ -4,6 +4,51 @@
 
 {% block body %}
 
+
+<style> 
+/* Comment form styles */
+
+.postbox__comment-input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.star-rating {
+  margin-bottom: 10px;
+  display: flex; /* Add flexbox to align stars */
+  justify-content: center; /* Center stars horizontally */
+}
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  display: inline-block;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 40px;
+}
+
+.star-rating label i {
+  margin: 0 2px;
+}
+
+.star-rating input[type="radio"]:checked + label i,
+.star-rating input[type="radio"]:checked + label:hover ~ label i {
+  color: #ffd700; /* Change color to yellow for selected stars */
+}
+
+
+</style>
+
+
+
+
+
+
     <main>
       <!-- breadcrumb-area -->
       <section
@@ -203,7 +248,37 @@
                       </div>
                     </div>
                   {% endfor %}
-               
+           
+              <div class="postbox__comment-form">
+                <div class="col-xxl-12">
+                      <div class="star-rating">
+                        <input type="radio" name="rate" value="5" id="star-1"><label for="star-1"><i class="fi fi-ss-star"></i></label>
+                        <input type="radio" name="rate" value="4" id="star-2"><label for="star-2"><i class="fi fi-ss-star"></i></label>
+                        <input type="radio" name="rate" value="3" id="star-3"><label for="star-3"><i class="fi fi-ss-star"></i></label>
+                        <input type="radio" name="rate" value="2" id="star-4"><label for="star-4"><i class="fi fi-ss-star"></i></label>
+                        <input type="radio" name="rate" value="1" id="star-5"><label for="star-5"><i class="fi fi-ss-star"></i></label>
+                      </div>
+                    </div>
+                <h3 class="postbox__comment-form-title">Write a comment</h3>
+                <form id="comment-form">
+                  <div class="row">
+                    <div class="col-xxl-12">
+                      <div class="postbox__comment-input">
+                        <textarea name="comment" id="comment" placeholder="Enter your comment ..."></textarea>
+                      </div>
+                    </div>
+                  
+                    <div class="col-xxl-12">
+                      <div class="postbox__comment-btn">
+                        <button type="submit" class="tp-btn">Post Comment</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+
+
                   
                   </div>
                 </div>
