@@ -330,10 +330,15 @@
                   <div class="col-xl-4 course-thumb-width">
                     <div class="tpcourse__thumb p-relative w-img fix">
                      <div class="c-video-icon">
-                        <video class="popup-video" controls poster="{% static 'assets/img/course/lesson.png' %}" width="400" height="200">
-                            <source src="{% static '{{ object.introduction_video.url }}' %}" type="video/mp4">
+                     {% if lesson.veido %}
+                          <video controls poster="{% static 'assets/img/course/lesson.png' %}" width="400" height="200">
+                            <source src="{{ lesson.veido.url }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                     {% else %}
+                     no in video
+                     {% endif %}
+                   
                     </div>
                     </div>
                   </div>
@@ -344,7 +349,7 @@
                       </div>
                       <div class="tpcourse__ava-title mb-15">
                         <h4 class="tpcourse__title tp-cours-title-color">
-                          <a href="course-details.html"
+                          <a href="{{lesson.id}}"
                             >{{lesson.title}}</a
                           >
                         </h4>
