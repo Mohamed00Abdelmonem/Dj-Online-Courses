@@ -9,7 +9,7 @@
       <!-- breadcrumb-area -->
       <section
         class="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay"
-        data-background="assets/img/breadcrumb/breadcrumb-bg-1.jpg"
+        data-background="{% static 'assets/img/breadcrumb/breadcrumb-bg-1.jpg'%}"
       >
         <div class="container">
           <div class="row">
@@ -126,14 +126,14 @@
                   <div class="course-sidebar__select-list">
                     <select>
                       <option>All Category</option>
-                      <option>Course Level</option>
+                      {% comment %} <option>Course Level</option>
                       <option>Course Price</option>
-                      <option>Instructor</option>
+                      <option>Instructor</option> {% endcomment %}
                       <option>Class Duration</option>
                     </select>
                   </div>
                 </div>
-                <div class="course-sidebar__widget mb-50">
+                {% comment %} <div class="course-sidebar__widget mb-50">
                   <div class="course-sidebar__info c-info-list">
                     <h4 class="course-sidebar__title mb-35">Course Level</h4>
                     <div class="form-check">
@@ -279,7 +279,7 @@
                       <span class="f-right">35</span>
                     </div>
                   </div>
-                </div>
+                </div> {% endcomment %}
                 <div class="course-sidebar__widget mb-50">
                   <div class="course-sidebar__info c-info-list">
                     <h4 class="course-sidebar__title mb-35">Class Duration</h4>

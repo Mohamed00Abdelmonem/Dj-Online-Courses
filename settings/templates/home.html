@@ -159,7 +159,7 @@
       <!-- brand-area-end -->
 
       <!-- about-area -->
-      <section
+      {% comment %} <section
         class="about--area pt-120 pb-60 wow fadeInUp"
         data-wow-duration=".8s"
         data-wow-delay=".4s"
@@ -211,10 +211,18 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> {% endcomment %}
       <!-- about-area-end -->
 
       <!-- catrgory-area -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
       <section
         class="category-ractangle-area pb-90 wow fadeInUp"
         data-wow-duration=".8s"
@@ -364,19 +372,20 @@
             </div>
             <div class="col-xl-6 col-lg-4 col-md-4">
               <div class="tp-course-btn mb-40 d-flex justify-content-md-end">
-                <a class="tp-btn" href="#">Browse All Courses</a>
+                <a class="tp-btn" href="/courses/list">Browse All Courses</a>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-6 col-md-12">
+          {% for course in courses %}
+              <div class="col-lg-6 col-md-12">
               <div class="tpcourse tp-wrap-course mb-40">
                 <div class="row">
                   <div class="col-xl-4 tpcourse-thumb-w">
                     <div class="tpcourse__thumb p-relative w-img fix">
                       <a href="course-details.html"
                         ><img
-                          src="{% static 'assets/img/course/course-img-01.jpg' %}"
+                          src="{{course.image.url}}"
                           alt="course-thumb"
                       /></a>
                     </div>
@@ -386,8 +395,7 @@
                       <div class="tp-wrap-course__heading">
                         <h4 class="tp-wrap-course__title mb-20">
                           <a href="course-details.html"
-                            >Master Web Design in Photoshop: Complete UI/UX
-                            Masterclass</a
+                            >{{course.title}}</a
                           >
                         </h4>
                       </div>
@@ -420,13 +428,14 @@
                         class="tpcourse__category c-price-list d-flex align-items-center justify-content-between"
                       >
                         <h5 class="tpcourse__course-price c-price-pac">
-                          $29.99
+                          ${{course.price}}
                         </h5>
                         <ul
                           class="tpcourse__price-list d-flex align-items-center"
                         >
-                          <li><a href="course-details.html">Design</a></li>
-                          <li><a href="course-details.html">Development</a></li>
+                        {% for tag in course.tags.all %}
+                            <li><a href="course-details.html">{{tag}}</a></li>
+                        {% endfor %}
                         </ul>
                       </div>
                     </div>
@@ -434,338 +443,16 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="tpcourse tp-wrap-course mb-40">
-                <div class="row">
-                  <div class="col-xl-4 tpcourse-thumb-w">
-                    <div class="tpcourse__thumb p-relative w-img fix">
-                      <a href="course-details.html"
-                        ><img
-                          src="{% static 'assets/img/course/course-img-02.jpg' %}"
-                          alt="course-thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div class="col-xl-8 tpcourse-thumb-text">
-                    <div class="tp-wrap-course__content ml-5">
-                      <div class="tp-wrap-course__heading">
-                        <h4 class="tp-wrap-course__title mb-20">
-                          <a href="course-details.html"
-                            >How to Write Great Web Content - Better Search
-                            Rankings!</a
-                          >
-                        </h4>
-                      </div>
-                      <div class="tpcourse__meta tp-course-line pb-20 mb-25">
-                        <ul class="d-flex align-items-center">
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-01.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>35 Classes</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-02.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>291 Students</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-03.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>4.7</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        class="tpcourse__category c-price-list d-flex align-items-center justify-content-between"
-                      >
-                        <h5 class="tpcourse__course-price c-price-pac">
-                          $29.99
-                        </h5>
-                        <ul
-                          class="tpcourse__price-list d-flex align-items-center"
-                        >
-                          <li><a href="course-details.html">Design</a></li>
-                          <li><a href="course-details.html">Development</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="tpcourse tp-wrap-course mb-40">
-                <div class="row">
-                  <div class="col-xl-4 tpcourse-thumb-w">
-                    <div class="tpcourse__thumb p-relative w-img fix">
-                      <a href="course-details.html"
-                        ><img
-                          src="{% static 'assets/img/course/course-img-03.jpg' %}"
-                          alt="course-thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div class="col-xl-8 tpcourse-thumb-text">
-                    <div class="tp-wrap-course__content ml-5">
-                      <div class="tp-wrap-course__heading">
-                        <h4 class="tp-wrap-course__title mb-20">
-                          <a href="course-details.html"
-                            >Dreamweaver - Coding your first website using
-                            Dreamweaver</a
-                          >
-                        </h4>
-                      </div>
-                      <div class="tpcourse__meta tp-course-line pb-20 mb-25">
-                        <ul class="d-flex align-items-center">
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-01.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>35 Classes</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-02.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>291 Students</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-03.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>4.7</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        class="tpcourse__category c-price-list d-flex align-items-center justify-content-between"
-                      >
-                        <h5 class="tpcourse__course-price c-price-pac">
-                          $29.99
-                        </h5>
-                        <ul
-                          class="tpcourse__price-list d-flex align-items-center"
-                        >
-                          <li><a href="course-details.html">Design</a></li>
-                          <li><a href="course-details.html">Development</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="tpcourse tp-wrap-course mb-40">
-                <div class="row">
-                  <div class="col-xl-4 tpcourse-thumb-w">
-                    <div class="tpcourse__thumb p-relative w-img fix">
-                      <a href="course-details.html"
-                        ><img
-                          src="{% static 'assets/img/course/course-img-04.jpg' %}"
-                          alt="course-thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div class="col-xl-8 tpcourse-thumb-text">
-                    <div class="tp-wrap-course__content ml-5">
-                      <div class="tp-wrap-course__heading">
-                        <h4 class="tp-wrap-course__title mb-20">
-                          <a href="course-details.html"
-                            >WordPress 2022: The Complete WordPress Website
-                            Course</a
-                          >
-                        </h4>
-                      </div>
-                      <div class="tpcourse__meta tp-course-line pb-20 mb-25">
-                        <ul class="d-flex align-items-center">
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-01.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>35 Classes</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-02.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>291 Students</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-03.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>4.7</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        class="tpcourse__category c-price-list d-flex align-items-center justify-content-between"
-                      >
-                        <h5 class="tpcourse__course-price c-price-pac">
-                          $29.99
-                        </h5>
-                        <ul
-                          class="tpcourse__price-list d-flex align-items-center"
-                        >
-                          <li><a href="course-details.html">Design</a></li>
-                          <li><a href="course-details.html">Development</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="tpcourse tp-wrap-course mb-40">
-                <div class="row">
-                  <div class="col-xl-4 tpcourse-thumb-w">
-                    <div class="tpcourse__thumb p-relative w-img fix">
-                      <a href="course-details.html"
-                        ><img
-                          src="{% static 'assets/img/course/course-img-05.jpg' %}"
-                          alt="course-thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div class="col-xl-8 tpcourse-thumb-text">
-                    <div class="tp-wrap-course__content ml-5">
-                      <div class="tp-wrap-course__heading">
-                        <h4 class="tp-wrap-course__title mb-20">
-                          <a href="course-details.html"
-                            >SEO: Structured Data & Schema Markup for
-                            Webmasters</a
-                          >
-                        </h4>
-                      </div>
-                      <div class="tpcourse__meta tp-course-line pb-20 mb-25">
-                        <ul class="d-flex align-items-center">
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-01.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>35 Classes</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-02.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>291 Students</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-03.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>4.7</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        class="tpcourse__category c-price-list d-flex align-items-center justify-content-between"
-                      >
-                        <h5 class="tpcourse__course-price c-price-pac">
-                          $29.99
-                        </h5>
-                        <ul
-                          class="tpcourse__price-list d-flex align-items-center"
-                        >
-                          <li><a href="course-details.html">Design</a></li>
-                          <li><a href="course-details.html">Development</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="tpcourse tp-wrap-course mb-40">
-                <div class="row">
-                  <div class="col-xl-4 tpcourse-thumb-w">
-                    <div class="tpcourse__thumb p-relative w-img fix">
-                      <a href="course-details.html"
-                        ><img
-                          src="{% static 'assets/img/course/course-img-06.jpg' %}"
-                          alt="course-thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div class="col-xl-8 tpcourse-thumb-text">
-                    <div class="tp-wrap-course__content ml-5">
-                      <div class="tp-wrap-course__heading">
-                        <h4 class="tp-wrap-course__title mb-20">
-                          <a href="course-details.html"
-                            >Complete Web Design from Figma to Webflow to
-                            Freelancing</a
-                          >
-                        </h4>
-                      </div>
-                      <div class="tpcourse__meta tp-course-line pb-20 mb-25">
-                        <ul class="d-flex align-items-center">
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-01.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>35 Classes</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-02.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>291 Students</span>
-                          </li>
-                          <li>
-                            <img
-                              src="{% static 'assets/img/icon/c-meta-03.png' %}"
-                              alt="meta-icon"
-                            />
-                            <span>4.7</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        class="tpcourse__category c-price-list d-flex align-items-center justify-content-between"
-                      >
-                        <h5 class="tpcourse__course-price c-price-pac">
-                          $29.99
-                        </h5>
-                        <ul
-                          class="tpcourse__price-list d-flex align-items-center"
-                        >
-                          <li><a href="course-details.html">Design</a></li>
-                          <li><a href="course-details.html">Development</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {% endfor %}
+        
+      
           </div>
         </div>
       </section>
       <!-- course-area-end -->
 
       <!-- video-area -->
-      <section
+      {% comment %} <section
         class="video-area pt-90 pb-120 wow fadeInUp"
         data-wow-duration=".8s"
         data-wow-delay=".4s"
@@ -799,7 +486,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> {% endcomment %}
       <!-- video-area-end -->
 
       <!-- counter-area -->
