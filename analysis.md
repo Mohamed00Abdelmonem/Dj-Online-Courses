@@ -68,8 +68,9 @@ _______________________________________________________________
 
 models accounts
 
-- Instractors
+- Instractors_profile
  - name 
+ - user (one2one limit_choices_to={'groups__name': 'Teachers'})
  - image
  - sub-descriptions
  - Job Title

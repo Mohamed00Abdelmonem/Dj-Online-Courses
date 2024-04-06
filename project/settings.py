@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'taggit',
 
+    'accounts',
     'settings',
     'courses',
 ]
