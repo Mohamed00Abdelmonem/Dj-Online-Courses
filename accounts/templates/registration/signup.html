@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main>
+  <!-- breadcrumb-area -->
+  <section class="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay"
+    data-background="{% static 'assets/img/breadcrumb/breadcrumb-bg-1.jpg'%}">
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-12">
+          <div class="breadcrumb__content p-relative z-index-1">
+            <h3 class="breadcrumb__title mb-20">Log In</h3>
+            <div class="breadcrumb__list">
+              <span><a href="index.html">Home</a></span>
+              <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
+              <span><a href="about.html">Pages</a></span>
+              <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
+              <span class="sub-page-black">Login</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- breadcrumb-area-end -->
+
+  <!-- login-area-strat -->
+  <section class="login-area pt-100 pb-100 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="basic-login">
+            <h3 class="text-center mb-60">Login From Here</h3>
+
+            <form  method="post">
+              {% csrf_token %}
+              {{form}}
+              <button type='submit'> signup </button> 
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- login-area-strat-end -->
+</main>
+{% endblock body %}
