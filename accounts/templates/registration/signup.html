@@ -36,7 +36,10 @@
             <form  method="post">
               {% csrf_token %}
               {{form}}
-              <button type='submit'> signup </button> 
+              <button class="tp-btn w-100" type="submit">Sign-up Now</button>
+               <br>
+               <br>
+              <a class="tp-btn w-10"href='/accounts/signup'> or Login </a>
             </form>
           </div>
         </div>

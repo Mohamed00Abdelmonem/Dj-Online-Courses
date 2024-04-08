@@ -35,15 +35,10 @@
 
             <form  method="post">
               {% csrf_token %}
-              <label for="name">Username <span>**</span></label>
-              <input id="name" name="username" type="text" placeholder="Enter Username" />
-              <label for="pass">Password <span>**</span></label>
-              <input id="pass" name="password" type="password" placeholder="Enter password..." />
-              <div class="mt-10"></div>
-              <button class="tp-btn w-100" type="submit">Login Now</button>
+              {{form}}
+              <button class="tp-btn w-100" type="submit">Activate</button>
             <br>
             <br>
-              <a class="tp-btn w-10"href='/accounts/signup'> or sign-up </a>
             </form>
           </div>
         </div>
