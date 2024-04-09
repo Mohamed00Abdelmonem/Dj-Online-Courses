@@ -25,8 +25,13 @@ class Course_Detail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         current_course = self.get_object()
+        current_lessons = Lesson.objects.filter(course =current_course )
         related_courses = Course.objects.filter(tags__in=current_course.tags.all()).exclude(id=current_course.id).distinct()
         context["related_courses"] = related_courses
+        context["current_lessons"] = current_lessons
+        context["current_course"] = current_course
+
+
         return context
 
 
