@@ -1,5 +1,5 @@
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Course, Review, Lesson
 from django.views.generic import ListView, DetailView
 
@@ -33,7 +33,26 @@ class Course_Detail(DetailView):
 
 
         return context
+    
 
+def add_review(request, id_course):
+        course = Course.objects.get(id= id_course)
+        rate = request.POST['rate']
+        review = request.POST['review']
+
+        Review.objects.create(
+            course = course,
+            rate = rate,
+            comment = review,
+            user = request.user
+        )
+
+        # new reviews
+        # reviews = Review.objects.filter(product=product)
+        # html = render_to_string('include/reviews_include.html', {'reviews':reviews})
+        # return JsonResponse({'result':html})
+
+        return redirect(f'/courses/{course.id}')
 
 class LessonList(ListView):
     model = Lesson
