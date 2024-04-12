@@ -47,9 +47,9 @@
                     alt="video-bg"
                   />
                   <div class="c-video-icon">
-                  {% if object.veido %}
+                  {% if object.video %}
                     <video controls poster="{% static 'assets/img/course/lesson.png' %}" width="850" height="490">
-                        <source src="{{ object.veido.url }}" type="video/mp4">
+                        <source src="{{ object.video.url }}" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                   {% else %}

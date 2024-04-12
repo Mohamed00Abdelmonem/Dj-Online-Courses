@@ -38,6 +38,17 @@ class Course(models.Model):
 
 # _________________________________________________________________________________________
 
+class Unit(models.Model):
+    title = models.CharField(max_length=40)
+    Course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="unit_course")
+
+    def __str__(self) -> str:
+        return self.title
+# _________________________________________________________________________________________
+
+
+
+
 class Lesson(models.Model):
     title = models.CharField(max_length=40)
     sub_description = models.TextField(max_length=3000, blank=True, null=True)
@@ -45,7 +56,8 @@ class Lesson(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     instructor = models.ForeignKey(User, related_name='instractor_lesson', on_delete=models.CASCADE, limit_choices_to={'groups__name': 'Teachers'})
     course = models.ForeignKey(Course, related_name="lesson_course", on_delete= models.CASCADE)
-    veido = models.FileField(upload_to='lesson_videos/', blank=True, null=True)
+    unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="lesson_unit")
+    video = models.FileField(upload_to='lesson_videos/', blank=True, null=True)
     resources  = models.FileField(upload_to='lesson_resources/', blank=True, null=True)
     assignment = models.BooleanField(default=False)
     slides =  models.FileField(upload_to='lesson_slides/', blank=True, null=True)

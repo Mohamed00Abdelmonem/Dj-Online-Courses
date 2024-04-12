@@ -160,42 +160,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% comment %} _______________________________________________ {% endcomment %}
-          <div class="mb-8">
+
+            <div class="mb-8">
                     <h3 class="mb-5">Curriculum</h3>
 
                     <div id="accordionCurriculum">
-                        <div class="border rounded shadow mb-6 overflow-hidden">
-                            <div class="d-flex align-items-center" id="curriculumheadingOne">
+
+                    {% for unit, lessons in unit_lessons.items %}
+                     <div class="border rounded shadow mb-6 overflow-hidden">
+                            <div class="d-flex align-items-center" id="curriculumheading{{ forloop.counter }}">
                                 <h5 class="mb-0 w-100">
-                                    <button class="d-flex align-items-center p-5 min-height-80 text-dark fw-medium collapse-accordion-toggle line-height-one" type="button" data-bs-toggle="collapse" data-bs-target="#CurriculumcollapseOne" aria-expanded="true" aria-controls="CurriculumcollapseOne">
+                                    <button class="d-flex align-items-center p-5 min-height-80 text-dark fw-medium collapse-accordion-toggle line-height-one" type="button" data-bs-toggle="collapse" data-bs-target="#Curriculumcollapse{{ forloop.counter }}" aria-expanded="true" aria-controls="Curriculumcollapse{{ forloop.counter }}">
                                         <span class="me-4 text-dark d-flex">
                                             <!-- Icon -->
                                             <svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -209,12 +185,12 @@
 
                                         </span>
 
-                                        Introduction
+                                        {{unit}}
                                     </button>
                                 </h5>
                             </div>
 
-                            <div id="CurriculumcollapseOne" class="collapse show" aria-labelledby="curriculumheadingOne" data-parent="#accordionCurriculum">
+                            <div id="Curriculumcollapse{{ forloop.counter }}" class="collapse show" aria-labelledby="curriculumheading{{ forloop.counter }}" data-parent="#accordionCurriculum">
                                 <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
                                     <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
                                         <div class="text-secondary d-flex">
@@ -275,8 +251,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                     {% for lesson  in current_lessons %}
-
+                                  {% for lesson in  lessons %}
 
                                       <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
                                           <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
@@ -289,7 +264,7 @@
                                               </div>
 
                                               <div class="ms-4">
-                                                  {{lesson.title}}
+                                                      {{lesson.title}}
                                               </div>
                                           </div>
 
@@ -304,8 +279,8 @@
                                               </a>
                                           </div>
                                       </div>
+                                  {% endfor %}
 
-                                     {% endfor %}
                                 <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center bg-gray-100">
                                     <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
                                         <div class="text-secondary d-flex">
@@ -368,13 +343,10 @@
                                 </div>
                             </div>
                         </div>
+                    {% endfor %}
+                       
 
                       
-                            
-                        </div>
-                    </div>
-                </div>
-
 
 
 {% comment %} _______________________________________________ {% endcomment %}

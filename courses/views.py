@@ -1,6 +1,6 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-from .models import Course, Review, Lesson
+from .models import Course, Review, Lesson, Unit
 from django.views.generic import ListView, DetailView
 
 
@@ -25,10 +25,20 @@ class Course_Detail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         current_course = self.get_object()
-        current_lessons = Lesson.objects.filter(course =current_course )
+        # current_lessons = Lesson.objects.filter(course =current_course)
+        related_unit = Unit.objects.filter(Course=current_course )
+          # Create a dictionary to store units and their corresponding lessons
+        unit_lessons = {}
+
+        # Iterate over each unit and retrieve its associated lessons
+        for unit in related_unit:
+            unit_lessons[unit] = unit.lesson_unit.all()
+
         related_courses = Course.objects.filter(tags__in=current_course.tags.all()).exclude(id=current_course.id).distinct()
         context["related_courses"] = related_courses
-        context["current_lessons"] = current_lessons
+        context["related_unit"] = related_unit
+        context["unit_lessons"] = unit_lessons
+        # context["current_lessons"] = current_lessons
         context["current_course"] = current_course
 
 
