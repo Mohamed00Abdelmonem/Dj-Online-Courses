@@ -441,13 +441,17 @@
                   {% for review in object.reviews.all %}
                       <div class="course-reviewer-item d-flex mb-25">
                       <div class="course-review-ava">
-                        <img
-                          src="{% static 'assets/img/icon/c-details-avata-01.png' %}"
-                          alt="details-avata"
-                        />
+                      {% if review.user.profile_user.image %}
+                          <img src="{{ review.user.profile_user.image.url }}" alt="User Profile Image">
+                      {% else %}
+                          <!-- Handle the case where user profile image is not available -->
+                          <img src="{% static 'assets/img/icon/c-details-avata-01.png' %}" alt="details-avata">
+                      {% endif %}
+
+
                       </div>
                       <div class="course-review-content p-relative">
-                        <h5 class="course-ava-title mb-15">{{review.user}}</h5>
+                        <h5 class="course-ava-title mb-15">{{review.user.profile_user.name}}</h5>
                         <div
                           class="tpcourse__rating-icon d-flex align-items-center mb-10"
                         >
