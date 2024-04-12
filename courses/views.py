@@ -2,6 +2,7 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from .models import Course, Review, Lesson, Unit
 from django.views.generic import ListView, DetailView
+from django.urls import reverse
 
 
 class Course_Grid(ListView):
@@ -21,6 +22,8 @@ class Course_List(ListView):
 class Course_Detail(DetailView):
     model = Course
     template_name = 'course-details.html'
+    # slug_url_kwarg = 'slug'  # specify the slug URL keyword
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -45,24 +48,29 @@ class Course_Detail(DetailView):
         return context
     
 
-def add_review(request, id_course):
-        course = Course.objects.get(id= id_course)
+
+def add_review(request, slug):
+        course = Course.objects.get(slug=slug)
         rate = request.POST['rate']
         review = request.POST['review']
-
+        
         Review.objects.create(
-            course = course,
-            rate = rate,
-            comment = review,
-            user = request.user
+            course=course,
+            rate=rate,
+            comment=review,
+            user=request.user
         )
 
-        # new reviews
-        # reviews = Review.objects.filter(product=product)
-        # html = render_to_string('include/reviews_include.html', {'reviews':reviews})
-        # return JsonResponse({'result':html})
+        return redirect(f'/courses/{course.slug}')
 
-        return redirect(f'/courses/{course.id}')
+
+
+
+
+
+
+
+
 
 class LessonList(ListView):
     model = Lesson
@@ -78,6 +86,10 @@ class LessonList(ListView):
 
 
 
+
+
+
 class Lesson_Detail(DetailView):
     model = Lesson
     template_name = 'lesson-details.html' 
+

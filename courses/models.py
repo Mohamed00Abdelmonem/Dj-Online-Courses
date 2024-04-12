@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.aggregates import Avg
 from taggit.managers import TaggableManager
 from django.utils import timezone
+from django.utils.text import slugify
 
 
 # _________________________________________________________________________________________
@@ -25,6 +26,8 @@ class Course(models.Model):
     certificate = models.BooleanField(default=False)
     description = models.TextField(blank=True, null=True)
     tags = TaggableManager()
+    slug = models.SlugField(unique=True, max_length=150, null=True, blank=True)
+
 
     def avg_rate(self):
         avg = self.reviews.aggregate(rate_avg=Avg('rate'))
@@ -33,6 +36,13 @@ class Course(models.Model):
             return result
         return avg['rate_avg']
     
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+
     def __str__(self) -> str:
         return self.title
 
@@ -41,7 +51,17 @@ class Course(models.Model):
 class Unit(models.Model):
     title = models.CharField(max_length=40)
     Course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="unit_course")
+    slug = models.SlugField(unique=True, max_length=150,null=True , blank=True)
 
+    
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+
+    
     def __str__(self) -> str:
         return self.title
 # _________________________________________________________________________________________
@@ -61,8 +81,17 @@ class Lesson(models.Model):
     resources  = models.FileField(upload_to='lesson_resources/', blank=True, null=True)
     assignment = models.BooleanField(default=False)
     slides =  models.FileField(upload_to='lesson_slides/', blank=True, null=True)
+    slug = models.SlugField(unique=True, max_length=150, null=True, blank=True)
 
 
+     
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    
 
     def __str__(self) -> str:
         return f"{self.title} for course {self.course}"
