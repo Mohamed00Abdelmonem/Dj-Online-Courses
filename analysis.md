@@ -1,13 +1,13 @@
 
 
-features in this project online courses
+Features in this project online courses
 
 - list , detail cousers   ====> True
 - list , detail lessons   ====> True
 - reviews in courses      ====> True
 - quize for lessons       ====> Inprogress
-- upload document pdf 
-- make auth 
+- upload document pdf  
+- make auth ===> Inprogress
 - using celery, caching , docker 
 - dummy_data , add debug toblar
 - apply coupon 
@@ -18,20 +18,6 @@ features in this project online courses
 - send emails for all students 
 - add new theme in admin_banal using django 
 - make Apis for this project ......
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

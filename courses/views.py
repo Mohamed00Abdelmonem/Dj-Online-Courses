@@ -93,3 +93,44 @@ class Lesson_Detail(DetailView):
     model = Lesson
     template_name = 'lesson-details.html' 
 
+
+
+
+
+
+
+
+
+
+
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from .models import Lesson
+
+def pdf_view_resources(request, slug):
+    lesson = get_object_or_404(Lesson, slug=slug)
+
+    # Check if any file is associated with the lesson
+    if lesson.resources:
+        # Proceed with serving the file
+        response = HttpResponse(lesson.resources.read(), content_type='application/pdf')
+        response['Content-Disposition'] = f'inline; filename="{lesson.resources.name}"'
+        return response
+    else:
+        # Handle case where file is missing
+        return HttpResponse("This lesson does not have a PDF file associated with it.")
+
+
+
+def pdf_view_slides(request, slug):
+    lesson = get_object_or_404(Lesson, slug=slug)
+
+    # Check if any file is associated with the lesson
+    if lesson.slides:
+        # Proceed with serving the file
+        response = HttpResponse(lesson.slides.read(), content_type='application/pdf')
+        response['Content-Disposition'] = f'inline; filename="{lesson.slides.name}"'
+        return response
+    else:
+        # Handle case where file is missing
+        return HttpResponse("This lesson slides does not have a PDF file associated with it.")
