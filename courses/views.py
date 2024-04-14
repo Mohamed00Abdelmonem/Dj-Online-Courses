@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from .models import Course, Review, Lesson, Unit
 from django.views.generic import ListView, DetailView
 from django.urls import reverse
-
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 
 class Course_Grid(ListView):
     model = Course
@@ -97,16 +98,6 @@ class Lesson_Detail(DetailView):
 
 
 
-
-
-
-
-
-
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
-from .models import Lesson
-
 def pdf_view_resources(request, slug):
     lesson = get_object_or_404(Lesson, slug=slug)
 
@@ -119,6 +110,10 @@ def pdf_view_resources(request, slug):
     else:
         # Handle case where file is missing
         return HttpResponse("This lesson does not have a PDF file associated with it.")
+
+
+
+
 
 
 

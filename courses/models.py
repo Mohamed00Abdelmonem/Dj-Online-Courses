@@ -10,7 +10,7 @@ from django.utils.text import slugify
 
 class Course(models.Model):
     image = models.ImageField(upload_to='course_images/')
-    instructor = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'groups__name': 'Teachers'})
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='course_user')
     title = models.CharField(max_length=255)
     rate = models.IntegerField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -74,7 +74,7 @@ class Lesson(models.Model):
     sub_description = models.TextField(max_length=3000, blank=True, null=True)
     duration = models.DurationField(default=0)
     created_at = models.DateTimeField(default=timezone.now)
-    instructor = models.ForeignKey(User, related_name='instractor_lesson', on_delete=models.CASCADE, limit_choices_to={'groups__name': 'Teachers'})
+    instructor = models.ForeignKey(User, related_name='instractor_lesson', on_delete=models.CASCADE)
     course = models.ForeignKey(Course, related_name="lesson_course", on_delete= models.CASCADE)
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="lesson_unit")
     video = models.FileField(upload_to='lesson_videos/', blank=True, null=True)
