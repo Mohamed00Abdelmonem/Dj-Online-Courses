@@ -379,14 +379,14 @@
                         class="tpcourse__rating d-flex align-items-center justify-content-between"
                       >
                         <div class="tpcourse__rating-icon">
-                          <span>{{course.avg_rate}}</span>
+                            <span>{{ course.avg_rate|floatformat:"2"|truncatechars:"6" }}</span>
                             <i class="fi {% if course.avg_rate > 0 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if course.avg_rate > 1 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if course.avg_rate > 2 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if course.avg_rate > 3 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if course.avg_rate > 4 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                           
-                         <p>({{course.reviews.count}})</p>
+                         <p>({{course.reviews.count|slice:"2"}})</p>
                         </div>
                         <div class="tpcourse__pricing">
                           <h5 class="price-title">${{course.price}}</h5>

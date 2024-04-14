@@ -121,7 +121,7 @@
                     <ul class="d-flex align-items-center">
                       <li>
                         <div class="rating-gold d-flex align-items-center">
-                         <p>{{course.avg_rate}}</p>
+                         <p>{{course.avg_rate|floatformat:'2'}}</p>
                             <i class="fi {% if course.avg_rate > 0 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if course.avg_rate > 1 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if course.avg_rate > 2 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
@@ -696,7 +696,7 @@
                     class="tpcourse__rating d-flex align-items-center justify-content-between"
                   >
                     <div class="tpcourse__rating-icon">
-                      <span>{{related_course.avg_rate}}</span>
+                      <span>{{related_course.avg_rate|floatformat:'2'}}</span>
                             <i class="fi {% if related_course.avg_rate > 0 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if related_course.avg_rate > 1 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if related_course.avg_rate > 2 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>

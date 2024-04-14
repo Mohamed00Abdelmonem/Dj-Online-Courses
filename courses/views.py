@@ -31,7 +31,7 @@ class Course_Detail(DetailView):
         context = super().get_context_data(**kwargs)
         current_course = self.get_object()
         # current_lessons = Lesson.objects.filter(course =current_course)
-        related_unit = Unit.objects.filter(Course=current_course )
+        related_unit = Unit.objects.filter(course=current_course )
           # Create a dictionary to store units and their corresponding lessons
         unit_lessons = {}
 

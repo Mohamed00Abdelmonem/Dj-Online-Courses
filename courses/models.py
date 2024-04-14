@@ -50,7 +50,7 @@ class Course(models.Model):
 
 class Unit(models.Model):
     title = models.CharField(max_length=40)
-    Course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="unit_course")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="unit_course")
     slug = models.SlugField(unique=True, max_length=150,null=True , blank=True)
 
     
