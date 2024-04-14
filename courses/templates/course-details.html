@@ -546,9 +546,14 @@
                     alt="video-bg"
                   />
                   <div class="c-video-icon">
-                  <video class="popup-video" controls poster="{% static 'assets/img/bg/c-details-video-bg.jpg' %} width="400" height="200">
-                      <source src="{{ object.introduction_video.url }}" type="video/mp4">
-                      Your browser does not support the video tag.
+                  <video class="popup-video" controls>
+                      {% if object.introduction_video %}
+                          <source src="{{ object.introduction_video.url }}" type="video/mp4">
+                             Your browser does not support the video tag.
+                      {% else %}
+                       no video
+                      {% endif %}
+                  
                   </video>
 
                   </div>
@@ -633,7 +638,7 @@
                 <div class="tpcourse__thumb p-relative w-img fix">
                   <a href="course-details.html"
                     ><img
-                      src="{% static 'assets/img/course/course-thumb-01.jpg' %}"
+                      src="{{related_course.image.url}}"
                       alt="course-thumb"
                   /></a>
                   <div class="tpcourse__tag">
@@ -692,7 +697,7 @@
                   >
                     <div class="tpcourse__rating-icon">
                       <span>{{related_course.avg_rate}}</span>
-                            <i class="fi {% if related_course.avg_rate > 0 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></>
+                            <i class="fi {% if related_course.avg_rate > 0 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if related_course.avg_rate > 1 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if related_course.avg_rate > 2 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
                             <i class="fi {% if related_course.avg_rate > 3 %}fi-ss-star {% else %}fi-rs-star {% endif %} "></i>
@@ -714,6 +719,9 @@
         </div>
       </section>
       <!-- course-area-end -->
+
+
+
 
       <!-- counter-area -->
       <section

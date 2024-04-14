@@ -8,14 +8,17 @@ import random
 from courses.models import Course, Lesson, Unit, Review
 from django.contrib.auth.models import User
 from datetime import timedelta
+from taggit.models import Tag
 
 def seed_courses(n):
     fake = Faker('en_US')
     skill_level = ['Beginner', 'Intermediate', 'Advanced']
     language = ['Arabic', 'English', 'French']
+    tags = ['python', 'html', 'programming', 'code', 'c', 'hello_world', 'beginner', 'basics']
     users = User.objects.all()
 
-    images = ['1.png', '2.png', '3.png', '4.png']
+    images = ['1 (1).png', '1 (10).png', '1 (11).png', '1 (12).png', '1 (2).png', '1 (3).png', '1 (4).png', '1 (5).png', '1 (6).png', '1 (7).png', '1 (8).png', '1 (9).png', '1 (1).jpg', '1 (2).jpg', '1 (3).jpg', '1 (1).jpeg', '1 (10).jpeg', '1 (11).jpeg', '1 (12).jpeg', '1 (13).jpeg', '1 (14).jpeg', '1 (15).jpeg', '1 (2).jpeg', '1 (3).jpeg', '1 (4).jpeg', '1 (5).jpeg', '1 (6).jpeg', '1 (7).jpeg', '1 (8).jpeg', '1 (9).jpeg']
+    
     for _ in range(n):
         # Generate a random duration using timedelta
         duration_days = random.randint(1, 10)
@@ -24,20 +27,39 @@ def seed_courses(n):
         # Choose a random user's ID
         random_user_id = fake.random_element(users).id
 
-        Course.objects.create(
+        # Choose random tags for the course
+        num_tags = random.randint(1, 3)  # Choose between 1 to 3 tags per course
+        chosen_tags = random.sample(tags, num_tags)
+
+        course = Course.objects.create(
             title=fake.name(),
             user_id=random_user_id,
-            image=f'course_images/{images[random.randint(0, 4)]}',
+            image=f'course_images/{images[random.randint(0, 29)]}',
             price=round(random.uniform(20.99, 99.99), 2),
-            skill_level=skill_level[random.randint(0, 2)], 
+            skill_level=random.choice(skill_level), 
             duration=duration,
             rate=random.randint(0, 4),
-            language=language[random.randint(0, 2)],
+            language=random.choice(language),
             description=fake.text(max_nb_chars=1000),
         )
 
+        # Assign the chosen tags to the course
+        course.tags.add(*chosen_tags)
 
     print(f"Seeded {n} Courses Successfully")
+
+
+def seed_unit(n):
+    fake = Faker()
+    for _ in range(n):
+        Unit.objects.create(
+            title=fake.name(),
+            Course =  Course.objects.get(id=random.randint(1,50)),
+
+                            )
+    print(f"Seeded {n} Unit Successfully")
+
+
 
 
 # def seed_product(n):
@@ -98,11 +120,12 @@ def create_users(n):
         User.objects.create_user(
             username=fake.user_name(),
             password=fake.password()
-        )
-        print(f"Seed {n} Reviews Successfully")
+    )
+    print(f"Seed {n} Reviews Successfully")
     
 
-seed_courses(3)
+seed_courses(50)
+# seed_unit(100)
 # seed_product(100)
 # seed_product_images(100)
 # seed_reviews(100)

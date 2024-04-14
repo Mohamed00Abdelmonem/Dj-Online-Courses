@@ -18,6 +18,7 @@ class Course_List(ListView):
     model = Course
     template_name = 'course-list.html'
     context_object_name = 'courses'
+    ordering = ['-id']
 
 
 class Course_Detail(DetailView):
