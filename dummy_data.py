@@ -264,8 +264,8 @@ def seed_reviews(n):
 
     print(f"Seeded {n} Reviews Successfully")
 
-seed_courses(100)
+# seed_courses(100)
 # seed_units(100)
-# seed_lessons(10)
-# seed_reviews(60)
+# seed_lessons(100)
+# seed_reviews(200)
 # create_users(5)
