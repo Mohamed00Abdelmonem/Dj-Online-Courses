@@ -239,7 +239,6 @@ def seed_lessons(n):
 
 
 
-import random
 
 def seed_reviews(n):
     fake = Faker()
@@ -258,7 +257,7 @@ def seed_reviews(n):
     print(f"Seeded {n} Reviews Successfully")
 
 # seed_courses(100)
-seed_units(100)
-# seed_lessons(10)
+# seed_units(100)
+seed_lessons(100)
 # seed_reviews(60)
 # create_users(5)
