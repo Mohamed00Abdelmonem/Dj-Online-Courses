@@ -6,11 +6,18 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
+
+
+
+# ____________________________________________________________________________
+
 class Course_Grid(ListView):
     model = Course
     template_name = 'course-grid.html'
     context_object_name = 'courses'
+    paginate_by = 15     
 
+# ____________________________________________________________________________
 
 
 
@@ -19,7 +26,9 @@ class Course_List(ListView):
     template_name = 'course-list.html'
     context_object_name = 'courses'
     ordering = ['-id']
+    paginate_by = 15
 
+# ____________________________________________________________________________
 
 class Course_Detail(DetailView):
     model = Course
@@ -49,7 +58,7 @@ class Course_Detail(DetailView):
 
         return context
     
-
+# ____________________________________________________________________________
 
 def add_review(request, slug):
         course = Course.objects.get(slug=slug)
@@ -66,6 +75,7 @@ def add_review(request, slug):
         return redirect(f'/courses/{course.slug}')
 
 
+# ____________________________________________________________________________
 
 
 
@@ -87,6 +97,7 @@ class LessonList(ListView):
 
 
 
+# ____________________________________________________________________________
 
 
 
@@ -95,6 +106,7 @@ class Lesson_Detail(DetailView):
     model = Lesson
     template_name = 'lesson-details.html' 
 
+# ____________________________________________________________________________
 
 
 
@@ -113,6 +125,7 @@ def pdf_view_resources(request, slug):
         return HttpResponse("This lesson does not have a PDF file associated with it.")
 
 
+# ____________________________________________________________________________
 
 
 
@@ -130,3 +143,6 @@ def pdf_view_slides(request, slug):
     else:
         # Handle case where file is missing
         return HttpResponse("This lesson slides does not have a PDF file associated with it.")
+    
+
+# ____________________________________________________________________________
