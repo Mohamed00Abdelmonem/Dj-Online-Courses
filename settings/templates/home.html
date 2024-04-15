@@ -928,96 +928,50 @@
             </div>
           </div>
           <div class="testimonial--active tp-slide-space">
+          {% for review in reviews %}
             <div class="tp-test-s-item">
               <div class="tp-testi">
                 <div class="tp-testi__ava d-flex align-items-center mb-15">
-                  <img
-                    src="{% static 'assets/img/icon/test-avata--1.png' %}"
-                    alt="testi-avatar"
-                  />
+                  {% if review.user.profile.image.url %}
+                        <img src="{{ review.user.profile_user.image.url }}" alt="testimonial">
+                  {% else %}
+                      <!-- Use a default image path if the user profile image is not available -->
+                      <img src="{% static 'assets/img/icon/test-avata--1.png' %}" alt="not photo">
+                  {% endif %}
                   <div class="tp-testi__avainfo ml-20">
                     <h3 class="tp-testi__title mt-5">
-                      <a href="#">Wade Warren</a>
+                    {% if review.user.profile.name %}
+                      <a href="#">{{review.user.profile_user.name}}</a>
+                    {% else %}
+                      <a href="#">{{review.user.username}}</a>
+                    {% endif %}
+
+                    
                     </h3>
-                    <i>UX/UI Designer</i>
+                    {% if review.user.profile.job_title %}
+                          <i>{{review.user.profile_user.job_title}}</i>
+                    {% else %}
+                          <i>Backend Developer</i>
+                    {% endif %}
                   </div>
                 </div>
                 <p>
-                  Phosfluorescently aggregate bleeding-edge channels rather than
-                  global mindshare. Monotonectally enable enterprise wide
-                  strategic theme areas for worldwide initiatives.
+                  {{review.comment}}
                 </p>
                 <div class="tp-testi__rating mb-5">
                   <ul class="d-flex align-items-center">
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-rs-star"></i></li>
+
+                    <li><i class="fi fi-{% if review.rate >= 1 %}ss-star{% else %}rs-star{% endif %}"></i></li>
+                    <li><i class="fi fi-{% if review.rate >= 2 %}ss-star{% else %}rs-star{% endif %}"></i></li>
+                    <li><i class="fi fi-{% if review.rate >= 3 %}ss-star{% else %}rs-star{% endif %}"></i></li>
+                    <li><i class="fi fi-{% if review.rate >= 4 %}ss-star{% else %}rs-star{% endif %}"></i></li>
+                    <li><i class="fi fi-{% if review.rate >= 5 %}ss-star{% else %}rs-star{% endif %}"></i></li>
+
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="tp-test-s-item">
-              <div class="tp-testi">
-                <div class="tp-testi__ava d-flex align-items-center mb-15">
-                  <img
-                    src="{% static 'assets/img/icon/test-avata--2.png' %}"
-                    alt="testi-avatar"
-                  />
-                  <div class="tp-testi__avainfo ml-20">
-                    <h3 class="tp-testi__title mt-5">
-                      <a href="#">Guy Hawkins</a>
-                    </h3>
-                    <i>Software Engineer</i>
-                  </div>
-                </div>
-                <p>
-                  Phosfluorescently aggregate bleeding-edge channels rather than
-                  global mindshare. Monotonectally enable enterprise wide
-                  strategic theme areas for worldwide initiatives.
-                </p>
-                <div class="tp-testi__rating mb-5">
-                  <ul class="d-flex align-items-center">
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-rs-star"></i></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="tp-test-s-item">
-              <div class="tp-testi">
-                <div class="tp-testi__ava d-flex align-items-center mb-15">
-                  <img
-                    src="{% static 'assets/img/icon/test-avata--1.png' %}"
-                    alt="testi-avatar"
-                  />
-                  <div class="tp-testi__avainfo ml-20">
-                    <h3 class="tp-testi__title mt-5">
-                      <a href="#">Courtney Henry</a>
-                    </h3>
-                    <i>Sr. UX/UI Designer</i>
-                  </div>
-                </div>
-                <p>
-                  Phosfluorescently aggregate bleeding-edge channels rather than
-                  global mindshare. Monotonectally enable enterprise wide
-                  strategic theme areas for worldwide initiatives.
-                </p>
-                <div class="tp-testi__rating mb-5">
-                  <ul class="d-flex align-items-center">
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-ss-star"></i></li>
-                    <li><i class="fi fi-rs-star"></i></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+         {% endfor %}
           </div>
         </div>
       </section>
