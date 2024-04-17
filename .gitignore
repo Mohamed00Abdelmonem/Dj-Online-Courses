@@ -8,7 +8,7 @@ __pycache__/
 local_settings.py
 .env
 db.sqlite3
-.dummy_data.py   # Add this line to ignore dummy_data.py
+.py   # Add this line to ignore dummy_data.py
 
 
 # macOS
