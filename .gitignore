@@ -85,8 +85,5 @@ local_settings.py
 .env
 db.sqlite3
 
-# Custom Folders
-# Ignore user-uploaded media files
 media_root/
-# Ignore static media assets
-media/
+media
