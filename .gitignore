@@ -88,8 +88,5 @@ local_settings.py
 .env
 db.sqlite3
 
-
 media/
 media_root/
-
-
