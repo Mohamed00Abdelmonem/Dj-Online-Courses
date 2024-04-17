@@ -89,6 +89,6 @@ local_settings.py
 db.sqlite3
 
 
+src/media/
 
-src/media
 
