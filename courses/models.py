@@ -97,9 +97,43 @@ class Lesson(models.Model):
         return f"{self.title} for course {self.course}"
 
 
+# _________________________________________________________________________________________
+
+class Quiz(models.Model):
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='quiz_lesson')
+    title = models.CharField(max_length=200)
+    duration = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    slug = models.SlugField(unique=True, max_length=150, null=True, blank=True)
+
+    def __str__(self) -> str:
+        return f"Quiz for lesson {self.lesson}"
+    
+     
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+
+class Question(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='questions')
+    text = models.CharField(max_length=500)
+
+    def __str__(self) -> str:
+        return self.text
 
 
 
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='choices')
+    text = models.CharField(max_length=200)
+    is_correct = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return self.text
 # _________________________________________________________________________________________
 
 

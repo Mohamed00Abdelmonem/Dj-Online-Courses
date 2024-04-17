@@ -1,6 +1,6 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-from .models import Course, Review, Lesson, Unit
+from .models import Course, Review, Lesson, Unit, Quiz, Question, Choice
 from django.views.generic import ListView, DetailView
 from django.urls import reverse
 from django.http import HttpResponse
@@ -132,8 +132,6 @@ def pdf_view_resources(request, slug):
 
 
 
-
-
 def pdf_view_slides(request, slug):
     lesson = get_object_or_404(Lesson, slug=slug)
 
@@ -147,5 +145,14 @@ def pdf_view_slides(request, slug):
         # Handle case where file is missing
         return HttpResponse("This lesson slides does not have a PDF file associated with it.")
     
+
+# ____________________________________________________________________________
+
+
+def quiz(request, slug):
+    quiz = get_object_or_404(Quiz, slug=slug)
+
+    return render(request, 'quiz.html', context={'quiz':quiz})
+
 
 # ____________________________________________________________________________
