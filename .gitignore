@@ -87,13 +87,8 @@ local_settings.py
 
 .env
 db.sqlite3
-media/
-# folder 
-media/*
-src/media/*
-project/media/*
-src/media/*
-project/media/*
-./media/*
-/media/*
-media/*
+
+
+
+src/media
+
