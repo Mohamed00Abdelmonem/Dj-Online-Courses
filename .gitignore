@@ -91,4 +91,5 @@ media/
 # folder 
 media/*
 src/media/*
+project/media/*
 
