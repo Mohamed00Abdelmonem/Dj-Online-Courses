@@ -88,5 +88,8 @@ local_settings.py
 .env
 db.sqlite3
 
-# folder 
-**/media/
+
+
+# Custom Folders
+media_root/
+media/

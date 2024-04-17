@@ -15,7 +15,9 @@ class Course_Grid(ListView):
     model = Course
     template_name = 'course-grid.html'
     context_object_name = 'courses'
-    paginate_by = 15     
+    paginate_by = 15  
+    ordering = ['-id']
+   
 
 # ____________________________________________________________________________
 
@@ -33,6 +35,7 @@ class Course_List(ListView):
 class Course_Detail(DetailView):
     model = Course
     template_name = 'course-details.html'
+    
     # slug_url_kwarg = 'slug'  # specify the slug URL keyword
 
 

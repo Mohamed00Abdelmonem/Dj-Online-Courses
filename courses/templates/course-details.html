@@ -409,15 +409,23 @@
                     class="course-instructor-details d-flex f-wrap align-items-center"
                   >
                     <div class="course-avata mr-30 mb-20">
-                      <img
+                    {% if object.user.profile_user.image %}
+                     <img
+                        src="{{object.user.profile_user.image.url}}"
+                        alt="avata-thumb"
+                      />
+                    {% else %}
+                     <img
                         src="{% static 'assets/img/course/c-details-ava-thumb-01.jpg' %}"
                         alt="avata-thumb"
                       />
+                    {% endif %}
+                     
                     </div>
                     <div class="course-avatar-details mb-20">
-                      <h5 class="c-avata-title mb-10">{{object.instructor}}</h5>
+                      <h5 class="c-avata-title mb-10">  {{object.user.profile_user.name}}</h5>
                       <p>
-                        Award Winning Chemical & User Interface Design Training
+                        {{object.user.profile_user.job_title}} & User Interface Design Training
                       </p>
                       <div class="c-details-list mb-5">
                         <ul class="d-flex align-items-center">
@@ -455,11 +463,7 @@
                     </div>
                   </div>
                   <p>
-                    Synergistically foster 24/7 leadership rather than scalable
-                    platforms. Conveniently visualize installed base products
-                    before interactive results. Collaboratively restore
-                    corporate experiences and open-source applications.
-                    Proactively mesh cooperative growth strategies.
+                    {{object.user.profile_user.sub_descriptions}}.
                   </p>
                 </div>
                 <div class="c-details-review pb-15">
@@ -480,7 +484,7 @@
 
                       </div>
                       <div class="course-review-content p-relative">
-                        <h5 class="course-ava-title mb-15">{{review.user.profile_user.name}}</h5>
+                        <h5 class="course-ava-title mb-15">{{review.user}}</h5>
                         <div
                           class="tpcourse__rating-icon d-flex align-items-center mb-10"
                         >

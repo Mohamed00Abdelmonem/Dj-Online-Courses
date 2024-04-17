@@ -6,8 +6,8 @@ Features in this project online courses
 - list , detail lessons   ====> True
 - reviews in courses      ====> True
 - quize for lessons       ====> Inprogress
-- upload document pdf  
-- make auth ===> Inprogress
+- upload document pdf  ===> True
+- make auth ===> Inprogress 
 - using celery, caching , docker 
 - dummy_data , add debug toblar
 - apply coupon 
