@@ -89,5 +89,5 @@ local_settings.py
 db.sqlite3
 
 # folder 
-src/media/*
-project/media_root/*
+SRC/media/*
+src/media_root/*
