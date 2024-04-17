@@ -92,4 +92,8 @@ media/
 media/*
 src/media/*
 project/media/*
-
+src/media/*
+project/media/*
+./media/*
+/media/*
+media/*
