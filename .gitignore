@@ -82,7 +82,8 @@ target/
 *.log
 *.pot
 *.pyc
-*.media
+*.media/
+.media_root/
 __pycache__/
 local_settings.py
 
