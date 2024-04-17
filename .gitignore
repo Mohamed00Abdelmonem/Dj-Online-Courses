@@ -91,3 +91,4 @@ db.sqlite3
 # folder 
 project/media/*
 project/media_root/
+project/static
