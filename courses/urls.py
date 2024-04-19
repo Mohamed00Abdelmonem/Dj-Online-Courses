@@ -7,7 +7,7 @@ urlpatterns = [
 
     path('', views.Course_Grid.as_view()),
     path('list', views.Course_List.as_view()),
-    path('quiz/<slug:slug>', views.quiz, name='quiz'),
+    path('course/<slug:course_slug>/quiz/<slug:slug>/', views.quiz, name='quiz'),
     path('<slug:slug>', views.Course_Detail.as_view()),
     path('<slug:slug>/add-review', views.add_review, name='add_review'),
     path('course/<slug:slug>/lessons/', views.LessonList.as_view()),

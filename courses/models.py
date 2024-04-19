@@ -100,7 +100,7 @@ class Lesson(models.Model):
 # _________________________________________________________________________________________
 
 class Quiz(models.Model):
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='quiz_lesson')
+    unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name='quiz_unit')
     title = models.CharField(max_length=200)
     duration = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -108,7 +108,7 @@ class Quiz(models.Model):
     slug = models.SlugField(unique=True, max_length=150, null=True, blank=True)
 
     def __str__(self) -> str:
-        return f"Quiz for lesson {self.lesson}"
+        return f"Quiz for lesson {self.unit}"
     
      
 

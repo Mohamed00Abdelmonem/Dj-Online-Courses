@@ -82,11 +82,6 @@ def add_review(request, slug):
 
 
 
-
-
-
-
-
 class LessonList(ListView):
     model = Lesson
     template_name = 'lesson-list.html'
@@ -149,7 +144,7 @@ def pdf_view_slides(request, slug):
 # ____________________________________________________________________________
 
 
-def quiz(request, slug):
+def quiz(request, slug, course_slug):
     quiz = get_object_or_404(Quiz, slug=slug)
 
     return render(request, 'quiz.html', context={'quiz':quiz})
