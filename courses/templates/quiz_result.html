@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-gyZRU3a/1v9A5LW4pzbw8wgp8wd5l8SFT8yivJpdazZyB/V8wSxSuwvKp6F8Rn0hG3WCCviAgtydXxEOaYRmPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* Quiz result page styling */
+
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #fdfds; /* Updated heading color */
+  margin-top: 50px; /* Updated margin top */
+  margin-bottom: 10px; /* Added margin bottom */
+  text-align: center;
+}
+
+p {
+  font-size: 24px;
+  color: #28a745; /* Updated paragraph color */
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 100px; /* Added margin bottom */
+
+
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+
+</style>
+<div class="container mt-3 d-flex flex-column align-items-center">
+    <i class="fas fa-check-circle fa-5x text-success"></i> <!-- Icon done -->
+    <h1>Quiz Result</h1>
+    <p>Your score: {{ score_percentage }}%</p>
+</div>
+{% endblock %}

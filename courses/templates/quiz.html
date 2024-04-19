@@ -2,28 +2,132 @@
 {% load static %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1 class="mb-4">{{ quiz.title }}</h1>
-    <p>{{ quiz.instructions }}</p>
 
-    <!-- Loop through quiz questions -->
-    {% for question in quiz.questions.all %}
-    <div class="card mt-4">
-        <div class="card-body">
-            <h5 class="card-title">{{ question.text }}</h5>
-            <div class="form-check">
-                <!-- Loop through question choices -->
-                {% for choice in question.choices.all %}
-                            
-                <input class="form-check-input" type="radio" name="question{{ question.id }}" id="choice{{ choice.id }}" value="{{ choice.id }}">
-                <label class="form-check-label" for="choice{{ choice.id }}">{{ choice.text }}</label><br>
-                {% endfor %}
+<style>
+
+    /* Quiz area styling */
+    .quiz-area {
+    background-color: #f0f0f0; /* Updated background color */
+    font-family: 'Brush Script MT', cursive;
+
+    }
+
+    .quiz {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    font-family: Georgia, serif;
+
+    }
+
+    .quiz h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 30px;
+    font-family: Georgia, serif;
+
+    }
+
+    .quiz .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .quiz .card-body {
+    padding: 20px;
+    }
+
+    .quiz .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 15px;
+    font-family: Georgia, serif;
+
+    }
+
+    .quiz .form-check {
+    margin-bottom: 15px;
+    }
+
+    .quiz .form-check-input {
+    margin-right: 10px;
+    }
+
+    .quiz .btn-primary {
+    background-color: #ff6600; /* Updated button color */
+    border-color: #ff6600; /* Updated button border color */
+    }
+
+    .quiz .btn-primary:hover {
+    background-color: #e65c00; /* Updated button hover color */
+    border-color: #e65c00; /* Updated button hover border color */
+    }
+
+
+</style>
+
+
+
+
+<main>
+  <!-- Breadcrumb area -->
+  <section class="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay"
+    data-background="{% static 'assets/img/breadcrumb/breadcrumb-bg-1.jpg'%}">
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-12">
+          <div class="breadcrumb__content p-relative z-index-1">
+            <h3 class="breadcrumb__title mb-20">Quiz</h3>
+            <div class="breadcrumb__list">
+              <span><a href="/">Home</a></span>
+              <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
+              <span class="sub-page-black">Quiz</span>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    {% endfor %}
+  </section>
+  <!-- Breadcrumb area end -->
 
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-primary mt-4">Submit</button>
-</div>
-{% endblock %}
+  <!-- Quiz area -->
+  <section class="quiz-area pt-100 pb-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="quiz">
+            <h3 class="text-center mb-60">{{ quiz.title }}</h3>
+
+            <form method="post">
+              {% csrf_token %}
+              <!-- Loop through quiz questions -->
+              {% for question in quiz.questions.all %}
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title">{{ question.text }}</h5>
+                  <!-- Loop through question choices -->
+                  {% for choice in question.choices.all %}
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question{{ question.id }}" id="choice{{ choice.id }}" value="{{ choice.id }}">
+                    <label class="form-check-label" for="choice{{ choice.id }}">{{ choice.text }}</label>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-outline-warning w-100">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Quiz area end -->
+</main>
+{% endblock body %}

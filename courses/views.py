@@ -146,8 +146,24 @@ def pdf_view_slides(request, slug):
 
 def quiz(request, slug, course_slug):
     quiz = get_object_or_404(Quiz, slug=slug)
-
-    return render(request, 'quiz.html', context={'quiz':quiz})
-
+    
+    if request.method == 'POST':
+        score = 0
+        # Loop through submitted answers
+        for question in quiz.questions.all():
+            submitted_choice_id = request.POST.get('question{}'.format(question.id))
+            # Check if the submitted choice is correct
+            if submitted_choice_id:
+                submitted_choice = Choice.objects.get(id=submitted_choice_id)
+                if submitted_choice.is_correct:  # Use is_correct instead of correct
+                    score += 1
+        
+        # Calculate score percentage
+        total_questions = quiz.questions.count()
+        score_percentage = (score / total_questions) * 100
+        
+        return render(request, 'quiz_result.html', {'score_percentage': score_percentage})
+    
+    return render(request, 'quiz.html', {'quiz': quiz})
 
 # ____________________________________________________________________________
