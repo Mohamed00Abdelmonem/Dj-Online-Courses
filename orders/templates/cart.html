@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+    <main>
+      <!-- breadcrumb-area -->
+      <section
+        class="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay"
+        data-background="{% static 'assets/img/breadcrumb/breadcrumb-bg-1.jpg' %}"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-12">
+              <div class="breadcrumb__content p-relative z-index-1">
+                <h3 class="breadcrumb__title mb-20">Shopping Cart</h3>
+                <div class="breadcrumb__list">
+                  <span><a href="index.html">Home</a></span>
+                  <span class="dvdr"
+                    ><i class="fa-regular fa-angle-right"></i
+                  ></span>
+                  <span><a href="index.html">Pages</a></span>
+                  <span class="dvdr"
+                    ><i class="fa-regular fa-angle-right"></i
+                  ></span>
+                  <span class="sub-page-black">Shopping Cart</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- breadcrumb-area-end -->
+
+      <!-- cart area -->
+      <section
+        class="cart-area pt-100 pb-100 wow fadeInUp"
+        data-wow-duration=".8s"
+        data-wow-delay=".2s"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <form action="#">
+                <div class="table-content table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="product-thumbnail">Images</th>
+                        <th class="cart-product-name">Courses</th>
+                        <th class="product-price">Unit Price</th>
+                        <th class="product-quantity">Quantity</th>
+                        <th class="product-subtotal">Total</th>
+                        <th class="product-remove">Remove</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="product-thumbnail">
+                          <a href="course-details.html"
+                            ><img
+                              src="{% static 'assets/img/course/course-thumb-01.jpg' %}"
+                              alt=""
+                          /></a>
+                        </td>
+                        <td class="product-name">
+                          <a href="course-details.html"
+                            >Master Web Design in Adobe XD</a
+                          >
+                        </td>
+                        <td class="product-price">
+                          <span class="amount">$130.00</span>
+                        </td>
+                        <td class="product-quantity">
+                          <span class="cart-minus">-</span>
+                          <input class="cart-input" type="text" value="1" />
+                          <span class="cart-plus">+</span>
+                        </td>
+                        <td class="product-subtotal">
+                          <span class="amount">$130.00</span>
+                        </td>
+                        <td class="product-remove">
+                          <a href="#"><i class="fa fa-times"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="product-thumbnail">
+                          <a href="course-details.html"
+                            ><img
+                              src="{% static 'assets/img/course/course-thumb-02.jpg' %}"
+                              alt=""
+                          /></a>
+                        </td>
+                        <td class="product-name">
+                          <a href="course-details.html"
+                            >How to Write Great Web Content</a
+                          >
+                        </td>
+                        <td class="product-price">
+                          <span class="amount">$120.50</span>
+                        </td>
+                        <td class="product-quantity">
+                          <span class="cart-minus">-</span>
+                          <input class="cart-input" type="text" value="1" />
+                          <span class="cart-plus">+</span>
+                        </td>
+                        <td class="product-subtotal">
+                          <span class="amount">$120.50</span>
+                        </td>
+                        <td class="product-remove">
+                          <a href="#"><i class="fa fa-times"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="coupon-all">
+                      <div class="coupon">
+                        <input
+                          id="coupon_code"
+                          class="input-text"
+                          name="coupon_code"
+                          value=""
+                          placeholder="Coupon code"
+                          type="text"
+                        />
+                        <button
+                          class="tp-btn"
+                          name="apply_coupon"
+                          type="submit"
+                        >
+                          Apply coupon
+                        </button>
+                      </div>
+                      <div class="coupon2">
+                        <button class="tp-btn" name="update_cart" type="submit">
+                          Update cart
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-end">
+                  <div class="col-md-5">
+                    <div class="cart-page-total">
+                      <h2>Cart totals</h2>
+                      <ul class="mb-20">
+                        <li>Subtotal <span>$250.00</span></li>
+                        <li>Total <span>$250.00</span></li>
+                      </ul>
+                      <a class="tp-btn" href="{% url 'orders:checkout' %}"
+                        >Proceed to checkout</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- cart area end-->
+    </main>
+
+
+{% endblock body %}

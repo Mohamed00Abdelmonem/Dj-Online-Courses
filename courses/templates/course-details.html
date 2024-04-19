@@ -570,18 +570,18 @@
             </div>
             <div class="col-lg-4 col-md-12">
               <div class="c-details-sidebar">
+              
                 <div class="c-video-thumb p-relative mb-25">
-                  <img
-                    src="{% static 'assets/img/bg/c-details-video-bg.jpg' %}"
-                    alt="video-bg"
-                  />
+                  {% if object.introduction_video %}
                   <div class="c-video-icon">
                   <video class="popup-video" controls>
-                      {% if object.introduction_video %}
                           <source src="{{ object.introduction_video.url }}" type="video/mp4">
                              Your browser does not support the video tag.
                       {% else %}
-                       no video
+                      <img
+                        src="{{object.image.url}}"
+                        alt="video-bg"
+                      />
                       {% endif %}
                   
                   </video>
@@ -616,7 +616,7 @@
                       </li>
                       <li>
                         <i class="fa-light fa-clock-desk"></i>
-                        <label>Duration</label> <span>{{object.duration}} Hours</span>
+                        <label>Duration</label> <span> 22 houre</span>
                       </li>
                       <li>
                         <i class="fi fi-sr-stats"></i>

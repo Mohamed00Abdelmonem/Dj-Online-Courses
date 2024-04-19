@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'accounts',
     'settings',
     'courses',
+    'orders',
 ]
 
 MIDDLEWARE = [
