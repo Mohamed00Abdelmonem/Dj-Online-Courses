@@ -6,6 +6,8 @@ Features in this project online courses
 - list , detail lessons   ====> True
 - reviews in courses      ====> True
 - quize for lessons       ====> Inprogress
+- make notifactions and send email ===> Inprogress 
+- soical login ===> 
 - upload document pdf  ===> True
 - make auth ===> Inprogress 
 - using celery, caching , docker 
@@ -14,17 +16,10 @@ Features in this project online courses
 - strip payment
 - close lessons before payment 
 - make permessions for student and instractors
-- make nivacations for add new lesson 
+- make notifactions for add new lesson 
 - send emails for all students 
 - add new theme in admin_banal using django 
 - make Apis for this project ......
-
-
-
-quiz 
- - relashinship to each lesson optional 
- - 
-    
 
 
 

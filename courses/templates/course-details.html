@@ -164,7 +164,7 @@
 
             <div class="mb-8">
                     <h3 class="mb-5">Curriculum</h3>
-
+                      <br>
                     <div id="accordionCurriculum">
 
                     {% for unit, lessons in unit_lessons.items %}
@@ -191,151 +191,225 @@
                             </div>
 
                             <div id="Curriculumcollapse{{ forloop.counter }}" class="collapse show" aria-labelledby="curriculumheading{{ forloop.counter }}" data-parent="#accordionCurriculum">
-                                {% for lesson in  lessons %}
-                                      {% if lesson.slides %}
-
-                                <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
-                                    <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
-                                        <div class="text-secondary d-flex">
-                                            
-                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                                          <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
-                                        </svg>
-
-                                        </div>
-
-                                        <div class="ms-4">
-                                            slides- {{lesson.slides}}
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
-                                        <div class="badge text-dark-70 bg-orange-40 me-5 font-size-sm fw-normal py-2">3 question</div>
-                                        <div class="badge btn-blue-soft me-5 font-size-sm fw-normal py-2">30 min</div>
-                                        <a href="{% url 'courses:pdf_view_slides' slug=lesson.slug %}" class="text-secondary d-flex">
-                                            <!-- Icon -->
-                                              <!-- Icon -->
-                                                  <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
-                                                      <path d="M12.8704 6.15374L3.42038 0.328572C2.73669 -0.0923355 1.9101 -0.109836 1.20919 0.281759C0.508282 0.673291 0.0898438 1.38645 0.0898438 2.18929V13.7866C0.0898438 15.0005 1.06797 15.9934 2.27016 16C2.27344 16 2.27672 16 2.27994 16C2.65563 16 3.04713 15.8822 3.41279 15.6591C3.70694 15.4796 3.79991 15.0957 3.62044 14.8016C3.44098 14.5074 3.05697 14.4144 2.76291 14.5939C2.59188 14.6982 2.42485 14.7522 2.27688 14.7522C1.82328 14.7497 1.33763 14.3611 1.33763 13.7866V2.18933C1.33763 1.84492 1.51713 1.53907 1.81775 1.3711C2.11841 1.20314 2.47294 1.21064 2.76585 1.39098L12.2159 7.21615C12.4999 7.39102 12.6625 7.68262 12.6618 8.01618C12.6611 8.34971 12.4974 8.64065 12.2118 8.81493L5.37935 12.9983C5.08548 13.1783 4.9931 13.5623 5.17304 13.8562C5.35295 14.1501 5.73704 14.2424 6.03092 14.0625L12.8625 9.87962C13.5166 9.48059 13.9081 8.78496 13.9096 8.01868C13.9112 7.25249 13.5226 6.55524 12.8704 6.15374Z" fill="currentColor"/>
-                                                  </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            {% endfor %}
-                              
+                                
+                                
 
 
+                              <div class="header-cat-menu ml-40">
+                                <nav>
+                                  <ul>
+                                    <li>
+                                      <a >
+                                        Videos
+                                        <span><i class="arrow_ca a-sha-down"></i></span
+                                      ></a>
+                                      <ul class="">
+                                        <li>
+                                        {% for lesson in  lessons %}
 
-                               {% for lesson in  lessons %}
-                                      {% if lesson.resources %}
+                                                  <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
+                                                      <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
+                                                          <div class="text-secondary d-flex">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-video-fill" viewBox="0 0 16 16">
+                                                          <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2z"/>
+                                                        </svg>
 
-                                <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
-                                    <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
-                                        <div class="text-secondary d-flex">
-                                            
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-pdf-fill" viewBox="0 0 16 16">
-                                            <path d="M5.523 12.424q.21-.124.459-.238a8 8 0 0 1-.45.606c-.28.337-.498.516-.635.572l-.035.012a.3.3 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548m2.455-1.647q-.178.037-.356.078a21 21 0 0 0 .5-1.05 12 12 0 0 0 .51.858q-.326.048-.654.114m2.525.939a4 4 0 0 1-.435-.41q.344.007.612.054c.317.057.466.147.518.209a.1.1 0 0 1 .026.064.44.44 0 0 1-.06.2.3.3 0 0 1-.094.124.1.1 0 0 1-.069.015c-.09-.003-.258-.066-.498-.256M8.278 6.97c-.04.244-.108.524-.2.829a5 5 0 0 1-.089-.346c-.076-.353-.087-.63-.046-.822.038-.177.11-.248.196-.283a.5.5 0 0 1 .145-.04c.013.03.028.092.032.198q.008.183-.038.465z"/>
-                                            <path fill-rule="evenodd" d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2zM4.165 13.668c.09.18.23.343.438.419.207.075.412.04.58-.03.318-.13.635-.436.926-.786.333-.401.683-.927 1.021-1.51a11.7 11.7 0 0 1 1.997-.406c.3.383.61.713.91.95.28.22.603.403.934.417a.86.86 0 0 0 .51-.138c.155-.101.27-.247.354-.416.09-.181.145-.37.138-.563a.84.84 0 0 0-.2-.518c-.226-.27-.596-.4-.96-.465a5.8 5.8 0 0 0-1.335-.05 11 11 0 0 1-.98-1.686c.25-.66.437-1.284.52-1.794.036-.218.055-.426.048-.614a1.24 1.24 0 0 0-.127-.538.7.7 0 0 0-.477-.365c-.202-.043-.41 0-.601.077-.377.15-.576.47-.651.823-.073.34-.04.736.046 1.136.088.406.238.848.43 1.295a20 20 0 0 1-1.062 2.227 7.7 7.7 0 0 0-1.482.645c-.37.22-.699.48-.897.787-.21.326-.275.714-.08 1.103"/>
-                                          </svg>
+                                                          </div>
 
-                                        </div>
+                                                          <div class="ms-4">
+                                                                  {{lesson.title}}
+                                                          </div>
+                                                      </div>
 
-                                        <div class="ms-4">
-                                            {{lesson.resources}}
-                                        </div>
-                                    </div>
+                                                      <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
+                                                          <div class="badge btn-blue-soft me-5 font-size-sm fw-normal py-2">30 min</div>
+                                                          <a href="/courses/course/{{current_course.slug}}/lessons/{{lesson.slug}}" class="text-secondary">
+                                                              <!-- Icon -->
+                                                              <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
+                                                                  <path d="M12.8704 6.15374L3.42038 0.328572C2.73669 -0.0923355 1.9101 -0.109836 1.20919 0.281759C0.508282 0.673291 0.0898438 1.38645 0.0898438 2.18929V13.7866C0.0898438 15.0005 1.06797 15.9934 2.27016 16C2.27344 16 2.27672 16 2.27994 16C2.65563 16 3.04713 15.8822 3.41279 15.6591C3.70694 15.4796 3.79991 15.0957 3.62044 14.8016C3.44098 14.5074 3.05697 14.4144 2.76291 14.5939C2.59188 14.6982 2.42485 14.7522 2.27688 14.7522C1.82328 14.7497 1.33763 14.3611 1.33763 13.7866V2.18933C1.33763 1.84492 1.51713 1.53907 1.81775 1.3711C2.11841 1.20314 2.47294 1.21064 2.76585 1.39098L12.2159 7.21615C12.4999 7.39102 12.6625 7.68262 12.6618 8.01618C12.6611 8.34971 12.4974 8.64065 12.2118 8.81493L5.37935 12.9983C5.08548 13.1783 4.9931 13.5623 5.17304 13.8562C5.35295 14.1501 5.73704 14.2424 6.03092 14.0625L12.8625 9.87962C13.5166 9.48059 13.9081 8.78496 13.9096 8.01868C13.9112 7.25249 13.5226 6.55524 12.8704 6.15374Z" fill="currentColor"/>
+                                                              </svg>
 
-                                    <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
-                                        <div class="badge text-dark-70 bg-orange-40 me-5 font-size-sm fw-normal py-2">3 question</div>
-                                        <div class="badge btn-blue-soft me-5 font-size-sm fw-normal py-2">30 min</div>
-                                        <a href="{% url 'courses:pdf_view_resources' slug=lesson.slug %}" class="text-secondary d-flex">
-                                            <!-- Icon -->
-                                              <!-- Icon -->
-                                                  <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
-                                                      <path d="M12.8704 6.15374L3.42038 0.328572C2.73669 -0.0923355 1.9101 -0.109836 1.20919 0.281759C0.508282 0.673291 0.0898438 1.38645 0.0898438 2.18929V13.7866C0.0898438 15.0005 1.06797 15.9934 2.27016 16C2.27344 16 2.27672 16 2.27994 16C2.65563 16 3.04713 15.8822 3.41279 15.6591C3.70694 15.4796 3.79991 15.0957 3.62044 14.8016C3.44098 14.5074 3.05697 14.4144 2.76291 14.5939C2.59188 14.6982 2.42485 14.7522 2.27688 14.7522C1.82328 14.7497 1.33763 14.3611 1.33763 13.7866V2.18933C1.33763 1.84492 1.51713 1.53907 1.81775 1.3711C2.11841 1.20314 2.47294 1.21064 2.76585 1.39098L12.2159 7.21615C12.4999 7.39102 12.6625 7.68262 12.6618 8.01618C12.6611 8.34971 12.4974 8.64065 12.2118 8.81493L5.37935 12.9983C5.08548 13.1783 4.9931 13.5623 5.17304 13.8562C5.35295 14.1501 5.73704 14.2424 6.03092 14.0625L12.8625 9.87962C13.5166 9.48059 13.9081 8.78496 13.9096 8.01868C13.9112 7.25249 13.5226 6.55524 12.8704 6.15374Z" fill="currentColor"/>
-                                                  </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            {% endfor %}
-
-
-
-                            {% for quiz in unit.quiz_unit.all %}
-
-                                <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
-                                    <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
-                                        <div class="text-secondary d-flex">
-                                            
-                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                  <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
-                                </svg>
-
-                                        </div>
-
-                                        <div class="ms-4">
-                                            quiz - {{quiz.title}}
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
-                                        <div class="badge text-dark-70 bg-orange-40 me-5 font-size-sm fw-normal py-2">3 question</div>
-                                        <div class="badge btn-blue-soft me-5 font-size-sm fw-normal py-2">30 min</div>
-                                        <a href="{% url 'courses:quiz' course_slug=current_course.slug slug=quiz.slug %}" class="text-secondary d-flex">
-                                            <!-- Icon -->
-                                              <!-- Icon -->
-                                                  <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
-                                                      <path d="M12.8704 6.15374L3.42038 0.328572C2.73669 -0.0923355 1.9101 -0.109836 1.20919 0.281759C0.508282 0.673291 0.0898438 1.38645 0.0898438 2.18929V13.7866C0.0898438 15.0005 1.06797 15.9934 2.27016 16C2.27344 16 2.27672 16 2.27994 16C2.65563 16 3.04713 15.8822 3.41279 15.6591C3.70694 15.4796 3.79991 15.0957 3.62044 14.8016C3.44098 14.5074 3.05697 14.4144 2.76291 14.5939C2.59188 14.6982 2.42485 14.7522 2.27688 14.7522C1.82328 14.7497 1.33763 14.3611 1.33763 13.7866V2.18933C1.33763 1.84492 1.51713 1.53907 1.81775 1.3711C2.11841 1.20314 2.47294 1.21064 2.76585 1.39098L12.2159 7.21615C12.4999 7.39102 12.6625 7.68262 12.6618 8.01618C12.6611 8.34971 12.4974 8.64065 12.2118 8.81493L5.37935 12.9983C5.08548 13.1783 4.9931 13.5623 5.17304 13.8562C5.35295 14.1501 5.73704 14.2424 6.03092 14.0625L12.8625 9.87962C13.5166 9.48059 13.9081 8.78496 13.9096 8.01868C13.9112 7.25249 13.5226 6.55524 12.8704 6.15374Z" fill="currentColor"/>
-                                                  </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            {% endfor %}
+                                                          </a>
+                                                      </div>
+                                                  </div>
+                                              {% endfor %}
+                                        
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                  
+                                </nav>
+                              </div>
+                                <br>
 
 
 
 
 
+                              <div class="header-cat-menu ml-40">
+                                <nav>
+                                  <ul>
+                                    <li>
+                                      <a >
+                                        Quizes
+                                        <span><i class="arrow_ca a-sha-down"></i></span
+                                      ></a>
+                                      <ul class="">
+                                        <li>
+                                        {% if unit.quiz_unit.all %}
+                                            {% for quiz in unit.quiz_unit.all %}
+                                                <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
+                                                    <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
+                                                        <div class="text-secondary d-flex">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                                                <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="ms-4">
+                                                            quiz - {{quiz.title}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
+                                                        <div class="badge text-dark-70 bg-orange-40 me-5 font-size-sm fw-normal py-2">3 question</div>
+                                                        <div class="badge btn-blue-soft me-5 font-size-sm fw-normal py-2">30 min</div>
+                                                        <a href="{% url 'courses:quiz' course_slug=current_course.slug slug=quiz.slug %}" class="text-secondary d-flex">
+                                                            <!-- Icon -->
+                                                            <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M12.8704 6.15374L3.42038 0.328572C2.73669 -0.0923355 1.9101 -0.109836 1.20919 0.281759C0.508282 0.673291 0.0898438 1.38645 0.0898438 2.18929V13.7866C0.0898438 15.0005 1.06797 15.9934 2.27016 16C2.27344 16 2.27672 16 2.27994 16C2.65563 16 3.04713 15.8822 3.41279 15.6591C3.70694 15.4796 3.79991 15.0957 3.62044 14.8016C3.44098 14.5074 3.05697 14.4144 2.76291 14.5939C2.59188 14.6982 2.42485 14.7522 2.27688 14.7522C1.82328 14.7497 1.33763 14.3611 1.33763 13.7866V2.18933C1.33763 1.84492 1.51713 1.53907 1.81775 1.3711C2.11841 1.20314 2.47294 1.21064 2.76585 1.39098L12.2159 7.21615C12.4999 7.39102 12.6625 7.68262 12.6618 8.01618C12.6611 8.34971 12.4974 8.64065 12.2118 8.81493L5.37935 12.9983C5.08548 13.1783 4.9931 13.5623 5.17304 13.8562C5.35295 14.1501 5.73704 14.2424 6.03092 14.0625L12.8625 9.87962C13.5166 9.48059 13.9081 8.78496 13.9096 8.01868C13.9112 7.25249 13.5226 6.55524 12.8704 6.15374Z" fill="currentColor"/>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            <p>There are no Quizes</p>
+                                        {% endif %}
+
+                                        
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                  
+                                </nav>
+                              </div>
+                                <br>
 
 
 
 
 
+                              <div class="header-cat-menu ml-40">
+                                <nav>
+                                  <ul>
+                                    <li>
+                                      <a >
+                                        Resources
+                                        <span><i class="arrow_ca a-sha-down"></i></span
+                                      ></a>
+                                      <ul class="">
+                                        <li>
+                                      
+                                          {% for lesson in  lessons %}
+                                                  {% if lesson.resources %}
+
+                                            <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
+                                                <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
+                                                    <div class="text-secondary d-flex">
+                                                        
+                                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-pdf-fill" viewBox="0 0 16 16">
+                                                        <path d="M5.523 12.424q.21-.124.459-.238a8 8 0 0 1-.45.606c-.28.337-.498.516-.635.572l-.035.012a.3.3 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548m2.455-1.647q-.178.037-.356.078a21 21 0 0 0 .5-1.05 12 12 0 0 0 .51.858q-.326.048-.654.114m2.525.939a4 4 0 0 1-.435-.41q.344.007.612.054c.317.057.466.147.518.209a.1.1 0 0 1 .026.064.44.44 0 0 1-.06.2.3.3 0 0 1-.094.124.1.1 0 0 1-.069.015c-.09-.003-.258-.066-.498-.256M8.278 6.97c-.04.244-.108.524-.2.829a5 5 0 0 1-.089-.346c-.076-.353-.087-.63-.046-.822.038-.177.11-.248.196-.283a.5.5 0 0 1 .145-.04c.013.03.028.092.032.198q.008.183-.038.465z"/>
+                                                        <path fill-rule="evenodd" d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2zM4.165 13.668c.09.18.23.343.438.419.207.075.412.04.58-.03.318-.13.635-.436.926-.786.333-.401.683-.927 1.021-1.51a11.7 11.7 0 0 1 1.997-.406c.3.383.61.713.91.95.28.22.603.403.934.417a.86.86 0 0 0 .51-.138c.155-.101.27-.247.354-.416.09-.181.145-.37.138-.563a.84.84 0 0 0-.2-.518c-.226-.27-.596-.4-.96-.465a5.8 5.8 0 0 0-1.335-.05 11 11 0 0 1-.98-1.686c.25-.66.437-1.284.52-1.794.036-.218.055-.426.048-.614a1.24 1.24 0 0 0-.127-.538.7.7 0 0 0-.477-.365c-.202-.043-.41 0-.601.077-.377.15-.576.47-.651.823-.073.34-.04.736.046 1.136.088.406.238.848.43 1.295a20 20 0 0 1-1.062 2.227 7.7 7.7 0 0 0-1.482.645c-.37.22-.699.48-.897.787-.21.326-.275.714-.08 1.103"/>
+                                                      </svg>
+
+                                                    </div>
+
+                                                    <div class="ms-4">
+                                                        {{lesson.resources}}
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
+                                                    <div class="badge text-dark-70 bg-orange-40 me-5 font-size-sm fw-normal py-2">3 question</div>
+                                                    <div class="badge btn-blue-soft me-5 font-size-sm fw-normal py-2">30 min</div>
+                                                    <a href="{% url 'courses:pdf_view_resources' slug=lesson.slug %}" class="text-secondary d-flex">
+                                                        <!-- Icon -->
+                                                          <!-- Icon -->
+                                                              <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
+                                                                  <path d="M12.8704 6.15374L3.42038 0.328572C2.73669 -0.0923355 1.9101 -0.109836 1.20919 0.281759C0.508282 0.673291 0.0898438 1.38645 0.0898438 2.18929V13.7866C0.0898438 15.0005 1.06797 15.9934 2.27016 16C2.27344 16 2.27672 16 2.27994 16C2.65563 16 3.04713 15.8822 3.41279 15.6591C3.70694 15.4796 3.79991 15.0957 3.62044 14.8016C3.44098 14.5074 3.05697 14.4144 2.76291 14.5939C2.59188 14.6982 2.42485 14.7522 2.27688 14.7522C1.82328 14.7497 1.33763 14.3611 1.33763 13.7866V2.18933C1.33763 1.84492 1.51713 1.53907 1.81775 1.3711C2.11841 1.20314 2.47294 1.21064 2.76585 1.39098L12.2159 7.21615C12.4999 7.39102 12.6625 7.68262 12.6618 8.01618C12.6611 8.34971 12.4974 8.64065 12.2118 8.81493L5.37935 12.9983C5.08548 13.1783 4.9931 13.5623 5.17304 13.8562C5.35295 14.1501 5.73704 14.2424 6.03092 14.0625L12.8625 9.87962C13.5166 9.48059 13.9081 8.78496 13.9096 8.01868C13.9112 7.25249 13.5226 6.55524 12.8704 6.15374Z" fill="currentColor"/>
+                                                              </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                  
+                                </nav>
+                              </div>
+                                <br>
 
 
 
 
-                            {% for lesson in  lessons %}
+                              <div class="header-cat-menu ml-40">
+                                <nav>
+                                  <ul>
+                                    <li>
+                                      <a >
+                                        Slides
+                                        <span><i class="arrow_ca a-sha-down"></i></span
+                                      ></a>
+                                      <ul class="">
+                                        <li>
+                                        {% for lesson in  lessons %}
+                                                  {% if lesson.slides %}
 
-                                      <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
-                                          <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
-                                              <div class="text-secondary d-flex">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-video-fill" viewBox="0 0 16 16">
-                                              <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2z"/>
-                                            </svg>
+                                            <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
+                                                <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
+                                                    <div class="text-secondary d-flex">
+                                                        
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                                                      <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+                                                    </svg>
 
-                                              </div>
+                                                    </div>
 
-                                              <div class="ms-4">
-                                                      {{lesson.title}}
-                                              </div>
-                                          </div>
+                                                    <div class="ms-4">
+                                                        slides- {{lesson.slides}}
+                                                    </div>
+                                                </div>
 
-                                          <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
-                                              <div class="badge btn-blue-soft me-5 font-size-sm fw-normal py-2">30 min</div>
-                                              <a href="/courses/course/{{current_course.slug}}/lessons/{{lesson.slug}}" class="text-secondary">
-                                                  <!-- Icon -->
-                                                  <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
-                                                      <path d="M12.8704 6.15374L3.42038 0.328572C2.73669 -0.0923355 1.9101 -0.109836 1.20919 0.281759C0.508282 0.673291 0.0898438 1.38645 0.0898438 2.18929V13.7866C0.0898438 15.0005 1.06797 15.9934 2.27016 16C2.27344 16 2.27672 16 2.27994 16C2.65563 16 3.04713 15.8822 3.41279 15.6591C3.70694 15.4796 3.79991 15.0957 3.62044 14.8016C3.44098 14.5074 3.05697 14.4144 2.76291 14.5939C2.59188 14.6982 2.42485 14.7522 2.27688 14.7522C1.82328 14.7497 1.33763 14.3611 1.33763 13.7866V2.18933C1.33763 1.84492 1.51713 1.53907 1.81775 1.3711C2.11841 1.20314 2.47294 1.21064 2.76585 1.39098L12.2159 7.21615C12.4999 7.39102 12.6625 7.68262 12.6618 8.01618C12.6611 8.34971 12.4974 8.64065 12.2118 8.81493L5.37935 12.9983C5.08548 13.1783 4.9931 13.5623 5.17304 13.8562C5.35295 14.1501 5.73704 14.2424 6.03092 14.0625L12.8625 9.87962C13.5166 9.48059 13.9081 8.78496 13.9096 8.01868C13.9112 7.25249 13.5226 6.55524 12.8704 6.15374Z" fill="currentColor"/>
-                                                  </svg>
+                                                <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
+                                                    <div class="badge text-dark-70 bg-orange-40 me-5 font-size-sm fw-normal py-2">3 question</div>
+                                                    <div class="badge btn-blue-soft me-5 font-size-sm fw-normal py-2">30 min</div>
+                                                    <a href="{% url 'courses:pdf_view_slides' slug=lesson.slug %}" class="text-secondary d-flex">
+                                                        <!-- Icon -->
+                                                          <!-- Icon -->
+                                                              <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
+                                                                  <path d="M12.8704 6.15374L3.42038 0.328572C2.73669 -0.0923355 1.9101 -0.109836 1.20919 0.281759C0.508282 0.673291 0.0898438 1.38645 0.0898438 2.18929V13.7866C0.0898438 15.0005 1.06797 15.9934 2.27016 16C2.27344 16 2.27672 16 2.27994 16C2.65563 16 3.04713 15.8822 3.41279 15.6591C3.70694 15.4796 3.79991 15.0957 3.62044 14.8016C3.44098 14.5074 3.05697 14.4144 2.76291 14.5939C2.59188 14.6982 2.42485 14.7522 2.27688 14.7522C1.82328 14.7497 1.33763 14.3611 1.33763 13.7866V2.18933C1.33763 1.84492 1.51713 1.53907 1.81775 1.3711C2.11841 1.20314 2.47294 1.21064 2.76585 1.39098L12.2159 7.21615C12.4999 7.39102 12.6625 7.68262 12.6618 8.01618C12.6611 8.34971 12.4974 8.64065 12.2118 8.81493L5.37935 12.9983C5.08548 13.1783 4.9931 13.5623 5.17304 13.8562C5.35295 14.1501 5.73704 14.2424 6.03092 14.0625L12.8625 9.87962C13.5166 9.48059 13.9081 8.78496 13.9096 8.01868C13.9112 7.25249 13.5226 6.55524 12.8704 6.15374Z" fill="currentColor"/>
+                                                              </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                  
+                                </nav>
+                              </div>
 
-                                              </a>
-                                          </div>
-                                      </div>
-                                  {% endfor %}
+
+
+                          
+
+                          
 
                                 <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center bg-gray-100">
                                     <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
@@ -398,11 +472,12 @@
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
-                       
-
+                       <br>
+                    
                       
-
+                     
+                    {% endfor %}
+                    
 
 {% comment %} _______________________________________________ {% endcomment %}
 

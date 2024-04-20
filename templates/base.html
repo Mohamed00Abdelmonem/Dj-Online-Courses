@@ -3,6 +3,7 @@
 
 {% load static%}
 
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
   <head>
@@ -32,6 +33,15 @@
     <link rel="stylesheet" href="{% static 'assets/css/font-awesome-pro.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/spacing.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    
+<style>
+.sup {
+    color: red; /* Change color */
+    font-weight: bold;
+    font-size:15px /* Make font bold */
+}
+</style>
+
   </head>
 
   <body>
@@ -104,6 +114,7 @@
                           </ul>
                         </li>
                       </ul>
+                      
                     </nav>
                   </div>
                 </div>
@@ -136,6 +147,8 @@
               <div class="main-menu main-menu-white">
                 <nav id="mobile-menu">
                   <ul>
+                                                                
+
                     <li >
                       <a href="/">Home</a>
                       <ul class="submenu">
@@ -197,11 +210,23 @@
                   <li>
                     <a href="/accounts/login"><i class="fi fi-rr-user"></i></a>
                   </li>
+
                   <li>
                     <a href="{% url 'orders:cart'%}"
-                      ><i class="fi fi-rr-shopping-bag"></i
-                    ></a>
+                      ><i class="fi fi-rr-shopping-bag"></i>   
+                    </a>
                   </li>
+                      <sup class="sup">2</sup>
+
+
+                  <li>
+                      <a href="{% url 'orders:cart'%}" class="notification-link">
+                          <i class="fi fi-rs-bell"></i>
+                      </a>
+                  </li>
+                        <sup class="sup">22</sup>
+
+
                   <li>
                     <a href="#" class="tp-menu-toggle d-xl-none"
                       ><i class="icon_ul"></i
