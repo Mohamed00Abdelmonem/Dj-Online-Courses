@@ -216,16 +216,16 @@
                       ><i class="fi fi-rr-shopping-bag"></i>   
                     </a>
                   </li>
-                      <sup class="sup">2</sup>
-
+                   <sup class="sup">2</sup>
+                  </li>
 
                   <li>
-                      <a href="{% url 'orders:cart'%}" class="notification-link">
+                      <a href="{% url 'courses:notification' %}" class="notification-link">
                           <i class="fi fi-rs-bell"></i>
                       </a>
+                    
                   </li>
-                        <sup class="sup">22</sup>
-
+                  <sup class="sup">{{notifications.count}}</sup>
 
                   <li>
                     <a href="#" class="tp-menu-toggle d-xl-none"
@@ -239,7 +239,6 @@
         </div>
       </div>
     </header>
-
     <div
       id="header-mob-sticky"
       class="mobile-header-area mob-white-sticky d-xl-none"

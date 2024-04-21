@@ -5,6 +5,8 @@ from django.views.generic import ListView, DetailView
 from django.urls import reverse
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -32,7 +34,7 @@ class Course_List(ListView):
 
 # ____________________________________________________________________________
 
-class Course_Detail(DetailView):
+class Course_Detail(LoginRequiredMixin, DetailView):
     model = Course
     template_name = 'course-details.html'
     
@@ -62,6 +64,7 @@ class Course_Detail(DetailView):
         return context
     
 # ____________________________________________________________________________
+@login_required
 
 def add_review(request, slug):
         course = Course.objects.get(slug=slug)
@@ -108,6 +111,7 @@ class Lesson_Detail(DetailView):
 
 
 
+@login_required
 
 def pdf_view_resources(request, slug):
     lesson = get_object_or_404(Lesson, slug=slug)
@@ -126,6 +130,7 @@ def pdf_view_resources(request, slug):
 # ____________________________________________________________________________
 
 
+@login_required
 
 def pdf_view_slides(request, slug):
     lesson = get_object_or_404(Lesson, slug=slug)
@@ -143,6 +148,7 @@ def pdf_view_slides(request, slug):
 
 # ____________________________________________________________________________
 
+@login_required
 
 def quiz(request, slug, course_slug):
     quiz = get_object_or_404(Quiz, slug=slug)
@@ -167,3 +173,13 @@ def quiz(request, slug, course_slug):
     return render(request, 'quiz.html', {'quiz': quiz})
 
 # ____________________________________________________________________________
+
+
+from .models import Notification
+
+def notifications(request):
+    if request.user.is_authenticated:
+        notifications = Notification.objects.filter(user=request.user)
+    else:
+        notifications = []
+    return render(request, 'notification.html', {'notifications': notifications})

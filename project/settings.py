@@ -79,6 +79,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'settings.context_processors.get_company_data',
+                'courses.context_processors.notifications',
+
 
             ],
         },
@@ -161,6 +163,5 @@ EMAIL_USE_TLS = True
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
 
  

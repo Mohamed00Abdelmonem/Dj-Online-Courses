@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static%}
+
+{% block body %}
+    <style>
+        /* Custom styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .notifications {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 100px auto;
+            max-width: 600px;
+        }
+
+        .notifications ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notifications li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+
+        <!-- Notifications -->
+        <div class="notifications">
+            <ul>
+                {% for notification in notifications %}
+                    <li>{{ notification.message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </center>
+{% endblock body %}

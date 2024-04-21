@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course, Review, Lesson, Unit, Quiz, Question, Choice
+from .models import Course, Review, Lesson, Unit, Quiz, Question, Choice, Notification
 
 class LessonAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'course')
@@ -21,4 +21,5 @@ admin.site.register(Unit, UnitAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Quiz)
 admin.site.register(Review)
+admin.site.register(Notification)
 admin.site.register(Question, QuestionAdmin)  # Register Question with custom admin class

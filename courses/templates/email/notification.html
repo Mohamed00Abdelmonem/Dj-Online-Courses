@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student_Hub</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <!-- Navbar content -->
+        <ul>
+            <li><a href="/">Home</a></li>
+            <!-- Other navbar links -->
+        </ul>
+
+        <!-- Notifications -->
+        <div class="notifications">
+            <ul>
+                {% for notification in notifications %}
+                    <li>{{ notification.message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+
+</body>
+</html>

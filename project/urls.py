@@ -21,9 +21,9 @@ from django.conf.urls.static import static
 import notifications.urls
 
 urlpatterns = [
-    path("accounts/", include("django.contrib.auth.urls")),
-    path("accounts/", include("accounts.urls")),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),  # Include Django's built-in authentication URLs
+    path('accounts/', include('accounts.urls')),  # Custom user-related URLs
     path('', include('settings.urls')),
     path('courses/', include('courses.urls', namespace='courses')),
     path('orders/', include('orders.urls', namespace='orders')),
@@ -31,10 +31,10 @@ urlpatterns = [
 
 
     path('summernote/', include('django_summernote.urls')),
-    path('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
-
-
+    path('inbox/notifications/', include(notifications.urls, namespace='notifications')),  # Corrected URL pattern for notifications
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Add static and media URL patterns in development mode
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
