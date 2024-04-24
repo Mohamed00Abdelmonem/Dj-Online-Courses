@@ -667,9 +667,19 @@
                   <div class="cd-video-price">
                     <h3 class="pricing-video text-center mb-15">${{object.price}}</h3>
                     <div class="cd-pricing-btn text-center mb-30">
-                      <a class="tp-vp-btn" href="course-details.html"
-                        >Add To Cart</a
-                      >
+
+
+                    <form action="{% url 'orders:add_to_cart' %}" method="post">
+                      {% csrf_token %}
+                      <input type="hidden" name="course_id" value="{{object.id}}">
+                      <button type="submit" class="tp-vp-btn" title="Add to Cart">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span >Add To Cart</span>
+                      </button>   
+                    </form>
+
+
+
                       <a class="tp-vp-btn-green" href="course/{{object.slug}}/lessons"
                         >Enroll Now</a
                       >

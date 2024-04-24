@@ -1,6 +1,6 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-from .models import Course, Review, Lesson, Unit, Quiz, Question, Choice
+from .models import Course, Review, Lesson, Unit, Quiz, Question, Choice, Notification
 from django.views.generic import ListView, DetailView
 from django.urls import reverse
 from django.http import HttpResponse
@@ -175,7 +175,6 @@ def quiz(request, slug, course_slug):
 # ____________________________________________________________________________
 
 
-from .models import Notification
 
 def notifications(request):
     if request.user.is_authenticated:
@@ -183,3 +182,5 @@ def notifications(request):
     else:
         notifications = []
     return render(request, 'notification.html', {'notifications': notifications})
+
+# _________________________________________________________________________________________

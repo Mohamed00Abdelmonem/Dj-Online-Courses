@@ -48,68 +48,40 @@
                         <th class="product-thumbnail">Images</th>
                         <th class="cart-product-name">Courses</th>
                         <th class="product-price">Unit Price</th>
-                        <th class="product-quantity">Quantity</th>
-                        <th class="product-subtotal">Total</th>
                         <th class="product-remove">Remove</th>
                       </tr>
                     </thead>
                     <tbody>
+
+
+                    {% for item in cart_detail_data %}
                       <tr>
                         <td class="product-thumbnail">
                           <a href="course-details.html"
                             ><img
-                              src="{% static 'assets/img/course/course-thumb-01.jpg' %}"
+                              src="{{item.course.image.url}}"
                               alt=""
                           /></a>
                         </td>
                         <td class="product-name">
                           <a href="course-details.html"
-                            >Master Web Design in Adobe XD</a
+                            >{{item.course}}</a
                           >
                         </td>
                         <td class="product-price">
-                          <span class="amount">$130.00</span>
+                          <span class="amount">${{item.course.price}}</span>
                         </td>
-                        <td class="product-quantity">
-                          <span class="cart-minus">-</span>
-                          <input class="cart-input" type="text" value="1" />
-                          <span class="cart-plus">+</span>
-                        </td>
-                        <td class="product-subtotal">
-                          <span class="amount">$130.00</span>
-                        </td>
+                       
+                        
                         <td class="product-remove">
                           <a href="#"><i class="fa fa-times"></i></a>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="product-thumbnail">
-                          <a href="course-details.html"
-                            ><img
-                              src="{% static 'assets/img/course/course-thumb-02.jpg' %}"
-                              alt=""
-                          /></a>
-                        </td>
-                        <td class="product-name">
-                          <a href="course-details.html"
-                            >How to Write Great Web Content</a
-                          >
-                        </td>
-                        <td class="product-price">
-                          <span class="amount">$120.50</span>
-                        </td>
-                        <td class="product-quantity">
-                          <span class="cart-minus">-</span>
-                          <input class="cart-input" type="text" value="1" />
-                          <span class="cart-plus">+</span>
-                        </td>
-                        <td class="product-subtotal">
-                          <span class="amount">$120.50</span>
-                        </td>
-                        <td class="product-remove">
-                          <a href="#"><i class="fa fa-times"></i></a>
-                        </td>
-                      </tr>
+                  {% endfor %}
+                   
+                     
+
+                     
                     </tbody>
                   </table>
                 </div>

@@ -80,7 +80,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'settings.context_processors.get_company_data',
                 'courses.context_processors.notifications',
-
+                'orders.cart_context_processor.get_or_create_cart',
+            
 
             ],
         },

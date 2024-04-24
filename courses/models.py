@@ -69,15 +69,7 @@ class Unit(models.Model):
         return self.title
 # _________________________________________________________________________________________
 
-from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.utils import timezone
-from django.utils.text import slugify
-from .models import User  # Import the User model from the same app as Profile
+
 
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -86,6 +78,12 @@ class Notification(models.Model):
 
     def __str__(self) -> str:
         return self.message
+    
+
+# _________________________________________________________________________________________
+
+
+
 class Lesson(models.Model):
     title = models.CharField(max_length=40)
     sub_description = models.TextField(max_length=3000, blank=True, null=True)
@@ -108,6 +106,7 @@ class Lesson(models.Model):
     def __str__(self) -> str:
         return f"{self.title} for course {self.course}"
 
+
 @receiver(post_save, sender=Lesson)
 def send_lesson_notification(sender, instance, created, **kwargs):
    if created:
@@ -123,6 +122,7 @@ def send_lesson_notification(sender, instance, created, **kwargs):
             [instructor.email],
             fail_silently=False,
         )
+
 # _________________________________________________________________________________________
 
 class Quiz(models.Model):
@@ -143,6 +143,8 @@ class Quiz(models.Model):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+# _________________________________________________________________________________________
+
 
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='questions')
@@ -151,6 +153,7 @@ class Question(models.Model):
     def __str__(self) -> str:
         return self.text
 
+# _________________________________________________________________________________________
 
 
 class Choice(models.Model):
