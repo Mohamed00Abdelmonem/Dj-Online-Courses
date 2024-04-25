@@ -7,8 +7,8 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
-
+from accounts.models import Profile
+from django.contrib.auth.models import User
 
 
 # ____________________________________________________________________________
@@ -184,3 +184,16 @@ def notifications(request):
     return render(request, 'notification.html', {'notifications': notifications})
 
 # _________________________________________________________________________________________
+
+
+class InstractorDetial(DetailView):
+    model = User
+    template_name = 'instructor-profile.html'
+    
+
+# _________________________________________________________________________________________
+
+
+
+# def instractor_profile(request):
+#     return render(request, 'instructor-profile.html')

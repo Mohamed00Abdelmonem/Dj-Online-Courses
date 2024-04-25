@@ -207,10 +207,17 @@
             >
               <div class="header-meta-green">
                 <ul>
-                  <li>
-                    <a href="/accounts/login"><i class="fi fi-rr-user"></i></a>
-                  </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                        <a href="{% url 'courses:instractor_profile' user.pk %}"><i class="fi fi-rr-user"></i></a>
+                      </li>
 
+                    {% else %}
+                    <li>
+                        <a href="/accounts/login"><i class="fi fi-rr-user"></i></a>
+                      </li>
+                    {% endif %}
+                 
                   <li>
                     <a href="{% url 'orders:cart'%}"
                       ><i class="fi fi-rr-shopping-bag"></i>   

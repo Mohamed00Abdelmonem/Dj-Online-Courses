@@ -1,6 +1,7 @@
 # settings.py
-
+from .models import Company
+from django.contrib.auth.models import User
 def get_company_data(request):
-    from .models import Company
     data = Company.objects.last()
-    return {'data': data}
+    user = request.user
+    return {'data': data, 'user':user}
