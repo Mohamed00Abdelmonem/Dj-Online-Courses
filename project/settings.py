@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'taggit',
     'notifications',
+    'ollama',
 
 
     'accounts',

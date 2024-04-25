@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<style>
+    /* Reset some default browser styles */
+body, h1, h2, h3, p, ul, ol, li, textarea, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Lugrasimo', cursive; /* Set Lugrasimo as font */
+
+}
+
+/* Set default font family and size */
+body {
+    font-size: 16px;
+    background-color: #f8f9fa; 
+    font-family: 'Lugrasimo', cursive; /* Set Lugrasimo as font */
+/* Change page background color */
+}
+
+/* Styling for the generator section */
+.generator-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    color: #efecec;
+    background-color: #2d2110; /* Change section background color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
+
+/* Styling for the headings */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(211, 206, 189);
+}
+
+h2 {
+    margin-top: 20px;
+    color: rgb(217, 171, 19);
+
+}
+
+/* Styling for the generated text section */
+.generated-text {
+    margin-top: 20px;
+}
+
+/* Styling for the input form */
+.input-form {
+    margin-top: 20px;
+}
+
+/* Styling for the textarea */
+textarea {
+    width: 100%;
+    resize: vertical;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Styling for the button */
+.btn-primary {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #17a2b8; /* Change button background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #138496; /* Change button hover background color */
+}
+
+</style>
+
+<div class="generator-section">
+    <h1 class="mt-5">Student_Hub GPT</h1>
+    {% if generated_text %}
+    <div class="generated-text mt-5 markdown-body">
+        <h2>Result Text:</h2>
+        <pre><code>{{ generated_text | safe }}</code></pre>
+    </div>
+    {% endif %}
+
+    <div class="input-form">
+        <form method="post" class="d-flex">
+            {% csrf_token %}
+            <div class="form-group flex-grow-1">
+                <label for="input_text" class="d-none">Input Text:</label>
+                <textarea class="form-control" id="input_text" name="input_text" rows="4" placeholder="Enter your text here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning"> Send</button>
+        </form>
+    </div>
+</div>
+
+{% endblock body %}
