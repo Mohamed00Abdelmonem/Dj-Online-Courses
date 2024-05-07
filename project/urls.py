@@ -23,7 +23,7 @@ import notifications.urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),  # Include Django's built-in authentication URLs
-    path('accounts/', include('accounts.urls')),  # Custom user-related URLs
+    path('accounts/', include('accounts.urls', namespace = 'accounts')),  # Custom user-related URLs
     path('', include('settings.urls', namespace='settings')),
     path('courses/', include('courses.urls', namespace='courses')),
     path('orders/', include('orders.urls', namespace='orders')),

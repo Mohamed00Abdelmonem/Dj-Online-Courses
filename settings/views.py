@@ -21,6 +21,7 @@ def home(request):
 
 
 
+
 def generate_ollama3_text(request):
     generated_text = None
     if request.method == 'POST':

@@ -25,8 +25,8 @@ body {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    color: #efecec;
-    background-color: #2d2110; /* Change section background color */
+    color: #1d1919;
+    background-color: #dcd3c7; /* Change section background color */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
 }
@@ -35,7 +35,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: rgb(211, 206, 189);
+    color: rgb(33, 29, 17);
 }
 
 h2 {
@@ -85,7 +85,9 @@ textarea {
     <h1 class="mt-5">Student_Hub GPT</h1>
     {% if generated_text %}
     <div class="generated-text mt-5 markdown-body">
-        <h2>Result Text:</h2>
+        <br>
+        <h2>Result:</h2>
+        <br>
         <pre><code>{{ generated_text | safe }}</code></pre>
     </div>
     {% endif %}

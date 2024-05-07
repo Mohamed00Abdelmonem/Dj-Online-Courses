@@ -4,7 +4,7 @@ from .forms import SignupForm, ActivateForm
 from .models import Profile
 from django.core.mail import send_mail
 from django.conf import settings    
-
+from django.views.generic import ListView, DetailView
 
 def signup(request):
     if request.method == 'POST':
@@ -60,3 +60,9 @@ def activate(request, username):
 
     return render(request,'registration/activate.html', {'form':form})        
 
+
+
+class InstractorList(ListView):
+    model = User
+    context_object_name = 'instractors'
+    template_name = 'instructor.html'
