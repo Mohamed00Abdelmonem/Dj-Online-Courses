@@ -190,9 +190,9 @@ def seed_reviews(n):
 
 
 
-# seed_courses(100)
-# seed_units(300)
-seed_lessons(10)
-# seed_reviews(700)
+seed_courses(10)
+seed_units(20)
+seed_lessons(20)
+seed_reviews(70)
 # create_users(5)
-# seed_quizzes_and_questions(300)
+seed_quizzes_and_questions(300)

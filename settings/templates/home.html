@@ -654,10 +654,18 @@
              <div class="tp-instruc-item">
               <div class="tp-instructor text-center p-relative mb-30">
                 <div class="tp-instructor__thumb mb-25">
+                {% if user.profile_user.image %}
                   <img
-                    src="{{user.profile_user.image.url}}"
+                      src="{{user.profile_user.image.url}}"
+                      alt="instructor-profile"
+                    />
+                {% else %}
+                 <img
+                    src="{% static 'assets/img/icon/c-details-avata-02.png' %}"
                     alt="instructor-profile"
                   />
+                {% endif %}
+                  
                 </div>
                 <div class="tp-instructor__content">
                   <span>{{user.profile_user.job_title}}</span>
