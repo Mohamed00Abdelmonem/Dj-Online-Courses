@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from django.urls import reverse
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import Profile
@@ -62,6 +63,12 @@ class Course_Detail(LoginRequiredMixin, DetailView):
 
 
         return context
+    
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            return super().dispatch(request, *args, **kwargs)
+        except Http404:
+            return render(request, 'page404.html', status=404)
     
 # ____________________________________________________________________________
 @login_required
