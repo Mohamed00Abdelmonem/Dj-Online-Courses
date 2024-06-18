@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from .api import CourseList
 app_name = 'courses'
 
 urlpatterns = [
@@ -16,4 +16,10 @@ urlpatterns = [
     path('course/<slug:course_slug>/lessons/<slug:slug>/', views.Lesson_Detail.as_view()),
     path('pdf_view_resource/<slug:slug>/', views.pdf_view_resources, name='pdf_view_resources'),
     path('pdf_view_slide/<slug:slug>/', views.pdf_view_slides, name='pdf_view_slides'),
+
+
+
+
+    # api
+    path('api/', CourseList.as_view())
 ]

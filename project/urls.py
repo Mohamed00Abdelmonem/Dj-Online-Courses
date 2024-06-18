@@ -29,6 +29,10 @@ urlpatterns = [
     path('orders/', include('orders.urls', namespace='orders')),
 
 
+    # api
+    path('api-auth/', include('rest_framework.urls')),
+
+
 
     path('summernote/', include('django_summernote.urls')),
     path('inbox/notifications/', include(notifications.urls, namespace='notifications')),  # Corrected URL pattern for notifications

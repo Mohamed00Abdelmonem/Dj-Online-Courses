@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'notifications',
     'ollama',
     "whitenoise.runserver_nostatic",
+    'rest_framework',
+
 
 
 
@@ -59,6 +61,16 @@ INSTALLED_APPS = [
     'courses',
     'orders',
 ]
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -102,17 +114,17 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
-    'default': dj_database_url.parse('postgres://online_courses_pp8w_user:yJfY9mhExwuewK8lHFKJqG2Bllydm1ro@dpg-cpntdmuehbks738dcdgg-a.oregon-postgres.render.com/online_courses_pp8w',conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://online_courses_pp8w_user:yJfY9mhExwuewK8lHFKJqG2Bllydm1ro@dpg-cpntdmuehbks738dcdgg-a.oregon-postgres.render.com/online_courses_pp8w',conn_max_age=600)
+# }
 
 
 # Password validation
