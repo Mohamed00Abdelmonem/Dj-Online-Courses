@@ -33,9 +33,10 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
 
 
-
     path('summernote/', include('django_summernote.urls')),
     path('inbox/notifications/', include(notifications.urls, namespace='notifications')),  # Corrected URL pattern for notifications
+    path('__debug__/', include('debug_toolbar.urls')),
+
 ]
 
 # Add static and media URL patterns in development mode

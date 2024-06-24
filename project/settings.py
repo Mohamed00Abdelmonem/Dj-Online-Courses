@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'debug_toolbar',
     'django_summernote',
     'taggit',
     'notifications',
@@ -62,6 +63,13 @@ INSTALLED_APPS = [
     'orders',
 ]
 
+
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -81,6 +89,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -163,11 +173,12 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / "staticfiles" 
 
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 STATICFILES_DIRS = [ BASE_DIR / "static" ]
 # STATIC_ROOT = "static_root"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = "media_root"
+STATIC_URL = "static/"
 
 
 # Default primary key field type
