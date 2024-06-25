@@ -9,16 +9,16 @@ Features in this project online courses
 - make notifactions and send email ===> Inprogress 
 - soical login ===> 
 - upload document pdf  ===> True
-- make auth ===> Inprogress 
+- make auth ===> True
 - using celery, caching , docker 
-- dummy_data , add debug toblar  = Inprogress
+- dummy_data , add debug toblar  = True
 - apply coupon 
 - strip payment
 - close lessons before payment 
 - make permessions for student and instractors
 - make notifactions for add new lesson  = Insprogress
 - send emails for all students 
-- add new theme in admin_banal using django 
+- add new theme in admin_banal using django = make this at  today 
 - make Apis for this project ......
 
 
