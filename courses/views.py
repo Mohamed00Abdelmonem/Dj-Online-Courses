@@ -11,7 +11,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import Profile
 from django.contrib.auth.models import User
 
-
 # ____________________________________________________________________________
 
 class Course_Grid(ListView):
@@ -25,8 +24,8 @@ class Course_Grid(ListView):
 # ____________________________________________________________________________
 
 
-
 class Course_List(ListView):
+    # Cache page for the requested url
     model = Course
     template_name = 'course-list.html'
     context_object_name = 'courses'
