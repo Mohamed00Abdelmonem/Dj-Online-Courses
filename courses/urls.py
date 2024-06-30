@@ -21,6 +21,6 @@ urlpatterns = [
 
 
     # api
-    path('api/', CourseList.as_view()),
-    path('api/course-detail/<int:pk>', CourseDetail.as_view()),
+    path('api/courses/', CourseList.as_view()),
+    path('api/courses/<int:pk>', CourseDetail.as_view()),
 ]

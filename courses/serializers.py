@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import Course, Unit, Lesson
+from taggit.serializers import TagListSerializerField, TaggitSerializer
+                               
 
 
 
@@ -17,6 +19,7 @@ class UnitSerializer(serializers.ModelSerializer):
         fields= '__all__'
 
 class CourseSerializer(serializers.ModelSerializer):
+    tags = TagListSerializerField()
     class Meta:
         model= Course
         fields= '__all__'
@@ -25,8 +28,10 @@ class CourseSerializer(serializers.ModelSerializer):
 
 class CourseDetailSerializer(serializers.ModelSerializer):
     units = UnitSerializer(source='unit_course', many=True)
+    tags = TagListSerializerField()
+
     class Meta:
         model = Course
-        fields = ['id', 'title', 'image', 'price', 'units']
+        fields = ['id', 'title', 'tags','image', 'price', 'units']
 
       
