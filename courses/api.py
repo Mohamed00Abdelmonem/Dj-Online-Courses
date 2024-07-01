@@ -7,7 +7,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from .my_filter import CourseFilter 
 from .my_pagination import My_Pagination
-
+from rest_framework.permissions import IsAuthenticated
 
 @method_decorator(cache_page(60 * 60 * 2), name='dispatch')
 class CourseList(generics.ListCreateAPIView):
@@ -19,6 +19,7 @@ class CourseList(generics.ListCreateAPIView):
     ordering_fields = ['price']
     filterset_class = CourseFilter
     pagination_class = My_Pagination
+    permission_classes  = [IsAuthenticated]
     
 
 
