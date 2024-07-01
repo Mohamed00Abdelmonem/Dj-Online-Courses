@@ -1,3 +1,8 @@
+Tasks : 
+ today 1-7-2024
+     make full api for courses and filtering and make api for auth and carts and 
+     make pagination for related courses 
+
 
 
 Features in this project online courses
