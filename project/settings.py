@@ -10,19 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-
 from dotenv import load_dotenv
 from pathlib import Path
 import os
 import dj_database_url
 
-
 load_dotenv()  # take environment variables from .env.
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -34,7 +30,6 @@ SECRET_KEY = 'django-insecure-0y--l^__vcm8j@xu2d9$m*cwr8q+4277%r7&h3g!fmu73m&gct
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -58,59 +53,45 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'dj_rest_auth',
+    'django.contrib.sites',
 
-
-
-
-
-
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth.registration',
+    'allauth.socialaccount', 
     'accounts',
     'settings',
     'courses',
     'orders',
 ]
 
-
+SITE_ID = 1
 
 JAZZMIN_UI_TWEAKS = {
     "theme": "flatly",
     "dark_mode_theme": "darkly",
 }
 
-
 REST_AUTH = {
     'USE_JWT': True,
     'JWT_AUTH_COOKIE': 'jwt-auth',
 }
 
-
 INTERNAL_IPS = [
-    # ...
     "127.0.0.1",
-    # ...
 ]
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-     
     ],
-
-    #   'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ],
-    
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ], 
- 
-     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-     'PAGE_SIZE': 30
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 30
 }
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,14 +99,14 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = 'project.urls'
 
@@ -143,15 +124,12 @@ TEMPLATES = [
                 'settings.context_processors.get_company_data',
                 'courses.context_processors.notifications',
                 'orders.cart_context_processor.get_or_create_cart',
-            
-
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -163,11 +141,9 @@ DATABASES = {
     }
 }
 
-
 # DATABASES = {
-#     'default': dj_database_url.parse('postgres://online_courses_pp8w_user:yJfY9mhExwuewK8lHFKJqG2Bllydm1ro@dpg-cpntdmuehbks738dcdgg-a.oregon-postgres.render.com/online_courses_pp8w',conn_max_age=600)
+#     'default': dj_database_url.parse('postgres://online_courses_pp8w_user:yJfY9mhExwuewK8lHFKJqG2Bllydm1ro@dpg-cpntdmuehbks738dcdgg-a.oregon-postgres.render.com/online_courses_pp8w', conn_max_age=600)
 # }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -187,7 +163,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -199,26 +174,19 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-STATIC_ROOT = BASE_DIR / "staticfiles" 
-
-
-# STATIC_URL = '/static/'
-STATICFILES_DIRS = [ BASE_DIR / "static" ]
-# STATIC_ROOT = "static_root"
-MEDIA_URL = '/media/'
-MEDIA_ROOT = "media_root"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_URL = "static/"
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = "media_root"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
 # Email Configuration
 # SMTP Configuration for Gmail (replace with your SMTP server details if not using Gmail)
@@ -229,10 +197,6 @@ EMAIL_HOST_USER = 'mmohamedabdelm@gmail.com'  # Your Gmail address
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # Your Gmail password or app-specific password
 EMAIL_USE_TLS = True
 
-
-
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
- 
