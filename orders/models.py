@@ -22,7 +22,6 @@ class Cart(models.Model):
 class CartDetial(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='cart_detail')
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True , blank=True, related_name='courses_in_cart')
-    total  = models.FloatField(null=True , blank=True)
 
     def __str__(self) -> str:
         if self.cart:
