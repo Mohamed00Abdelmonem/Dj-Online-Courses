@@ -17,7 +17,9 @@ CART_STATUS = {
 class Cart(models.Model):
     user = models.ForeignKey(User, related_name='cart_user', on_delete=models.SET_NULL,null=True, blank=True)
     status = models.CharField(choices=CART_STATUS, max_length=20)
-
+    coupon = models.ForeignKey('Coupon', related_name='cart_coupon', on_delete=models.SET_NULL, null=True, blank=True)
+    total_after_coupon = models.FloatField(null=True,blank=True)
+    
     def __str__(self):
         if self.user:
             return f"Cart for {self.user.username}"
@@ -58,7 +60,7 @@ class OrderDetail(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="order_detail")
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, related_name='order_course', null=True, blank=True)
     price = models.FloatField()
-    total = models.FloatField(null=True, blank=True)
+    # total = models.FloatField(null=True, blank=True)
     
     def __str__(self):
             return f'{self.order}'
