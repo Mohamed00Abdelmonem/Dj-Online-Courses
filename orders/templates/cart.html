@@ -74,7 +74,7 @@
                        
                         
                         <td class="product-remove">
-                          <a href="#"><i class="fa fa-times"></i></a>
+                          <a href="/orders/{{item.id}}/remove-form-cart"><i class="fa fa-times"></i></a>
                         </td>
                       </tr>
                   {% endfor %}
@@ -88,6 +88,10 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="coupon-all">
+
+
+                    <form method = 'get' >
+                        {% csrf_token %}
                       <div class="coupon">
                         <input
                           id="coupon_code"
@@ -105,11 +109,19 @@
                           Apply coupon
                         </button>
                       </div>
+
                       <div class="coupon2">
                         <button class="tp-btn" name="update_cart" type="submit">
                           Update cart
                         </button>
                       </div>
+                    </form>
+
+
+                  {% if error %}
+                      <div class="error">{{ error }}</div>
+                  {% endif %}
+
                     </div>
                   </div>
                 </div>
@@ -118,12 +130,12 @@
                     <div class="cart-page-total">
                       <h2>Cart totals</h2>
                       <ul class="mb-20">
-                        <li>Subtotal <span>$250.00</span></li>
-                        <li>Total <span>$250.00</span></li>
+                          <li>Subtotal <span>${{ sub_total|floatformat:2  }}</span></li>
+                          <li>Coupon Value <span>${{ coupon_value|floatformat:2 }}</span></li>
+                          <li>Total <span>${{ cart_total|floatformat:2  }}</span></li>
                       </ul>
-                      <a class="tp-btn" href="{% url 'orders:checkout' %}"
-                        >Proceed to checkout</a
-                      >
+                      <a class="tp-btn" href="{% url 'orders:checkout' %}">Proceed to checkout</a>
+
                     </div>
                   </div>
                 </div>

@@ -9,6 +9,11 @@ import datetime
 
 
 
+
+
+
+
+
 CART_STATUS = {
     ('InProgress','InProgress'),
     ('Completed','Completed'),
@@ -27,9 +32,21 @@ class Cart(models.Model):
             return f"Cart (No User)"
 
 
+    def cart_total(self):
+        total = 0 
+        for item in self.cart_detail.all():
+            total += item.total
+        return round(total,2)
+
+
+
+
+
+
 class CartDetial(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='cart_detail')
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True , blank=True, related_name='courses_in_cart')
+    total = models.FloatField(null=True, blank=True)
 
     def __str__(self) -> str:
         if self.cart:
@@ -37,6 +54,10 @@ class CartDetial(models.Model):
         else: 
             return f"Cart (no user)"
         
+
+
+
+
 
 
 ORDER_STATUS = {
@@ -56,6 +77,10 @@ class Order(models.Model):
         return f'{self.user}'
     
 
+
+
+
+
 class OrderDetail(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="order_detail")
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, related_name='order_course', null=True, blank=True)
@@ -64,6 +89,8 @@ class OrderDetail(models.Model):
     
     def __str__(self):
             return f'{self.order}'
+
+
 
 
 
