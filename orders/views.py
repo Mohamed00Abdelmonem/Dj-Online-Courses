@@ -6,6 +6,7 @@ import datetime
 
 
 
+# ____________________________________________________________________________________________-
 
 def add_to_cart(request):
     course = Course.objects.get(id=request.POST['course_id'])
@@ -17,6 +18,7 @@ def add_to_cart(request):
     return redirect(f'/courses/{course.slug}')
 
 
+# ____________________________________________________________________________________________-
 
 def remove_from_cart(request, id):
     cart_detail = CartDetial.objects.get(id=id)
@@ -24,6 +26,7 @@ def remove_from_cart(request, id):
     return redirect('/orders/cart')
 
 
+# ____________________________________________________________________________________________-
 
     
 def cart(request):
@@ -96,16 +99,11 @@ def cart(request):
     })
                       
 
-
-
-
-
-
-
-
+# ____________________________________________________________________________________________-
 
 
 
 def checkout(request):
     return render (request, 'checkout.html')
 
+# ____________________________________________________________________________________________-
