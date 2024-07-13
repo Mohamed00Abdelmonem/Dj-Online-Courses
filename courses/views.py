@@ -10,15 +10,29 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import Profile
 from django.contrib.auth.models import User
-
+import logging
 # ____________________________________________________________________________
 
+
+# create logger
+logger = logging.getLogger(__name__) # name = app.views (courses.views)
 class Course_Grid(ListView):
+    
     model = Course
     template_name = 'course-grid.html'
     context_object_name = 'courses'
     paginate_by = 15  
     ordering = ['-id']
+
+    def get(self, request, *args, **kwargs):
+        try:
+            # logger
+            logger.info('Course_grid view accessed')
+            return super().get(request, *args, **kwargs)
+        except Exception as e:
+            # logger
+            logger.error(f'Course_grid view error: {e}')
+            raise
    
 
 # ____________________________________________________________________________
@@ -40,35 +54,64 @@ class Course_Detail(LoginRequiredMixin, DetailView):
     
     # slug_url_kwarg = 'slug'  # specify the slug URL keyword
 
-
     def get_context_data(self, **kwargs):
+        """
+        This method adds extra context to the template.
+        """
         context = super().get_context_data(**kwargs)
         current_course = self.get_object()
-        # current_lessons = Lesson.objects.filter(course =current_course)
-        related_unit = Unit.objects.filter(course=current_course )
-          # Create a dictionary to store units and their corresponding lessons
-        unit_lessons = {}
+        
+        # Log the current course being processed
+        logger.debug(f'Fetching context data for course: {current_course}')
+        
+        try:
+            # Fetch related units
+            related_unit = Unit.objects.filter(course=current_course)
+            logger.debug(f'Related units: {related_unit}')
+            
+            # Create a dictionary to store units and their corresponding lessons
+            unit_lessons = {}
 
-        # Iterate over each unit and retrieve its associated lessons
-        for unit in related_unit:
-            unit_lessons[unit] = unit.lesson_unit.all()
+            # Iterate over each unit and retrieve its associated lessons
+            for unit in related_unit:
+                unit_lessons[unit] = unit.lesson_unit.all()  # Retrieve lessons for each unit
+                logger.debug(f'Unit: {unit}, Lessons: {unit_lessons[unit]}')
 
-        related_courses = Course.objects.filter(tags__in=current_course.tags.all()).exclude(id=current_course.id).distinct()
-        context["related_courses"] = related_courses
-        context["related_unit"] = related_unit
-        context["unit_lessons"] = unit_lessons
-        # context["current_lessons"] = current_lessons
-        context["current_course"] = current_course
+            # Fetch related courses excluding the current course
+            related_courses = Course.objects.filter(tags__in=current_course.tags.all()).exclude(id=current_course.id).distinct()
+            logger.debug(f'Related courses: {related_courses}')
 
+            # Add related courses, units, and lessons to the context
+            context["related_courses"] = related_courses
+            context["related_unit"] = related_unit
+            context["unit_lessons"] = unit_lessons
+            context["current_course"] = current_course
 
+        except Exception as e:
+            # Log any errors that occur during the context data fetching
+            logger.error(f'Error fetching context data: {e}')
+            raise
+        
         return context
     
     def dispatch(self, request, *args, **kwargs):
+        """
+        This method is called when the view is accessed. It ensures that 
+        the user is authenticated and handles HTTP exceptions.
+        """
         try:
+            # Log access to the Course_Detail view
+            logger.info('Course_Detail view accessed')
             return super().dispatch(request, *args, **kwargs)
         except Http404:
+            # Log a warning if the course is not found and return a 404 page
+            logger.warning('Course_Detail view accessed, but course not found')
             return render(request, 'page404.html', status=404)
-    
+        except Exception as e:
+            # Log any unexpected errors and return a 500 error page
+            logger.error(f'Unexpected error in dispatch: {e}')
+            return render(request, 'page500.html', status=500)
+        
 # ____________________________________________________________________________
 @login_required
 

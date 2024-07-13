@@ -204,3 +204,39 @@ EMAIL_USE_TLS = True
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+
+
+# Logging Configuration
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False, # enable all loggers by default      
+    "handlers": {           
+        "file": {
+            "class": "logging.FileHandler", # logging to a file
+            "filename": os .getenv('LOGGING_LOG_FILE') ,  # log file name
+            "level": os.getenv('LOGGING_LEVEL'), # DFEFULTS TO DEBUG
+            "formatter": "basic", # use basic formatter
+        },
+        "console": {
+            "class": "logging.StreamHandler", # logging to console
+            "level": "DEBUG", # DEFAULTS TO DEBUG
+            "formatter": "basic", # use basic formatter
+        },
+        
+    },
+    "loggers": {
+        "courses": {   # logger for courses app only 
+            "level": "DEBUG", # DEFAULTS TO DEBUG
+            "handlers": ["file", "console"], # use file handler and console handler
+        },
+    },
+    "formatters": { # define formatters
+        "basic": { # basic formatter
+            "format": "{asctime} {levelname} {message}", # format of log message
+            "style": "{" # format style
+        }
+    }
+
+}
