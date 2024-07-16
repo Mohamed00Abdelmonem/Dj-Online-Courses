@@ -15,7 +15,7 @@ import logging
 
 
 # create logger
-logger = logging.getLogger(__name__) # name = app.views (courses.views)
+logger = logging.getLogger('db') # name = app.views (courses.views)
 class Course_Grid(ListView):
     
     model = Course

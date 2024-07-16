@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'dj_rest_auth',
     'django.contrib.sites',
+    'django_db_logger',
+
 
     'allauth',
     'allauth.account',
@@ -209,34 +211,66 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 # Logging Configuration
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False, # enable all loggers by default      
-    "handlers": {           
-        "file": {
-            "class": "logging.FileHandler", # logging to a file
-            "filename": os .getenv('LOGGING_LOG_FILE') ,  # log file name
-            "level": os.getenv('LOGGING_LEVEL'), # DFEFULTS TO DEBUG
-            "formatter": "basic", # use basic formatter
-        },
-        "console": {
-            "class": "logging.StreamHandler", # logging to console
-            "level": "DEBUG", # DEFAULTS TO DEBUG
-            "formatter": "basic", # use basic formatter
-        },
+
+
+# LOGGING = {
+#     "version": 1,
+#     "disable_existing_loggers": False, # enable all loggers by default      
+#     "handlers": {           
+#         "file": {
+#             "class": "logging.FileHandler", # logging to a file
+#             "filename": os .getenv('LOGGING_LOG_FILE') ,  # log file name
+#             "level": os.getenv('LOGGING_LEVEL'), # DFEFULTS TO DEBUG
+#             "formatter": "basic", # use basic formatter
+#         },
+#         "console": {
+#             "class": "logging.StreamHandler", # logging to console
+#             "level": "DEBUG", # DEFAULTS TO DEBUG
+#             "formatter": "basic", # use basic formatter
+#         },
         
-    },
-    "loggers": {
-        "courses": {   # logger for courses app only 
-            "level": "DEBUG", # DEFAULTS TO DEBUG
-            "handlers": ["file", "console"], # use file handler and console handler
+#     },
+#     "loggers": {
+#         "courses": {   # logger for courses app only 
+#             "level": "DEBUG", # DEFAULTS TO DEBUG
+#             "handlers": ["file", "console"], # use file handler and console handler
+#         },
+#     },
+#     "formatters": { # define formatters
+#         "basic": { # basic formatter
+#             "format": "{asctime} {levelname} {message}", # format of log message
+#             "style": "{" # format style
+#         }
+#     }
+
+# }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(message)s'
         },
     },
-    "formatters": { # define formatters
-        "basic": { # basic formatter
-            "format": "{asctime} {levelname} {message}", # format of log message
-            "style": "{" # format style
+    'handlers': {
+        'db_log': {
+            'level': 'DEBUG',
+            'class': 'django_db_logger.db_log_handler.DatabaseLogHandler'
+        },
+    },
+    'loggers': {
+        'db': {
+            'handlers': ['db_log'],
+            'level': 'DEBUG'
+        },
+        'django.request': { # logging 500 errors to database
+            'handlers': ['db_log'],
+            'level': 'ERROR',
+            'propagate': False,
         }
     }
-
 }
