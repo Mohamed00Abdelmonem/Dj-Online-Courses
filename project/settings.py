@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'settings',
     'courses',
     'orders',
+    'activate',
 ]
 
 SITE_ID = 1
@@ -110,7 +111,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-]
+    'activate.activate_middleware.activate_middleware', 
+    ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
