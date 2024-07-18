@@ -10,9 +10,6 @@ class ActivateLog(models.Model):
     url = models.CharField(max_length=100)
     ip_address = models.CharField(max_length=100)
     user_agent = models.CharField(max_length=100)
-    city = models.CharField(max_length=100, null=True, blank=True)
-    region = models.CharField(max_length=100, null=True, blank=True)
-    country = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     notes = models.TextField(blank=True, null=True)
 
