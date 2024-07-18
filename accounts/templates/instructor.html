@@ -117,10 +117,18 @@
               >
                 <div class="tp-instructor text-center p-relative mb-40">
                   <div class="tp-instructor__thumb mb-25">
+                    {% if instractor.profile_user.image %}
                     <img
                       src="{{instractor.profile_user.image.url}}"
                       alt="instructor-profile"
                     />
+                    {% else %}
+                    <img
+                      src="{% static 'assets/img/breadcrumb/breadcrumb-bg-1.jpg' %}"
+                      alt="instructor-profile"
+                    />
+                    {% endif %}
+                    
                   </div>
                   <div class="tp-instructor__content">
                     <span>Instructor  {{instractor.profile_user.job_title}}</span>

@@ -14,4 +14,4 @@ class ActivateLog(models.Model):
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self) -> str:
-        return f"{str(self.user)} - {self.method}"
+        return f"{str(self.user)} - {self.method} - {self.url} - {self.created_at}"

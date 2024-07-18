@@ -55,12 +55,14 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'django.contrib.sites',
     'django_db_logger',
+    'easyaudit',
 
 
     'allauth',
     'allauth.account',
     'dj_rest_auth.registration',
     'allauth.socialaccount', 
+
     'accounts',
     'settings',
     'courses',
@@ -112,6 +114,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     'activate.activate_middleware.activate_middleware', 
+    'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
+
     ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
