@@ -135,7 +135,7 @@
                     <h4
                       class="tp-instructor__title tp-instructor__title-info p-relative mb-35 mt-5"
                     >
-                      <a href="instructor-profile.html">{{instractor.profile_user.name}}</a>
+                      <a href="{% url 'courses:instractor_profile' user.pk %}">{{instractor.profile_user.name}}</a>
                     </h4>
                     <div class="tp-instructor__stu-info">
                       <ul
