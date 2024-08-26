@@ -89,7 +89,7 @@ class Lesson(models.Model):
     sub_description = models.TextField(max_length=3000, blank=True, null=True)
     duration = models.DurationField(default=0)
     created_at = models.DateTimeField(default=timezone.now)
-    instructor = models.ForeignKey(User, related_name='instructor_lessons', on_delete=models.CASCADE)
+    # instructor = models.ForeignKey(User, related_name='instructor_lessons', on_delete=models.CASCADE)
     course = models.ForeignKey('courses.Course', related_name="lesson_course", on_delete=models.CASCADE)  # Adjust import to avoid circular import
     unit = models.ForeignKey('courses.Unit', on_delete=models.CASCADE, related_name="lesson_unit")  # Adjust import to avoid circular import
     video = models.FileField(upload_to='lesson_videos/', blank=True, null=True)

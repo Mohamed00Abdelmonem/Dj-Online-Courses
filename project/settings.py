@@ -113,7 +113,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    'activate.activate_middleware.activate_middleware', 
+    'activate.activate_middleware.ActivateMiddleware', 
     'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
 
     ]

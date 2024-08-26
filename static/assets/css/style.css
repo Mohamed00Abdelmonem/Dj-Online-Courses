@@ -144,6 +144,83 @@ a {
   text-decoration: none;
 }
 
+/* Consistent Color for Sidebar Filters */
+.course-sidebar__info {
+  background-color: #f8f9fa; /* Light background color for the sidebar */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: #ff6652; /* Blue color for the slider */
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .15s ease-in-out;
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ff6652; /* Blue color for the thumb */
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #ff6652; /* Blue color for the checked state */
+  border-color: #ff6652;
+}
+
+.form-check-label {
+  color: #ff6652; /* Darker text color for labels */
+}
+
+.filter-button {
+  background-color: #ff6652; /* Blue background for the button */
+  color: #fffcfc;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color #ff6652 ;
+}
+
+.filter-button:hover {
+  background-color: #d6422e; /* Darker blue on hover */
+}
+
+
+
+
+
+
+
+
+/* Add this CSS to your stylesheet */
+.video-player {
+  border: 10px solid #ff6652; /* Border color and thickness */
+  border-radius: 15px; /* Optional: Rounded corners */
+ 
+}
+
+
+
+
+/* Optional: Add styles to handle focus state for better accessibility */
+.video-player:focus {
+  outline: 2px solid #ff6652;
+}
+
+
+
+
 h1,
 h2,
 h3,

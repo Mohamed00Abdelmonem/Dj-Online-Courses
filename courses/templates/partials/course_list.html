@@ -1,0 +1,108 @@
+ {% load static%}
+ 
+
+ <div class="col-lg-8 col-md-12 course-item-width ml-30">
+  <p>Total number of filtered courses: {{ filtered_course_count }}</p>
+
+    {% for course in courses %}
+        <div class="tpcourse tp-list-course mb-40">
+            <div class="row g-0">
+                <div class="col-xl-4 course-thumb-width">
+                    <div class="tpcourse__thumb p-relative w-img fix">
+                        <a href="/courses/{{ course.slug }}">
+                            <img src="{{ course.image.url }}" alt="course-thumb"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-8 course-text-width">
+                    <div class="course-list-content">
+                        <div class="tpcourse__category mb-10">
+                            <ul class="tpcourse__price-list d-flex align-items-center">
+                                {% for tag in course.tags.all %}
+                                    <li>
+                                        <a class="c-color-yellow" href="/courses/{{ course.slug }}">
+                                            {{ tag }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="tpcourse__ava-title mb-15">
+                            <h4 class="tpcourse__title tp-cours-title-color">
+                                <a href="/courses/{{ course.slug }}">{{ course.title }}</a>
+                            </h4>
+                        </div>
+                        <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
+                            <ul class="d-flex align-items-center">
+                                <li>
+                                    <img src="{% static 'assets/img/icon/c-meta-01.png' %}" alt="meta-icon"/>
+                                    <span>35 Classes</span>
+                                </li>
+                                <li>
+                                    <img src="{% static 'assets/img/icon/c-meta-02.png' %}" alt="meta-icon"/>
+                                    <span>291 Students</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tpcourse__rating d-flex align-items-center justify-content-between">
+                            <div class="tpcourse__rating-icon">
+                                <span>{{ course.avg_rate|floatformat:"2"|truncatechars:"6" }}</span>
+                                <i class="fi {% if course.avg_rate > 0 %}fi-ss-star {% else %}fi-rs-star {% endif %}"></i>
+                                <i class="fi {% if course.avg_rate > 1 %}fi-ss-star {% else %}fi-rs-star {% endif %}"></i>
+                                <i class="fi {% if course.avg_rate > 2 %}fi-ss-star {% else %}fi-rs-star {% endif %}"></i>
+                                <i class="fi {% if course.avg_rate > 3 %}fi-ss-star {% else %}fi-rs-star {% endif %}"></i>
+                                <i class="fi {% if course.avg_rate > 4 %}fi-ss-star {% else %}fi-rs-star {% endif %}"></i>
+                                <p>({{ course.reviews.count|slice:"2" }})</p>
+                            </div>
+                            <div class="tpcourse__pricing">
+                                <h5 class="price-title">${{ course.price }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No courses found.</p>
+    {% endfor %}
+</div>
+</div>
+
+<div class="basic-pagination text-center">
+    <nav>
+        {% if is_paginated %}
+            <div class="basic-pagination">
+                <nav>
+                    <ul>
+                        {% if page_obj.has_previous %}
+                            <li>
+                                <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.price %}&price={{ request.GET.price }}{% endif %}{% if request.GET.skill_level %}&skill_level={{ request.GET.skill_level }}{% endif %}">
+                                    <i class="far fa-angle-left"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for i in paginator.page_range %}
+                            {% if page_obj.number == i %}
+                                <li>
+                                    <span class="current">{{ i }}</span>
+                                </li>
+                            {% elif i > page_obj.number|add:'-4' and i < page_obj.number|add:'4' %}
+                                <li>
+                                    <a href="?page={{ i }}{% if request.GET.price %}&price={{ request.GET.price }}{% endif %}{% if request.GET.skill_level %}&skill_level={{ request.GET.skill_level }}{% endif %}">{{ i }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li>
+                                <a href="?page={{ page_obj.next_page_number }}{% if request.GET.price %}&price={{ request.GET.price }}{% endif %}{% if request.GET.skill_level %}&skill_level={{ request.GET.skill_level }}{% endif %}">
+                                    <i class="far fa-angle-right"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
+    </nav>
+</div>
+

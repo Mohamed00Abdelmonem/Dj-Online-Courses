@@ -41,32 +41,47 @@
           <div class="row">
             <div class="col-lg-8 col-md-12">
               <div class="c-details-wrapper mr-25">
-               <div class="c-video-thumb p-relative mb-25">
-                  <img
-                    src="{% static 'assets/img/bg/black.jpeg' %}"
-                    alt="video-bg"
-                  />
-                  <div class="c-video-icon">
-                  {% if object.video %}
-                    <video controls poster="{% static 'assets/img/course/lesson.png' %}" width="850" height="490">
-                        <source src="{{ object.video.url }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                  {% else %}
-                  <p>sorry,  not video
-                  {% endif %}
-                   
-                  </div>
-                </div>
+             <div class="c-video-thumb p-relative mb-25">
+              <img
+                src="{% static 'assets/img/bg/download.png' %}"
+                alt="video-bg"
+              />
+              <div class="c-video-icon">
+                {% if object.video %}
+                  <video controls poster="{% static 'assets/img/course/less.png' %}" width="850" height="490" class="video-player">
+                    <source src="{{ object.video.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                {% else %}
+                  <p>Sorry, no video available.</p>
+                {% endif %}
+              </div>
+            </div>
+
 
                 <div class="c-details-thumb p-relative mb-40">
                   
                   <div class="c-details-ava d-md-flex align-items-center">
                     <img
-                      src="{% static 'assets/img/course/c-details-ava-01.png' %}"
-                      alt="avata"
-                    />
-                    <span>By <a href="#">{{object.instructor}}</a></span>
+                       src="{{object.course.user.profile_user.image.url }}"
+                        alt="Instructor Image"
+                        style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;"
+                      />
+                    <span style="color: black;">By <a href="#" style="color: black;">{{object.course.user.profile_user.name}}</a></span>
+                  </div>
+                </div>
+                <div class="course-details-content mb-45">
+                  <div class="tpcourse__category mb-15">
+                   
+                  </div>
+                  <div class="tpcourse__text mb-15">
+                    <p>{{object.description}}</p>
+                  </div>
+                  <div class="tpcourse__btn">
+                    <a href="#" class="tp-btn">Get Started</a>
+                  </div>
+                </div>
+                <div class="c-details-thumb p-relative mb-40">
                   </div>
                 </div>
                 <div class="course-details-content mb-45">
@@ -123,12 +138,12 @@
                   >
                     <div class="course-avata mr-30 mb-20">
                       <img
-                        src="{% static 'assets/img/course/c-details-ava-thumb-01.jpg' %}"
+                        src="{{object.course.user.profile_user.image.url}}"
                         alt="avata-thumb"
                       />
                     </div>
                     <div class="course-avatar-details mb-20">
-                      <h5 class="c-avata-title mb-10">{{object.instructor}}</h5>
+                      <h5 class="c-avata-title mb-10">{{object.course.user.profile_user.name}}</h5>
                       <p>
                         Award Winning Chemical & User Interface Design Training
                       </p>

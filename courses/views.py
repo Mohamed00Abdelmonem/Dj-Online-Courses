@@ -1,6 +1,7 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from .models import Course, Review, Lesson, Unit, Quiz, Question, Choice, Notification
+from taggit.models import Tag
 from django.views.generic import ListView, DetailView
 from django.urls import reverse
 from django.http import HttpResponse
@@ -10,7 +11,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import Profile
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
+from django.shortcuts import render
+from .models import Course
 import logging
+from django.db.models import Count
+
 # ____________________________________________________________________________
 
 
@@ -38,13 +44,88 @@ class Course_Grid(ListView):
 # ____________________________________________________________________________
 
 
-class Course_List(ListView):
-    # Cache page for the requested url
+
+from django.shortcuts import render
+from .models import Course
+
+def filter_courses(request):
+    if request.is_ajax():
+        level = request.GET.getlist('level')
+        max_price = request.GET.get('price')
+
+        courses = Course.objects.all()
+
+        if level:
+            courses = courses.filter(level__in=level)
+        if max_price:
+            courses = courses.filter(price__lte=max_price)
+
+        return render(request, 'partials/course_list.html', {'courses': courses})
+    else:
+        # Normal rendering for the page
+        courses = Course.objects.all()
+        return render(request, 'course_list.html', {'courses': courses})
+
+
+
+
+# ____________________________________________________________________________
+
+
+
+from django.db.models import Count, Q
+from django.views.generic import ListView
+from .models import Course
+from taggit.models import Tag
+
+class CourseListView(ListView):
     model = Course
     template_name = 'course-list.html'
     context_object_name = 'courses'
-    ordering = ['-id']
-    paginate_by = 15
+    paginate_by = 15  # Show 15 courses per page
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        
+        # Initialize a Q object for dynamic filtering
+        filters = Q()
+
+        # Filtering by skill level
+        skill_level = self.request.GET.get('skill_level')
+        if skill_level:
+            filters &= Q(skill_level=skill_level)
+
+        # Filtering by price range
+        price_min = self.request.GET.get('price_min', 0)
+        price_max = self.request.GET.get('price_max', 1000)
+        filters &= Q(price__gte=price_min, price__lte=price_max)
+
+        # Filtering by tags
+        selected_tags = self.request.GET.getlist('tags')
+        if selected_tags:
+            filters &= Q(tags__name__in=selected_tags)
+
+        # Apply the filters to the queryset
+        queryset = queryset.filter(filters).distinct()
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        # Get the filtered queryset to count the number of courses after filtering
+        filtered_queryset = self.get_queryset()
+        context['filtered_course_count'] = filtered_queryset.count()
+
+        # Include other context data as needed
+        context['price_min'] = self.request.GET.get('price_min', 0)
+        context['price_max'] = self.request.GET.get('price_max', 1000)
+        context['skill_level_filter'] = self.request.GET.get('skill_level')
+        context['selected_tags'] = self.request.GET.getlist('tags')
+        context['tags'] = Tag.objects.annotate(num_courses=Count('course')).order_by('-num_courses')
+        
+        return context
+
 
 # ____________________________________________________________________________
 
