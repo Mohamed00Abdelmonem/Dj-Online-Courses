@@ -34,7 +34,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+    'unfold',
+    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -63,6 +64,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'allauth.socialaccount', 
 
+
     'accounts',
     'settings',
     'courses',
@@ -72,10 +74,40 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-JAZZMIN_UI_TWEAKS = {
-    "theme": "flatly",
-    "dark_mode_theme": "darkly",
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('ar', 'Arabic'),
+    ('fr', 'French'),
+    ('nl', 'Dutch'),
+)
+
+
+# from django.templatetags.static import static
+UNFOLD = {
+    "SITE_TITLE": 'StudentHub',
+    "SITE_HEADER": 'StudentHub',
+    # "SITE_ICON": lambda request: static("logo.svg"),
+    "EXTENSIONS": {
+        "modeltranslation": {
+            "flags": {
+                "en": "🇬🇧",
+                "ar": "EG",  # علم السعودية يمكن تغييره إلى أي رمز آخر يمثل اللغة العربية
+                "fr": "🇫🇷",
+                "nl": "🇧🇪",
+            },
+        },
+    },
 }
+
+
+
+
+
+# JAZZMIN_UI_TWEAKS = {
+#     "theme": "flatly",
+#     "dark_mode_theme": "darkly",
+# }
 
 REST_AUTH = {
     'USE_JWT': True,
