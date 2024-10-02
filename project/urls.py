@@ -26,7 +26,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),  # Include Django's built-in authentication URLs
+    # path('accounts/', include('django.contrib.auth.urls')), # i'm comment this for test allauth social auth 
+    path("accounts/", include('allauth.urls')), # Include Django's built-in authentication URLs
     path('accounts/', include('accounts.urls', namespace = 'accounts')),  # Custom user-related URLs
     path('', include('settings.urls', namespace='settings')),
     path('courses/', include('courses.urls', namespace='courses')),

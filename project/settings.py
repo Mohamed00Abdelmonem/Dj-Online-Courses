@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-0y--l^__vcm8j@xu2d9$m*cwr8q+4277%r7&h3g!fmu73m&gct
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -54,16 +54,16 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'dj_rest_auth',
-    'django.contrib.sites',
     'django_db_logger',
     'easyaudit',
 
 
+   
     'allauth',
     'allauth.account',
-    'dj_rest_auth.registration',
-    'allauth.socialaccount', 
-
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    "django.contrib.sites",
 
     'accounts',
     'settings',
@@ -72,7 +72,33 @@ INSTALLED_APPS = [
     'activate',
 ]
 
-SITE_ID = 1
+
+SITE_ID = 2
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# Social account provider settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'REDIRECT_URI': 'http://127.0.0.1:8000/accounts/google/login/callback/',  # Add this line if needed
+    }
+}
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_STORE_TOKENS = True
+
+# Environment Variables (or directly in settings)
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+
 
 
 LANGUAGES = (
@@ -140,13 +166,14 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    "allauth.account.middleware.AccountMiddleware",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     'activate.activate_middleware.ActivateMiddleware', 
     'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
+
+     'allauth.account.middleware.AccountMiddleware',
 
     ]
 
