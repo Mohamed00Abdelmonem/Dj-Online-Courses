@@ -26,7 +26,8 @@ def generate_ollama3_text(request):
     generated_text = None
     if request.method == 'POST':
         input_text = request.POST.get('input_text', '')  
-        llm = Ollama(model="llama3")
+        # llm = Ollama(model="llama3") # this is old version 
+        llm = Ollama(model="llama3.2")
         generated_text = llm.invoke(input_text)
 
     return render(request, 'ollama3_generator.html', {'generated_text': generated_text})

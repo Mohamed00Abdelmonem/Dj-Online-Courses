@@ -29,7 +29,17 @@ SECRET_KEY = 'django-insecure-0y--l^__vcm8j@xu2d9$m*cwr8q+4277%r7&h3g!fmu73m&gct
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+
+# For run server live using Pinggy.io
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    'https://rnmie-197-35-108-228.a.free.pinggy.link',
+]
+
+
+
 
 # Application definition
 
