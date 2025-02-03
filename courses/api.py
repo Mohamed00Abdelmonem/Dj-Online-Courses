@@ -19,7 +19,7 @@ class CourseList(generics.ListCreateAPIView):
     ordering_fields = ['price']
     filterset_class = CourseFilter
     pagination_class = My_Pagination
-    permission_classes  = [IsAuthenticated]
+    # permission_classes  = [IsAuthenticated]
     
 
 
